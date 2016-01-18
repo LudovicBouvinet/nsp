@@ -1,3 +1,7 @@
+nsp_article:
+    resource: "@NSPArticleBundle/Resources/config/routing.yml"
+    prefix:   /
+
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
