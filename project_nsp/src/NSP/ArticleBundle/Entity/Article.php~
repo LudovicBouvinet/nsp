@@ -1,0 +1,201 @@
+<?php
+
+namespace NSP\ArticleBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Article
+ *
+ * @ORM\Table()
+ * @ORM\Entity(repositoryClass="NSP\ArticleBundle\Entity\ArticleRepository")
+ */
+class Article
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="titre", type="string", length=255)
+     */
+    private $titre;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="texte", type="string", length=255)
+     */
+    private $texte;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="datePublication", type="datetime")
+     */
+    private $datePublication;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="choixRedaction", type="boolean")
+     */
+    private $choixRedaction;
+
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set titre
+     *
+     * @param string $titre
+     *
+     * @return Article
+     */
+    public function setTitre($titre)
+    {
+        $this->titre = $titre;
+
+        return $this;
+    }
+
+    /**
+     * Get titre
+     *
+     * @return string
+     */
+    public function getTitre()
+    {
+        return $this->titre;
+    }
+
+    /**
+     * Set texte
+     *
+     * @param string $texte
+     *
+     * @return Article
+     */
+    public function setTexte($texte)
+    {
+        $this->texte = $texte;
+
+        return $this;
+    }
+
+    /**
+     * Get texte
+     *
+     * @return string
+     */
+    public function getTexte()
+    {
+        return $this->texte;
+    }
+
+    /**
+     * Set datePublication
+     *
+     * @param \DateTime $datePublication
+     *
+     * @return Article
+     */
+    public function setDatePublication($datePublication)
+    {
+        $this->datePublication = $datePublication;
+
+        return $this;
+    }
+
+    /**
+     * Get datePublication
+     *
+     * @return \DateTime
+     */
+    public function getDatePublication()
+    {
+        return $this->datePublication;
+    }
+
+    /**
+     * Set choixRedaction
+     *
+     * @param boolean $choixRedaction
+     *
+     * @return Article
+     */
+    public function setChoixRedaction($choixRedaction)
+    {
+        $this->choixRedaction = $choixRedaction;
+
+        return $this;
+    }
+
+    /**
+     * Get choixRedaction
+     *
+     * @return boolean
+     */
+    public function getChoixRedaction()
+    {
+        return $this->choixRedaction;
+    }
+    
+    
+    // RELATIONS // 
+   /**
+   * @ORM\ManyToOne(targetEntity="NSP\ArticleBundle\Entity\Theme", inversedBy="articles", cascade={"persist"})
+   * @ORM\JoinColumn(nullable=false)
+   */
+  private $theme;
+    
+   /**
+   * @ORM\ManyToOne(targetEntity="NSP\ArticleBundle\Entity\Rubrique", inversedBy = "articles", cascade={"persist"})
+   * @ORM\JoinColumn(nullable=false)
+   */
+  private $rubrique;
+    
+   /**
+   * @ORM\ManyToOne(targetEntity="NSP\ArticleBundle\Entity\Utilisateur", inversedBy="articlesEcrits", cascade={"persist"})
+   * @ORM\JoinColumn(nullable=false)
+   */
+  private $utilisateur;
+    
+   /**
+   * @ORM\ManyToOne(targetEntity="NSP\ArticleBundle\Entity\Utilisateur", inversedBy ="articlesVerifies", cascade={"persist"})
+   * @ORM\JoinColumn(nullable=false)
+   */
+  private $modo;
+    
+   /**
+   * @ORM\OneToMany(targetEntity="NSP\ArticleBundle\Entity\Photo", mappedBy="article")
+   */
+  private $photos; 
+    
+       /**
+   * @ORM\OneToMany(targetEntity="NSP\ArticleBundle\Entity\Commentaire", mappedBy="article")
+   */
+  private $commentaire; 
+    
+                  /**
+   * @ORM\OneToMany(targetEntity="NSP\ArticleBundle\Entity\UtilisateurArticle", mappedBy="article")
+   */
+  private $utilisateursNoteurs; 
+    
+}
+

@@ -1,0 +1,447 @@
+<?php
+
+namespace NSP\ArticleBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Utilisateur
+ *
+ * @ORM\Table()
+ * @ORM\Entity(repositoryClass="NSP\ArticleBundle\Entity\UtilisateurRepository")
+ */
+class Utilisateur
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="pseudo", type="string", length=255)
+     */
+    private $pseudo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="mdp", type="string", length=255)
+     */
+    private $mdp;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="mail", type="string", length=255)
+     */
+    private $mail;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nom", type="string", length=255)
+     */
+    private $nom;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="prenom", type="string", length=255)
+     */
+    private $prenom;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="dateNaissance", type="date")
+     */
+    private $dateNaissance;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="lienPhoto", type="string", length=255)
+     */
+    private $lienPhoto;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="grade", type="string", length=255)
+     */
+    private $grade;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="modo", type="boolean")
+     */
+    private $modo;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="newsletter", type="boolean")
+     */
+    private $newsletter;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="statut", type="string", length=255)
+     */
+    private $statut;
+
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set pseudo
+     *
+     * @param string $pseudo
+     *
+     * @return Utilisateur
+     */
+    public function setPseudo($pseudo)
+    {
+        $this->pseudo = $pseudo;
+
+        return $this;
+    }
+
+    /**
+     * Get pseudo
+     *
+     * @return string
+     */
+    public function getPseudo()
+    {
+        return $this->pseudo;
+    }
+
+    /**
+     * Set mdp
+     *
+     * @param string $mdp
+     *
+     * @return Utilisateur
+     */
+    public function setMdp($mdp)
+    {
+        $this->mdp = $mdp;
+
+        return $this;
+    }
+
+    /**
+     * Get mdp
+     *
+     * @return string
+     */
+    public function getMdp()
+    {
+        return $this->mdp;
+    }
+
+    /**
+     * Set mail
+     *
+     * @param string $mail
+     *
+     * @return Utilisateur
+     */
+    public function setMail($mail)
+    {
+        $this->mail = $mail;
+
+        return $this;
+    }
+
+    /**
+     * Get mail
+     *
+     * @return string
+     */
+    public function getMail()
+    {
+        return $this->mail;
+    }
+
+    /**
+     * Set nom
+     *
+     * @param string $nom
+     *
+     * @return Utilisateur
+     */
+    public function setNom($nom)
+    {
+        $this->nom = $nom;
+
+        return $this;
+    }
+
+    /**
+     * Get nom
+     *
+     * @return string
+     */
+    public function getNom()
+    {
+        return $this->nom;
+    }
+
+    /**
+     * Set prenom
+     *
+     * @param string $prenom
+     *
+     * @return Utilisateur
+     */
+    public function setPrenom($prenom)
+    {
+        $this->prenom = $prenom;
+
+        return $this;
+    }
+
+    /**
+     * Get prenom
+     *
+     * @return string
+     */
+    public function getPrenom()
+    {
+        return $this->prenom;
+    }
+
+    /**
+     * Set dateNaissance
+     *
+     * @param \DateTime $dateNaissance
+     *
+     * @return Utilisateur
+     */
+    public function setDateNaissance($dateNaissance)
+    {
+        $this->dateNaissance = $dateNaissance;
+
+        return $this;
+    }
+
+    /**
+     * Get dateNaissance
+     *
+     * @return \DateTime
+     */
+    public function getDateNaissance()
+    {
+        return $this->dateNaissance;
+    }
+
+    /**
+     * Set lienPhoto
+     *
+     * @param string $lienPhoto
+     *
+     * @return Utilisateur
+     */
+    public function setLienPhoto($lienPhoto)
+    {
+        $this->lienPhoto = $lienPhoto;
+
+        return $this;
+    }
+
+    /**
+     * Get lienPhoto
+     *
+     * @return string
+     */
+    public function getLienPhoto()
+    {
+        return $this->lienPhoto;
+    }
+
+    /**
+     * Set grade
+     *
+     * @param string $grade
+     *
+     * @return Utilisateur
+     */
+    public function setGrade($grade)
+    {
+        $this->grade = $grade;
+
+        return $this;
+    }
+
+    /**
+     * Get grade
+     *
+     * @return string
+     */
+    public function getGrade()
+    {
+        return $this->grade;
+    }
+
+    /**
+     * Set modo
+     *
+     * @param boolean $modo
+     *
+     * @return Utilisateur
+     */
+    public function setModo($modo)
+    {
+        $this->modo = $modo;
+
+        return $this;
+    }
+
+    /**
+     * Get modo
+     *
+     * @return boolean
+     */
+    public function getModo()
+    {
+        return $this->modo;
+    }
+
+    /**
+     * Set newsletter
+     *
+     * @param boolean $newsletter
+     *
+     * @return Utilisateur
+     */
+    public function setNewsletter($newsletter)
+    {
+        $this->newsletter = $newsletter;
+
+        return $this;
+    }
+
+    /**
+     * Get newsletter
+     *
+     * @return boolean
+     */
+    public function getNewsletter()
+    {
+        return $this->newsletter;
+    }
+
+    /**
+     * Set statut
+     *
+     * @param string $statut
+     *
+     * @return Utilisateur
+     */
+    public function setStatut($statut)
+    {
+        $this->statut = $statut;
+
+        return $this;
+    }
+
+    /**
+     * Get statut
+     *
+     * @return string
+     */
+    public function getStatut()
+    {
+        return $this->statut;
+    }
+    
+    // Relations // 
+    /**
+   * @ORM\OneToOne(targetEntity="NSP\ArticleBundle\Entity\Photo", cascade={"persist"})
+   */
+    private $photo;
+    
+   /**
+   * @ORM\ManyToOne(targetEntity="NSP\ArticleBundle\Entity\Admin", inversedBy = "utilisateurs", cascade={"persist"})
+   */
+  private $admin;
+    
+          /**
+   * @ORM\OneToMany(targetEntity="NSP\ArticleBundle\Entity\Article", mappedBy="utilisateur")
+   */
+  private $articlesEcrits; 
+    
+              /**
+   * @ORM\OneToMany(targetEntity="NSP\ArticleBundle\Entity\Article", mappedBy="modo")
+   */
+  private $articlesVerifies; 
+    
+                  /**
+   * @ORM\OneToMany(targetEntity="NSP\ArticleBundle\Entity\UtilisateurArticle", mappedBy="utilisateur")
+   */
+  private $articlesNotes; 
+    
+    /**
+   * @ORM\OneToMany(targetEntity="NSP\ArticleBundle\Entity\Photo", mappedBy="utilisateur")
+   */
+  private $photos; 
+    
+    /**
+   * @ORM\ManyToMany(targetEntity="NSP\ArticleBundle\Entity\Utilisateur", mappedBy="utilisateurs", cascade={"persist"})
+   */
+  private $rubriques;
+    
+    /**
+   * @ORM\OneToMany(targetEntity="NSP\ArticleBundle\Entity\Commentaire", mappedBy="utilisateur")
+   */
+  private $commentairesEcrits; 
+    
+        /**
+   * @ORM\ManyToMany(targetEntity="NSP\ArticleBundle\Entity\Commentaire", mappedBy="utilisateurs")
+   */
+  private $commentairesModifies; 
+    
+          /**
+   * @ORM\OneToMany(targetEntity="NSP\ArticleBundle\Entity\UtilisateurCommentaire", mappedBy="utilisateur")
+   */
+  private $commentairesSignales; 
+    
+   /**
+   * @ORM\OneToMany(targetEntity="NSP\ArticleBundle\Entity\Notification", mappedBy="emetteur")
+   */
+  private $notificationsEmises; 
+    
+       /**
+   * @ORM\OneToMany(targetEntity="NSP\ArticleBundle\Entity\Notification", mappedBy="destinataire")
+   */
+  private $notificationsRecues; 
+    
+   /**
+   * @ORM\OneToMany(targetEntity="NSP\ArticleBundle\Entity\Message", mappedBy="emetteur")
+   */
+  private $MessagesEmis; 
+    
+   /**
+   * @ORM\OneToMany(targetEntity="NSP\ArticleBundle\Entity\Message", mappedBy="destinataire")
+   */
+  private $MessagesRecus; 
+}
+

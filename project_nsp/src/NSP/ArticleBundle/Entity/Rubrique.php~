@@ -1,0 +1,159 @@
+<?php
+
+namespace NSP\ArticleBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+
+/**
+ * Rubrique
+ *
+ * @ORM\Table()
+ * @ORM\Entity(repositoryClass="NSP\ArticleBundle\Entity\RubriqueRepository")
+ */
+class Rubrique
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nom", type="string", length=255)
+     */
+    private $nom;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="presentation", type="string", length=255)
+     */
+    private $presentation;
+
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set nom
+     *
+     * @param string $nom
+     *
+     * @return Rubrique
+     */
+    public function setNom($nom)
+    {
+        $this->nom = $nom;
+
+        return $this;
+    }
+
+    /**
+     * Get nom
+     *
+     * @return string
+     */
+    public function getNom()
+    {
+        return $this->nom;
+    }
+
+    /**
+     * Set presentation
+     *
+     * @param string $presentation
+     *
+     * @return Rubrique
+     */
+    public function setPresentation($presentation)
+    {
+        $this->presentation = $presentation;
+
+        return $this;
+    }
+
+    /**
+     * Get presentation
+     *
+     * @return string
+     */
+    public function getPresentation()
+    {
+        return $this->presentation;
+    }
+   
+    // Relations // 
+   /**
+   * @ORM\OneToOne(targetEntity="NSP\ArticleBundle\Entity\Photo", cascade={"persist"})
+   */
+    private $photo;
+    
+    /**
+   * @ORM\ManyToMany(targetEntity="NSP\ArticleBundle\Entity\Utilisateur", inversedBy="rubriques", cascade={"persist"})
+   */
+  private $utilisateurs;
+    
+   /**
+   * @ORM\OneToMany(targetEntity="NSP\ArticleBundle\Entity\Article", mappedBy="rubrique")
+   */
+  private $articles; 
+    
+    
+    
+    
+    
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->utilisateurs = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add utilisateur
+     *
+     * @param \NSP\ArticleBundle\Entity\Utilisateur $utilisateur
+     *
+     * @return Rubrique
+     */
+    public function addUtilisateur(\NSP\ArticleBundle\Entity\Utilisateur $utilisateur)
+    {
+        $this->utilisateurs[] = $utilisateur;
+
+        return $this;
+    }
+
+    /**
+     * Remove utilisateur
+     *
+     * @param \NSP\ArticleBundle\Entity\Utilisateur $utilisateur
+     */
+    public function removeUtilisateur(\NSP\ArticleBundle\Entity\Utilisateur $utilisateur)
+    {
+        $this->utilisateurs->removeElement($utilisateur);
+    }
+
+    /**
+     * Get utilisateurs
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getUtilisateurs()
+    {
+        return $this->utilisateurs;
+    }
+}
