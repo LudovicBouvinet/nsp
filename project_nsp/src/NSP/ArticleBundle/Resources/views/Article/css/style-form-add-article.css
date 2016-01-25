@@ -1,0 +1,505 @@
+@font-face{font-family:myriad;src:url(font/MyriadPro-Cond.otf)}
+
+
+body{
+margin : 0 ;
+padding : 0 ;
+background-color : white ;
+font-family : myriad ;
+color : white ;    
+}
+
+#menu{
+display : block ;
+
+background-color : black;
+width : 15vw ;
+height : 100vh ;
+margin : 0 ;
+padding : 0 ;
+top : 0 ;
+
+position : fixed ;
+}
+
+#menumodif{
+display : block ;
+
+background-color : black;
+width : 15vw ;
+height : 17vh ;
+margin : 0 ;
+
+}
+
+.petiteplume{
+height : 15vh ;
+width : 7vw ;    
+
+}
+
+.perso{
+height : 18% ;
+width : 100% ;
+top : 0 ;
+background-image: url(img/backperso.png);
+background-size : contain ;
+background-repeat: no-repeat;
+background-position: right;
+}
+
+.persomodif{
+height : 100% ;
+width : 100% ;
+top : 0 ;
+background-image: url(img/backperso.png);
+background-size : contain ;
+background-repeat: no-repeat;
+background-position: right;
+}
+
+.photo{
+background-image: url(img/photoprofil.png);
+width : 84px ;
+height : 84px; 
+background-repeat: no-repeat;
+display : inline-block;
+margin-left : 10% ;
+margin-top : 3%;
+}
+
+.profil{
+width : 40% ;
+float : right ;
+}
+
+.nom{
+font-size : 1.6em ;
+text-align : right ;
+margin-right : 15% ;  
+text-shadow: 0px 4px 5px rgba(0, 0, 0, 1);   
+}
+
+.grade{
+font-size : 1em ;
+text-align : right ;
+margin-right : 15% ;
+margin-top : -10% ;
+text-shadow: 0px 4px 5px rgba(0, 0, 0, 1);    
+}
+
+.return{
+text-align :center ;
+font-size: 1em ;
+float: left ;
+margin-left : 12% ;
+border-bottom : 5 px solid white ;
+}
+
+.returna{
+text-decoration : none ;
+color : white ;
+
+}
+
+.returna:hover{
+text-decoration : none ;
+color : white ;
+border-bottom: 1px solid white ;
+}
+
+.backlien{
+margin: 0 ;
+padding : 0 ;
+text-align : center ;
+list-style: none;
+margin-top : 5vh ;    
+}
+
+.lienli{
+background-color :black ;
+margin-bottom : 4vh ;
+    padding : 1vh ;   
+}
+
+.lienli:hover{
+background-color :white ;
+-webkit-box-shadow: 11px 0px 5px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 11px 0px 5px 0px rgba(0,0,0,0.75);
+box-shadow: 11px 0px 5px 0px rgba(0,0,0,0.75);
+}
+
+.lienli:hover a {
+color : black;
+}
+
+.liena{
+color : white ;
+text-decoration: none;
+font-size : 2em ;       
+}
+
+.liena:hover {
+color : black ;
+background-color :white ;    
+}
+
+.ban{
+width : 85% ;
+float : right ;
+height : 17vh ;
+background-color :black ;background-size : contain ;
+}
+
+.banmodif1{
+width : 85% ;
+float : right ;
+height : 8.5vh ;
+background-color :#181818 ;background-size : contain ;
+
+}
+
+.banmodif2{
+width : 85% ;
+float : right ;
+height : 8.5vh ;
+position : absolute ;
+top : 8.5vh;
+background-color :black ;background-size : contain ;
+
+}
+
+.titreacc{
+text-align : center ;
+margin : 0 ;
+padding-top : 3% ;
+font-size : 2.5em ;
+}
+
+.titrestat{
+text-align : center ;
+margin : 0 ;
+
+
+font-size : 2.5em ;
+}
+
+.container {
+width : 84.9% ;
+float : right ;
+    color : black ;
+}
+
+.containermodif {
+width : 100% ;
+    color : black ;
+}
+
+.plume{
+margin-top : 3% ;
+    margin-left : 10% ;
+}
+
+.textebienvenue{
+color : black ;
+float :right ;
+margin-right : 10% ;
+    margin-top : 15% ;
+    text-align : left ;
+width : 40% ;    
+    font-size : 2em ;
+}
+
+.sstitrestat{
+color :black ;
+border-bottom : 1px solid black ;
+margin-left : 5% ;
+}
+
+.firstblocstat{
+color : black ;
+    font-size : 1.5em ;
+    margin-left : 5% ;
+    width : 40%;
+}
+
+.datastat{
+display : inline-block ;
+    font-weight: bold ;
+}
+
+.titreart{
+
+margin : 0 ;
+
+padding-top : 7% ;
+font-size : 2.5em ;
+display: inline-block;
+}
+
+.titreuser{
+display: inline-block;
+margin : 0 ;
+padding-top : 7% ;
+font-size : 2.5em ;
+}
+
+.rechercheart{
+width : 45% ;
+float : left ;
+text-align :center;
+display :inline-block;
+    margin-top : -3vh ;
+}
+
+.rechercheuser{
+width : 55% ;
+float : left ;
+text-align :center;
+display : inline-block ;
+float : right ;
+        margin-top : -4vh ;
+}
+
+.loupe{
+display : inline-block ;  
+}
+
+
+
+.searchart{
+margin : 0 auto ;
+background-color : #fb9d51;
+height : 3vh ;
+width : 20vw ; 
+font-size : 1.2em ;  
+}
+
+.zonearticle{
+width : 50% ;
+float : left ;
+margin-left : 0 ;
+height : 100vh ;
+background-color :white ;background-size : contain ;
+
+}
+
+.zoneusers{
+width : 50% ;
+float : right ;
+margin-left : 0 ;
+height : 100vh ;
+background-color :white ;background-size : contain ;
+
+}
+
+.zonesuppr{
+width : 10% ;
+float : right ;
+margin-left : 0 ;
+height : 100vh ;   
+background-color :black ;background-size : contain ;
+}
+
+.tabarticle{
+color : black ;
+width : 90% ;
+    float : left ;
+    font-size : 1em ;
+}
+
+.thead{
+text-align : center ;
+font-size : 1.8em ;
+padding-top : 4% ;
+}
+
+.trstyle{
+text-align : center ;
+    font-size : 1.2em ;
+}
+
+.trstylemodo{
+text-align : center ;
+    font-size : 1.2em ;
+    background-color : #da1212 ;
+}
+
+.entete{
+border-bottom : 1px solid black ;
+}
+
+.com{
+font-style: italic ;
+font-size : 0.9em ;  
+    text-align : center ;
+}
+
+td{
+border : 1px solid black ;
+height : 6vh ; 
+}
+
+th{
+border : 1px solid black ;
+}
+
+.iconsuppr{
+background-image: url(img/iconsupp.png);
+width : 1.5vw ;
+height : 2.5vh ;
+background-repeat : no-repeat ;    
+margin : 0 auto ;
+margin-top : 8%;
+}
+
+.zoneiconsuppr{
+margin-top : 67% ;
+}
+
+.zoneiconsuppralone{
+margin-top : 47% ;
+}
+
+.ajoutart{
+height : 4vh;
+width : 2.3vh ;
+background-size : contain ;  
+margin-left : 10% ;    
+}
+
+.crayon{
+height : 2.3vh;
+width : 2.3vh ;
+background-size : contain ;  
+    margin-bottom : 17% ;
+    padding-top : 35% ;
+    margin-left : 15% ;
+}
+
+.supp{
+height : 3vh;
+width : 3vh ;
+background-size : contain ;  
+    margin-bottom : 12% ;
+    margin-top :15% ;
+    margin-left : 10% ;
+}
+
+.supplien{
+color : white ;
+    text-decoration : none ;
+}
+
+.suppalone{
+height : 3vh;
+width : 2.8vh ;
+background-size : contain ;  
+    display : block ;
+    margin : 0 auto ;
+    padding-top : 50% ;
+
+}
+
+.titlemodif{
+
+text-align : center ;
+font-size : 2em ;   
+padding-top : 2vh ;    
+}
+
+.inputmodif{
+background-color : #fb9d51 ; 
+height : 3vh ;
+width : 12vw ;
+    font-weight: bold ;
+    font-size : 0.5em ;
+    text-align :center ;
+    margin-left : 2vw ;
+}
+
+.choixcatmodif{
+background-color : #fb9d51 ; 
+height : 3vh ;
+width : 12vw ;
+    font-size : 0.5em ;
+        font-weight: bold ;
+    margin-left : 2.3vw ;
+}
+
+.usertitle{
+margin : 0 auto ;
+    text-align :center ;
+    font-size : 2em ;
+    margin-top : 2vh ;
+}
+
+.zonemodif{
+margin : 0 auto ;
+text-align :center ;
+}
+
+.chapo{
+    height : 4vh ;
+    width : 25vw ;
+    margin-bottom : 3vh ;
+    margin-top : 3vh ;
+    border : 2px solid black ;
+    text-align :center; 
+}
+
+.impoimage{
+    height : 20vh ;
+    width : 35vw ;
+    margin-bottom : 3vh ;
+    border : 2px solid black ;
+    text-align :center; 
+}
+
+.writetext{
+    border : 2px solid black ;
+    text-align :center; 
+    vertical-align: center ;
+    display : block;
+    margin : 0 auto ;
+    margin-bottom : 3vh ;
+}
+
+.buttonvalid{
+
+    background-color : #fb9d51;
+    border : 1px solid black ;
+    font-family : myriad ;
+    font-size : 1.5em ;
+    margin : 0 auto ;
+    padding : 0.5% ;
+    width : 10vw ;
+    margin-right : 2vw ;
+}
+
+.buttonsoum{
+    color : white ;
+    background-color : #568029;
+    border : 1px solid black ;
+    font-family : myriad ;
+    font-size : 1.5em ;
+    margin : 0 auto ;
+    padding : 0.5% ;
+    width : 15vw ;
+    margin-right : 2vw ;
+
+
+}
+
+.buttonsupp{
+    color : white ;
+    background-color : #bc0a0a;
+    border : 1px solid black ;
+    font-family : myriad ;
+    font-size : 1.5em ;
+    margin : 0 auto ;
+    padding : 0.5% ;
+    width : 10vw ;
+
+}
+

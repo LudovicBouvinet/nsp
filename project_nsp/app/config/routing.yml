@@ -1,3 +1,7 @@
+nsp_interface:
+    resource: "@NSPInterfaceBundle/Resources/config/routing.yml"
+    prefix:   /
+
 nsp_article:
     resource: "@NSPArticleBundle/Resources/config/routing.yml"
     prefix:   /

@@ -1,6 +1,6 @@
 <?php
 
-namespace NSP\ArticleBundle\Tests\Controller;
+namespace NSP\InterfaceBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 

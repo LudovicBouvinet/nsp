@@ -1,3 +1,7 @@
 nsp_article_homepage:
-    path:     /hello/{name}
-    defaults: { _controller: NSPArticleBundle:Default:index }
+    path:     /
+    defaults: { _controller: NSPArticleBundle:Article:index }
+
+nsp_article_add:
+    path:     /ajout
+    defaults: { _controller: NSPArticleBundle:Article:add }
