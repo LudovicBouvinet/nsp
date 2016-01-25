@@ -18,9 +18,9 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 class InterfaceController extends Controller
 {
 
-	 public function indexAction(){
+     public function indexAction(){
 
-	 	$em = $this
+        $em = $this
         ->getDoctrine()
         ->getManager()
     ;
@@ -37,12 +37,24 @@ class InterfaceController extends Controller
         ->findChoixRedac()
     ;
 
-	 // On donne toutes les infos nécessaires à la vue
+     // On donne toutes les infos nécessaires à la vue
       return $this->render('NSPInterfaceBundle:Interface:index.html.twig', array(
       'listArticles' => $listArticles,
         'listChoix' => $listChoix
     ));
 
     }
+
+
+    public function rubriqueAction($rubrique){
+
+     // On donne toutes les infos nécessaires à la vue
+        return $this->render('NSPInterfaceBundle:Interface:rubrique.html.twig', array(
+        'rubrique' => $rubrique
+      ));
+
+    }
+
+
 
 }

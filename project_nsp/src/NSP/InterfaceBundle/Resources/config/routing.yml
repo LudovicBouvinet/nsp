@@ -1,3 +1,10 @@
 nsp_interface_homepage:
     path:     /
     defaults: { _controller: NSPInterfaceBundle:Interface:index }
+
+nsp_interface_rubrique:
+    path:     /{rubrique}
+    defaults: 
+        _controller: NSPInterfaceBundle:Interface:rubrique
+    requirements:
+        rubrique: "^(Campus|BonPlan|LifeStyle|Culture|Evenement)$"
