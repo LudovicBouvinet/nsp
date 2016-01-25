@@ -97,13 +97,11 @@ class Commentaire
     // Relation // 
    /**
    * @ORM\ManyToOne(targetEntity="NSP\ArticleBundle\Entity\Article", inversedBy ="commentaires", cascade={"persist"})
-   * @ORM\JoinColumn(nullable=false)
    */
   private $article;
     
        /**
    * @ORM\ManyToOne(targetEntity="NSP\ArticleBundle\Entity\Utilisateur", inversedBy="commentairesEcrits", cascade={"persist"})
-   * @ORM\JoinColumn(nullable=false)
    */
   private $utilisateur;
     
@@ -114,7 +112,6 @@ class Commentaire
     
            /**
    * @ORM\ManyToOne(targetEntity="NSP\ArticleBundle\Entity\Admin", inversedBy ="commentaires", cascade={"persist"})
-   * @ORM\JoinColumn(nullable=false)
    */
   private $admin;
     

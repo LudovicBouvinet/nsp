@@ -160,25 +160,21 @@ class Article
     // RELATIONS // 
    /**
    * @ORM\ManyToOne(targetEntity="NSP\ArticleBundle\Entity\Theme", inversedBy="articles", cascade={"persist"})
-   * @ORM\JoinColumn(nullable=false)
    */
   private $theme;
     
    /**
    * @ORM\ManyToOne(targetEntity="NSP\ArticleBundle\Entity\Rubrique", inversedBy = "articles", cascade={"persist"})
-   * @ORM\JoinColumn(nullable=false)
    */
   private $rubrique;
     
    /**
    * @ORM\ManyToOne(targetEntity="NSP\ArticleBundle\Entity\Utilisateur", inversedBy="articlesEcrits", cascade={"persist"})
-   * @ORM\JoinColumn(nullable=false)
    */
   private $utilisateur;
     
    /**
    * @ORM\ManyToOne(targetEntity="NSP\ArticleBundle\Entity\Utilisateur", inversedBy ="articlesVerifies", cascade={"persist"})
-   * @ORM\JoinColumn(nullable=false)
    */
   private $modo;
     
@@ -205,6 +201,7 @@ class Article
         $this->photos = new \Doctrine\Common\Collections\ArrayCollection();
         $this->commentaire = new \Doctrine\Common\Collections\ArrayCollection();
         $this->utilisateursNoteurs = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->datePublication = new \Datetime();
     }
 
     /**

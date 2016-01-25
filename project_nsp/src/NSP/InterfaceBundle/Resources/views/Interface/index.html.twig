@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Accueil</title>
+    <link rel="stylesheet" href="{{ asset('bundles/nspinterface/css/homepage.css') }}">
+</head>
+
+<body>
+
+    <section class="actu">
+        <!--  toutes les divs et textes suivants devront être générées en php -->
+        <!-- La première est le conteneur de l'article, la deuxième et le conteneur de sa description -->
+        
+        {% for article in listArticles %}
+        <div>
+            <div class="sub">
+                <h3>{{ article.titre }}</h3><span>Melina</span>
+                <p>Lorem Ipsum dolor sit amet, consectetur adipiscing elit. Duis rhoncus justo justo, a malesuada nisl ...</p>
+            </div>
+        </div>
+        {% else %}
+            <li>Pas (encore !) d'annonces</li>
+        {% endfor %}
+        
+
+
+
+    </section>
+    <section class="choose">
+        <div class="contenu">
+            <div class="contenair">
+                <div class="titre">
+                    <h4>Choix de la rédaction #1</h4>
+                    <div class="sub2">
+                        <h3>Titre</h3><span> par Melina</span>
+                        <p>Lorem Ipsum dolor sit amet, consectetur adipiscing elit. Duis rhoncus justo justo, a malesuada nisl. Lorem Ipsum dolor sit amet, consectetur adipiscing elit. Duis rhoncus justo justo ...</p>
+                        <div class="notes"></div><a class="lire">lire plus</a>
+                    </div>
+                </div>
+            </div>
+            <div class="contenair">
+                <div class="titre">
+                    <div class="sub2">
+                        <h3>Titre</h3><span> par Melina</span>
+                        <p>Lorem Ipsum dolor sit amet, consectetur adipiscing elit. Duis rhoncus justo justo, a malesuada nisl. Lorem Ipsum dolor sit amet, consectetur adipiscing elit. Duis rhoncus justo justo ...</p>
+                        <div class="notes"></div><a class="lire" href="http://google.fr">lire plus</a>
+                    </div>
+                    <h4>Choix de la rédaction #2</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $('.actu > div').mouseenter(function () {
+                $(this).find(".sub").css('bottom', '0');
+            })
+            .mouseleave(function () {
+                $(this).find(".sub").css('bottom', '-100%');
+            });
+    </script>
+</body>
+
+</html>

@@ -67,13 +67,11 @@ class UtilisateurCommentaire
     
        /**
    * @ORM\ManyToOne(targetEntity="NSP\ArticleBundle\Entity\Utilisateur", inversedBy ="commentairesSignales", cascade={"persist"} )
-   * @ORM\JoinColumn(nullable=false)
    */
   private $utilisateur;
     
    /**
    * @ORM\ManyToOne(targetEntity="NSP\ArticleBundle\Entity\Commentaire", inversedBy = "utilisateursSignaleurs", cascade={"persist"})
-   * @ORM\JoinColumn(nullable=false)
    */
   private $commentaire;
 

@@ -2,6 +2,8 @@
 
 namespace NSP\ArticleBundle\Entity;
 
+use Doctrine\ORM\QueryBuilder;
+
 /**
  * ArticleRepository
  *
@@ -10,4 +12,18 @@ namespace NSP\ArticleBundle\Entity;
  */
 class ArticleRepository extends \Doctrine\ORM\EntityRepository
 {
+
+	public function findLastNews()
+	{
+	  $qb = $this->createQueryBuilder('a');
+
+	  $qb->orderBy('a.id', 'DESC')
+	  	 ->setMaxResults(8)
+	  ;
+
+	  return $qb
+	    ->getQuery()
+	    ->getResult()
+	  ;
+	}
 }

@@ -18,16 +18,26 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 class ArticleController extends Controller
 {
 
-	 public function indexAction(){
-    	// On donne toutes les infos nécessaires à la vue
-        return $this->render('NSPArticleBundle:Article:add.html.twig');
-    }
+	
+	public function addAction(Request $request)
+	{
+	    // Création de l'entité
+	    $article = new Article();
+	    $article->setTitre('C"ets moi le dernier');
+	    $article->setTexte("Nous recherchons un développeur Symfony2 débutant sur Lyon. Blabla…");
+	    $article->setChoixRedaction(false);
 
+	    // On récupère l'EntityManager
+	    $em = $this->getDoctrine()->getManager();
 
+	    // Étape 1 : On « persiste » l'entité
+	    $em->persist($article);
 
-    public function addAction(){
-    	// On donne toutes les infos nécessaires à la vue
-        return $this->render('NSPArticleBundle:Article:add.html.twig');
-    }
+	    // Étape 2 : On « flush » tout ce qui a été persisté avant
+	    $em->flush();
+
+	    return $this->render('NSPArticleBundle:Article:add.html.twig');
+	}
+
 
 }

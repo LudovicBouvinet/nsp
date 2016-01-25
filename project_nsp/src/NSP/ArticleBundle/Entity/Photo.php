@@ -128,13 +128,11 @@ class Photo
     //Relation // 
    /**
    * @ORM\ManyToOne(targetEntity="NSP\ArticleBundle\Entity\Article", inversedBy ="photos", cascade={"persist"})
-   * @ORM\JoinColumn(nullable=false)
    */
   private $article;
     
        /**
    * @ORM\ManyToOne(targetEntity="NSP\ArticleBundle\Entity\Utilisateur", inversedBy = "photos", cascade={"persist"})
-   * @ORM\JoinColumn(nullable=false)
    */
   private $utilisateur;
 

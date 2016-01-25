@@ -66,13 +66,11 @@ class UtilisateurArticle
     // Relations //
    /**
    * @ORM\ManyToOne(targetEntity="NSP\ArticleBundle\Entity\Utilisateur", inversedBy ="articlesNotes", cascade={"persist"})
-   * @ORM\JoinColumn(nullable=false)
    */
   private $utilisateur;
     
    /**
    * @ORM\ManyToOne(targetEntity="NSP\ArticleBundle\Entity\Article", inversedBy = "utilisateursNoteurs", cascade={"persist"})
-   * @ORM\JoinColumn(nullable=false)
    */
   private $article;
 
