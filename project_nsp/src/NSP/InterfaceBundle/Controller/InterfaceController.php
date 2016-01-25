@@ -29,10 +29,18 @@ class InterfaceController extends Controller
         ->getRepository('NSPArticleBundle:Article')
         ->findLastNews()
     ;
+        
+
+    
+    $listChoix = $em
+        ->getRepository('NSPArticleBundle:Article')
+        ->findChoixRedac()
+    ;
 
 	 // On donne toutes les infos nécessaires à la vue
       return $this->render('NSPInterfaceBundle:Interface:index.html.twig', array(
-      'listArticles' => $listArticles
+      'listArticles' => $listArticles,
+        'listChoix' => $listChoix
     ));
 
     }

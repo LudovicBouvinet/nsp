@@ -18,6 +18,7 @@ class ArticleRepository extends \Doctrine\ORM\EntityRepository
 	  $qb = $this->createQueryBuilder('a');
 
 	  $qb->orderBy('a.id', 'DESC')
+         ->where('a.publier = 1')
 	  	 ->setMaxResults(8)
 	  ;
 
@@ -26,4 +27,22 @@ class ArticleRepository extends \Doctrine\ORM\EntityRepository
 	    ->getResult()
 	  ;
 	}
+    
+    	public function findChoixRedac()
+	{
+	  $qb = $this->createQueryBuilder('a');
+
+	  $qb->orderBy('a.id', 'DESC')
+         ->where('a.choixRedaction = 1')
+         ->andwhere('a.publier = 1')
+	  	 ->setMaxResults(2)
+	  ;
+
+	  return $qb
+	    ->getQuery()
+	    ->getResult()
+	  ;
+	}
+    
+    
 }

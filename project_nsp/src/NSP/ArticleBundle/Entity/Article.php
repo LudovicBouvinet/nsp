@@ -48,6 +48,13 @@ class Article
      * @ORM\Column(name="choixRedaction", type="boolean")
      */
     private $choixRedaction;
+    
+     /**
+     * @var boolean
+     *
+     * @ORM\Column(name="publier", type="boolean")
+     */
+    private $publier;
 
 
     /**
@@ -400,5 +407,29 @@ class Article
     public function getUtilisateursNoteurs()
     {
         return $this->utilisateursNoteurs;
+    }
+
+    /**
+     * Set publier
+     *
+     * @param boolean $publier
+     *
+     * @return Article
+     */
+    public function setPublier($publier)
+    {
+        $this->publier = $publier;
+
+        return $this;
+    }
+
+    /**
+     * Get publier
+     *
+     * @return boolean
+     */
+    public function getPublier()
+    {
+        return $this->publier;
     }
 }

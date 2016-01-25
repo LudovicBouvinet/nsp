@@ -23,7 +23,7 @@ class ArticleController extends Controller
 	{
 	    // Création de l'entité
 	    $article = new Article();
-	    $article->setTitre('C"ets moi le dernier');
+	    $article->setTitre("Dernier ");
 	    $article->setTexte("Nous recherchons un développeur Symfony2 débutant sur Lyon. Blabla…");
 	    $article->setChoixRedaction(false);
 

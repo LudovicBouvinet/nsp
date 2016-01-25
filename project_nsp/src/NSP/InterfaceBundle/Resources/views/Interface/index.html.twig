@@ -21,7 +21,7 @@
             </div>
         </div>
         {% else %}
-            <li>Pas (encore !) d'annonces</li>
+            <li>Zero articles repertoriés dans la base de donnée</li>
         {% endfor %}
         
 
@@ -30,26 +30,28 @@
     </section>
     <section class="choose">
         <div class="contenu">
+           
+           
+                   {% for article in listChoix %}
             <div class="contenair">
                 <div class="titre">
                     <h4>Choix de la rédaction #1</h4>
                     <div class="sub2">
-                        <h3>Titre</h3><span> par Melina</span>
-                        <p>Lorem Ipsum dolor sit amet, consectetur adipiscing elit. Duis rhoncus justo justo, a malesuada nisl. Lorem Ipsum dolor sit amet, consectetur adipiscing elit. Duis rhoncus justo justo ...</p>
+                        <h3>{{ article.titre }}</h3><span> par Melina</span><br>
+                        <p>{{ article.texte }}</p><br>
                         <div class="notes"></div><a class="lire">lire plus</a>
                     </div>
                 </div>
             </div>
-            <div class="contenair">
-                <div class="titre">
-                    <div class="sub2">
-                        <h3>Titre</h3><span> par Melina</span>
-                        <p>Lorem Ipsum dolor sit amet, consectetur adipiscing elit. Duis rhoncus justo justo, a malesuada nisl. Lorem Ipsum dolor sit amet, consectetur adipiscing elit. Duis rhoncus justo justo ...</p>
-                        <div class="notes"></div><a class="lire" href="http://google.fr">lire plus</a>
-                    </div>
-                    <h4>Choix de la rédaction #2</h4>
-                </div>
-            </div>
+            
+             {% else %}
+            <li>Zero articles repertoriés dans la base de donnée</li>
+        {% endfor %}
+            
+            
+            
+            
+
         </div>
     </section>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
