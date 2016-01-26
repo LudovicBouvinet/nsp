@@ -8,8 +8,8 @@
 <body>
 
 <section class="presentation-rubrique">
-	<div id="nom"> Life Style</div>
-	<div id="presentation"> Présentation de la rubrique en long, en large et en travers niaha</div>	
+	<div id="nom"> {{ infosRubrique[0].nom}}</div>
+	<div id="presentation"> {{ infosRubrique[0].presentation}}</div>	
 </section>
 <div id="abonnement">
 	<div class="plus-content">
@@ -21,18 +21,13 @@
 
 <section class="container">
 	<!--  toutes les divs et textes suivants devront être générées en php --> <!-- La première est le conteneur de l'article, la deuxième et le conteneur de sa description -->
-	<div><div><p class="desc"><span>Titre</span><span> par Melina</span><br>Lorem Ipsum dolor sit amet, consectetur adipiscing elit. Duis rhoncus justo justo, a malesuada nisl ...</p></div></div>
-	<div><div><p class="desc"><span>Titre</span><span> par Melina</span><br>Lorem Ipsum dolor sit amet, consectetur adipiscing elit. Duis rhoncus justo justo, a malesuada nisl ...</p></div></div>
-	<div><div><p class="desc"><span>Titre</span><span> par Melina</span><br>Lorem Ipsum dolor sit amet, consectetur adipiscing elit. Duis rhoncus justo justo, a malesuada nisl ...</p></div></div>
-	<div><div><p class="desc"><span>Titre</span><span> par Melina</span><br>Lorem Ipsum dolor sit amet, consectetur adipiscing elit. Duis rhoncus justo justo, a malesuada nisl ...</p></div></div>
-	<div><div><p class="desc"><span>Titre</span><span> par Melina</span><br>Lorem Ipsum dolor sit amet, consectetur adipiscing elit. Duis rhoncus justo justo, a malesuada nisl ...</p></div></div>
-	<div><div><p class="desc"><span>Titre</span><span> par Melina</span><br>Lorem Ipsum dolor sit amet, consectetur adipiscing elit. Duis rhoncus justo justo, a malesuada nisl ...</p></div></div>
-	<div><div><p class="desc"><span>Titre</span><span> par Melina</span><br>Lorem Ipsum dolor sit amet, consectetur adipiscing elit. Duis rhoncus justo justo, a malesuada nisl ...</p></div></div>
-	<div><div><p class="desc"><span>Titre</span><span> par Melina</span><br>Lorem Ipsum dolor sit amet, consectetur adipiscing elit. Duis rhoncus justo justo, a malesuada nisl ...</p></div></div>
-	<div><div><p class="desc"><span>Titre</span><span> par Melina</span><br>Lorem Ipsum dolor sit amet, consectetur adipiscing elit. Duis rhoncus justo justo, a malesuada nisl ...</p></div></div>
-	<div><div><p class="desc"><span>Titre</span><span> par Melina</span><br>Lorem Ipsum dolor sit amet, consectetur adipiscing elit. Duis rhoncus justo justo, a malesuada nisl ...</p></div></div>
-	<div><div><p class="desc"><span>Titre</span><span> par Melina</span><br>Lorem Ipsum dolor sit amet, consectetur adipiscing elit. Duis rhoncus justo justo, a malesuada nisl ...</p></div></div>
-	<div><div><p class="desc"><span>Titre</span><span> par Melina</span><br>Lorem Ipsum dolor sit amet, consectetur adipiscing elit. Duis rhoncus justo justo, a malesuada nisl ...</p></div></div>
+
+
+	{% for article in infosRubrique[0].articles %}
+		<div><div><p class="desc"><span>{{ article.titre }}</span><span> par Melina</span><br>{{ article.texte }}</p></div></div>
+    {% endfor %}
+
+
 </section>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.js"></script>

@@ -7,4 +7,4 @@ nsp_interface_rubrique:
     defaults: 
         _controller: NSPInterfaceBundle:Interface:rubrique
     requirements:
-        rubrique: "^(Campus|BonPlan|LifeStyle|Culture|Evenement)$"
+        rubrique: "^(Campus|BonsPlans|LifeStyle|Culture|Evenement)$"

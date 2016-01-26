@@ -2,6 +2,8 @@
 
 namespace NSP\ArticleBundle\Entity;
 
+use Doctrine\ORM\QueryBuilder;
+
 /**
  * RubriqueRepository
  *
@@ -10,4 +12,21 @@ namespace NSP\ArticleBundle\Entity;
  */
 class RubriqueRepository extends \Doctrine\ORM\EntityRepository
 {
+
+	public function findByName($nameRubrique)
+	{
+	  $qb = $this->createQueryBuilder('r');
+
+	  $qb
+	    ->where('r.nom = :nom')
+	    ->setParameter('nom', $nameRubrique)
+	  ;
+
+	  return $qb
+	    ->getQuery()
+	    ->getResult()
+	  ;
+	}
+
+
 }

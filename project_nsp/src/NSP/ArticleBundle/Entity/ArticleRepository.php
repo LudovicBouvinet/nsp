@@ -3,6 +3,7 @@
 namespace NSP\ArticleBundle\Entity;
 
 use Doctrine\ORM\QueryBuilder;
+use Doctrine\ORM\EntityRepository;
 
 /**
  * ArticleRepository
