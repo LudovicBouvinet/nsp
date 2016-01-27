@@ -39,6 +39,7 @@
 
             {% for article in listChoix %}
             <div class="contenair">
+               <img src =	{{ asset("uploads/" ~ article.photos[0].fichier ~ "." ~ article.photos[0].format ~ "") }} >
                 <div class="titre">
                     <h4>Choix de la rédaction #1</h4>
                     <div class="sub2">
