@@ -7,10 +7,11 @@
     <title>Accueil</title>
     <link rel="stylesheet" href="{{ asset('bundles/nspinterface/css/homepage.css') }}"> {{parent()}}
 </head>
-
+{% endblock %} 
+{% block header %} 
 <body>
-    {% endblock %} 
-    {% block header %} 
+    
+    
     {{ parent() }} 
     {% endblock %} 
     {% block content %}

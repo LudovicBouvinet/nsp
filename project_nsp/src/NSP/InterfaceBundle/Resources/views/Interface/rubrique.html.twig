@@ -24,7 +24,10 @@
 
 
 	{% for article in infosRubrique[0].articles %}
-		<div><div><p class="desc"><span>{{ article.titre }}</span><span> par Melina</span><br>{{ article.texte }}</p></div></div>
+		<div class="articlesRubrique" >
+			<div ><p class="desc"><span>{{ article.titre }}</span><span> par Melina</span><br>{{ article.texte }}</p></div>
+			<img src =	{{ asset("uploads/" ~ article.photos[0].fichier ~ "." ~ article.photos[0].format ~ "") }} >
+		</div>
     {% endfor %}
 
 

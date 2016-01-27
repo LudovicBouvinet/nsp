@@ -44,7 +44,7 @@ class InterfaceController extends Controller
     }
 
 
-    public function rubriqueAction($rubrique){
+    public function viewRubriqueAction($rubrique){
 
       if ($rubrique == "BonsPlans") {
         $rubrique = "Bons Plans";

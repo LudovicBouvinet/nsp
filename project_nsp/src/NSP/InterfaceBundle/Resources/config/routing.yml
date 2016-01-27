@@ -5,6 +5,6 @@ nsp_interface_homepage:
 nsp_interface_rubrique:
     path:     /{rubrique}
     defaults: 
-        _controller: NSPInterfaceBundle:Interface:rubrique
+        _controller: NSPInterfaceBundle:Interface:viewRubrique
     requirements:
         rubrique: "^(Campus|BonsPlans|LifeStyle|Culture|Evenement)$"

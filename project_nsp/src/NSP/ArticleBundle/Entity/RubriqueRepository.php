@@ -20,6 +20,9 @@ class RubriqueRepository extends \Doctrine\ORM\EntityRepository
 	  $qb
 	    ->where('r.nom = :nom')
 	    ->setParameter('nom', $nameRubrique)
+	    ->leftJoin('r.articles', 'a')
+	    ->addSelect('a')
+	    ->andwhere('a.publier = 1')
 	  ;
 
 	  return $qb
