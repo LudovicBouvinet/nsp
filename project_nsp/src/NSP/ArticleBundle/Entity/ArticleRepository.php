@@ -46,4 +46,6 @@ class ArticleRepository extends \Doctrine\ORM\EntityRepository
 	}
     
     
+    
+    
 }

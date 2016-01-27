@@ -1,0 +1,76 @@
+{% block head %}
+<link rel="stylesheet" href="{{ asset('bundles/nspinterface/css/footer.css') }}">
+<link rel="stylesheet" href="{{ asset('bundles/nspinterface/css/header.css') }}">
+{% endblock %}
+
+
+{% block header %}
+	<div id="container">
+		<form action="#">
+			<img src="{{ asset('ressources/NSP_plume.jpg') }}" alt="Logo du site web" class="logo">
+			<div id="connexion">
+				<input type="text" placeholder="Votre pseudo" id="holder_bold">
+				<input type="password" placeholder="Votre mot de passe" id="holder_bold">
+				<img src="{{ asset('ressources/loupe.png') }}" alt="" class="toolbar">
+			</div>
+		</form>
+	</div>
+	<nav>
+		<ul>
+			<li><a href="#">Home</a></li>
+			<li><a href="#">Campus</a></li>
+			<li><a href="#">Bon Plan</a></li>
+			<li><a href="">Life Style</a></li>
+			<li><a href="#">Culture</a></li>
+			<li><a href="#">Evenement</a></li>
+		</ul>
+	</nav>
+{% endblock %}
+
+
+{% block content %}
+{% endblock %}
+
+
+{% block footer %}
+
+
+	<div class="background">
+		<section id="res_sociaux">
+			<a href=""><img src="{{ asset('ressources/twitter.png') }}" alt="" id="twit"></a>
+			<a href=""><img src="{{ asset('ressources/facebook.png') }}" alt="" id="fb"></a>
+			<a href=""><img src="{{ asset('ressources/web.png') }}" alt="" id="rss"></a>
+			<img src="{{ asset('ressources/animal.png') }}" alt="">
+			<a href=""><img src="{{ asset('ressources/linkedin.png') }}" alt="" id="link"></a>
+			<a href=""><img src="{{ asset('ressources/viadeo.png') }}" alt="" id="via"></a>
+			<a href=""><img src="{{ asset('ressources/youtube.png') }}" alt="" id="you"></a>
+		</section>
+		<section id="plan_site">
+			<ul>
+				<li><a href="">Home</a></li>
+				<li><a href="">Campus</a></li>
+				<li><a href="">Bon Plan</a></li>
+				<li><a href="">Life Style</a></li>
+				<li><a href="">Culture</a></li>
+				<li><a href="">Evenement</a></li>
+			</ul>
+		</section>
+		<section id="mentions">
+			<ul>
+				<li><a href="">A Propos</a></li>
+				<li><a href="">Mentions Légales</a></li>
+				<li><a href="">Nous contacter</a></li>
+			</ul>
+		</section>
+	</div>
+{% endblock %}
+
+
+{% block script %}
+{% endblock %}
+
+
+{% block fin %}
+
+
+{% endblock %}
