@@ -1,59 +1,72 @@
+{% extends "NSPInterfaceBundle::layout.html.twig" %} {% block head %}
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <title>Accueil</title>
-    <link rel="stylesheet" href="{{ asset('bundles/nspinterface/css/homepage.css') }}">
+    <link rel="stylesheet" href="{{ asset('bundles/nspinterface/css/homepage.css') }}"> {{parent()}}
 </head>
 
 <body>
-
+    {% endblock %} 
+    {% block header %} 
+    {{ parent() }} 
+    {% endblock %} 
+    {% block content %}
     <section class="actu">
         <!--  toutes les divs et textes suivants devront être générées en php -->
         <!-- La première est le conteneur de l'article, la deuxième et le conteneur de sa description -->
-        
+
         {% for article in listArticles %}
-        <div>
+        <div><img src =	{{ asset("uploads/" ~ article.photos[0].fichier ~ "." ~ article.photos[0].format ~ "") }} >
             <div class="sub">
                 <h3>{{ article.titre }}</h3><span>Melina</span>
                 <p>Lorem Ipsum dolor sit amet, consectetur adipiscing elit. Duis rhoncus justo justo, a malesuada nisl ...</p>
             </div>
         </div>
         {% else %}
-            <li>Zero articles repertoriés dans la base de donnée</li>
+        <li>Zero articles repertoriés dans la base de donnée</li>
         {% endfor %}
-        
+
 
 
 
     </section>
     <section class="choose">
         <div class="contenu">
-           
-           
-                   {% for article in listChoix %}
+
+
+            {% for article in listChoix %}
             <div class="contenair">
                 <div class="titre">
                     <h4>Choix de la rédaction #1</h4>
                     <div class="sub2">
-                        <h3>{{ article.titre }}</h3><span> par Melina</span><br>
-                        <p>{{ article.texte }}</p><br>
+                        <h3>{{ article.titre }}</h3><span> par Melina</span>
+                        <br>
+                        <p>{{ article.texte }}</p>
+                        <br>
                         <div class="notes"></div><a class="lire">lire plus</a>
                     </div>
                 </div>
             </div>
-            
-             {% else %}
+
+            {% else %}
             <li>Zero articles repertoriés dans la base de donnée</li>
-        {% endfor %}
-            
-            
-            
-            
+            {% endfor %}
+
+
+
+
 
         </div>
     </section>
+
+    {% endblock %} 
+    {% block footer %} 
+    {{ parent() }} 
+    {% endblock %} 
+    {% block script %}
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
     <script type="text/javascript">
         $('.actu > div').mouseenter(function () {
@@ -62,7 +75,13 @@
             .mouseleave(function () {
                 $(this).find(".sub").css('bottom', '-100%');
             });
-    </script>
+    </script> 
+    {% endblock %} 
+    {% block fin %}
+
 </body>
 
 </html>
+
+
+{% endblock %}
