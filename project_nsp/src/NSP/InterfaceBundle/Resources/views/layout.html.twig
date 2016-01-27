@@ -1,11 +1,15 @@
-{% block head %}
-<link rel="stylesheet" href="{{ asset('bundles/nspinterface/css/footer.css') }}">
-<link rel="stylesheet" href="{{ asset('bundles/nspinterface/css/header.css') }}">
-{% endblock %}
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>{% block title %}NSP {% endblock %}</title>
+    <link rel="stylesheet" href="{{ asset('bundles/nspinterface/css/footer.css') }}">
+	<link rel="stylesheet" href="{{ asset('bundles/nspinterface/css/header.css') }}">
+	{% block css %}{% endblock %}
+  </head>
+  <body>
 
-
-{% block header %}
-	<div id="container">
+  	<div id="container">
 		<form action="#">
 			<img src="{{ asset('ressources/NSP_plume.jpg') }}" alt="Logo du site web" class="logo">
 			<div id="connexion">
@@ -19,23 +23,19 @@
 		<ul>
 			<li><a href="{{ path('nsp_interface_homepage') }}">Home</a></li>
 			<li><a href="{{ path('nsp_interface_rubrique', {'rubrique': 'Campus'}) }}">Campus</a></li>
-			<li><a href="{{ path('nsp_interface_rubrique', {'rubrique': 'BonsPlans'}) }}">Bons Plans</a></li>
+			<li><a href="{{ path('nsp_interface_rubrique', {'rubrique': 'BonPlan'}) }}">Bon Plan</a></li>
 			<li><a href="{{ path('nsp_interface_rubrique', {'rubrique': 'LifeStyle'}) }}">Life Style</a></li>
 			<li><a href="{{ path('nsp_interface_rubrique', {'rubrique': 'Culture'}) }}">Culture</a></li>
 			<li><a href="{{ path('nsp_interface_rubrique', {'rubrique': 'Evenement'}) }}">Evenement</a></li>
 		</ul>
 	</nav>
-{% endblock %}
+
+    {% block body %}
+
+    {% endblock %}
 
 
-{% block content %}
-{% endblock %}
-
-
-{% block footer %}
-
-
-	<div class="background">
+    <div class="background">
 		<section id="res_sociaux">
 			<a href=""><img src="{{ asset('ressources/twitter.png') }}" alt="" id="twit"></a>
 			<a href=""><img src="{{ asset('ressources/facebook.png') }}" alt="" id="fb"></a>
@@ -47,12 +47,12 @@
 		</section>
 		<section id="plan_site">
 			<ul>
-				<li><a href="">Home</a></li>
-				<li><a href="">Campus</a></li>
-				<li><a href="">Bon Plan</a></li>
-				<li><a href="">Life Style</a></li>
-				<li><a href="">Culture</a></li>
-				<li><a href="">Evenement</a></li>
+				<li><a href="{{ path('nsp_interface_homepage') }}">Home</a></li>
+				<li><a href="{{ path('nsp_interface_rubrique', {'rubrique': 'Campus'}) }}">Campus</a></li>
+				<li><a href="{{ path('nsp_interface_rubrique', {'rubrique': 'BonPlan'}) }}">Bon Plan</a></li>
+				<li><a href="{{ path('nsp_interface_rubrique', {'rubrique': 'LifeStyle'}) }}">Life Style</a></li>
+				<li><a href="{{ path('nsp_interface_rubrique', {'rubrique': 'Culture'}) }}">Culture</a></li>
+				<li><a href="{{ path('nsp_interface_rubrique', {'rubrique': 'Evenement'}) }}">Evenement</a></li>
 			</ul>
 		</section>
 		<section id="mentions">
@@ -63,14 +63,8 @@
 			</ul>
 		</section>
 	</div>
-{% endblock %}
+
+  </body>
+</html>
 
 
-{% block script %}
-{% endblock %}
-
-
-{% block fin %}
-
-
-{% endblock %}

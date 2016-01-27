@@ -1,13 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Rubrique</title>
-	<link rel="stylesheet" href="{{ asset('bundles/nspinterface/css/rubrique.css') }}">
-</head>
-<body>
+{% extends "NSPInterfaceBundle::layout.html.twig" %}
 
-<section class="presentation-rubrique">
+{% block title %}{{ parent() }} - {{ infosRubrique[0].nom}} {% endblock %}
+{% block css %}<link rel="stylesheet" href="{{ asset('bundles/nspinterface/css/rubrique.css') }}">{% endblock %}
+
+{% block body %}
+
+    <section class="presentation-rubrique">
 	<div id="nom"> {{ infosRubrique[0].nom}}</div>
 	<div id="presentation"> {{ infosRubrique[0].presentation}}</div>	
 </section>
@@ -22,18 +20,19 @@
 <section class="container">
 	<!--  toutes les divs et textes suivants devront être générées en php --> <!-- La première est le conteneur de l'article, la deuxième et le conteneur de sa description -->
 
-
 	{% for article in infosRubrique[0].articles %}
 		<div class="articlesRubrique" >
 			<div ><p class="desc"><span>{{ article.titre }}</span><span> par Melina</span><br>{{ article.texte }}</p></div>
 			<img src =	{{ asset("uploads/" ~ article.photos[0].fichier ~ "." ~ article.photos[0].format ~ "") }} >
 		</div>
+		{% else %}
+		
     {% endfor %}
-
 
 </section>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.js"></script>
-<script type="text/javascript" src="../js/rubrique.js"></script>	
-</body>
-</html>
+<script type="text/javascript" src="../js/rubrique.js"></script>
+
+
+{% endblock %}

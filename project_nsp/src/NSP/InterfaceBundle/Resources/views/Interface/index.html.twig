@@ -1,20 +1,10 @@
-{% extends "NSPInterfaceBundle::layout.html.twig" %} {% block head %}
-<!DOCTYPE html>
-<html lang="en">
+{% extends "NSPInterfaceBundle::layout.html.twig" %}
 
-<head>
-    <meta charset="UTF-8">
-    <title>Accueil</title>
-    <link rel="stylesheet" href="{{ asset('bundles/nspinterface/css/homepage.css') }}"> {{parent()}}
-</head>
-{% endblock %} 
-{% block header %} 
-<body>
-    
-    
-    {{ parent() }} 
-    {% endblock %} 
-    {% block content %}
+{% block title %}{{ parent() }} - Home {% endblock %}
+{% block css %}<link rel="stylesheet" href="{{ asset('bundles/nspinterface/css/homepage.css') }}">{% endblock %}
+
+{% block body %}
+
     <section class="actu">
         <!--  toutes les divs et textes suivants devront être générées en php -->
         <!-- La première est le conteneur de l'article, la deuxième et le conteneur de sa description -->
@@ -64,11 +54,6 @@
         </div>
     </section>
 
-    {% endblock %} 
-    {% block footer %} 
-    {{ parent() }} 
-    {% endblock %} 
-    {% block script %}
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
     <script type="text/javascript">
         $('.actu > div').mouseenter(function () {
@@ -78,12 +63,6 @@
                 $(this).find(".sub").css('bottom', '-100%');
             });
     </script> 
-    {% endblock %} 
-    {% block fin %}
-
-</body>
-
-</html>
 
 
 {% endblock %}
