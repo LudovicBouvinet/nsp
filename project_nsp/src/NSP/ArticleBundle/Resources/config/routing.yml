@@ -1,3 +1,8 @@
 nsp_article_add:
     path:     /ajout
     defaults: { _controller: NSPArticleBundle:Article:add }
+
+nsp_article_article:
+    path:     /{titrearticle}
+    defaults: {_controller: NSPArticleBundle:Article:article }
+    requirements: {titrearticle: "^(Article1)$"}
