@@ -56,12 +56,36 @@
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
     <script type="text/javascript">
-        $('.actu > div').mouseenter(function () {
+        
+$(document).ready(function () {
+    $('.actu > div').mouseenter(function () {
                 $(this).find(".sub").css('bottom', '0');
-            })
-            .mouseleave(function () {
+    })
+    .mouseleave(function () {
                 $(this).find(".sub").css('bottom', '-100%');
-            });
+     });``
+    
+    var nbr = 8;
+        for(var i=1; i <= nbr; i++){
+            var largeur = $('.actu > div:nth-of-type('+i+')').width();
+            var hauteur = $('.actu > div:nth-of-type('+i+')').height();
+            var largeurImg = $('.actu > div:nth-of-type('+i+') > img').width();    
+            var hauteurImg = $('.actu > div:nth-of-type('+i+') > img').height();
+            if(largeur/largeurImg > hauteur/hauteurImg){
+                $('.actu > div:nth-of-type('+i+') > img').css('width','100%');
+            }
+                        if(hauteur/hauteurImg > largeur/largeurImg){
+                $('.actu > div:nth-of-type('+i+') > img').css('height','100%');
+            }
+        
+        
+        
+        
+        
+        }
+    
+
+});
     </script> 
 
 
