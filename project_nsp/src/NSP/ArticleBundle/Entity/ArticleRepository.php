@@ -45,7 +45,23 @@ class ArticleRepository extends \Doctrine\ORM\EntityRepository
 	  ;
 	}
     
-    
+    public function findTitre($titreArticle)
+	{
+	  $qb = $this->createQueryBuilder('a');
+
+	  $qb
+	    ->where('a.titre = :titre')
+	    ->setParameter('titre', $titreArticle)
+	    ->leftJoin('a.rubrique', 'r')
+	    ->addSelect('r')
+	    ->andwhere('a.publier = 1')
+	  ;
+
+	  return $qb
+	    ->getQuery()
+	    ->getResult()
+	  ;
+	}
     
     
 }

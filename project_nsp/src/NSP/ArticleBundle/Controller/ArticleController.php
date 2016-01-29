@@ -39,5 +39,22 @@ class ArticleController extends Controller
 	    return $this->render('NSPArticleBundle:Article:add.html.twig');
 	}
 
+	public function viewArticleAction($titreArticle) {
+
+      $em = $this
+        ->getDoctrine()
+        ->getManager()
+      ;
+
+      $infosArticle = $em
+        ->getRepository('NSPArticleBundle:Article')
+        ->findTitre($titreArticle)
+      ;
+
+      return $this->render('NSPArticleBundle:Article:article.html.twig', array(
+        'infosArticle' => $infosArticle
+      ));
+	}
+
 
 }

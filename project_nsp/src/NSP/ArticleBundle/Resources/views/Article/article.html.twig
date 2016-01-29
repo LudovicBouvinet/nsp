@@ -9,20 +9,19 @@
 <header>
 	<!-- <?php 
 		$header_nav = '1';
-		include("header_inscription.php");
 		/* Peut etre faire un script ou Symfony :) pour le style de la page "actuelle" */
-
 	?> -->
 </header>
 <div id="background">
 	<section id="article">
-		<h1>Lorem ipsum dolor sit amet,  sit  amet consectetur.</h1>
+		<h1>{{ infosArticle[0].titre }}</h1>
 		<div id="corpus">	<!--C'est du css la mais on voit avec symphony pour les données ? (script JS sur le src de img?)-->
 			<p>Ludovic BOUVINET</p>
-			<img id="photo_profil" src="../img/article/ludo.png" alt="Photo de profil">
+			<img id="photo_profil" src="../img/article/ludo.png" alt="Photo de profil"><!--Creer table user pour sa photo et le reste en fait-->
 			<p class="grade">Rédacteur en chef</p> 
 		
 			<p id="chapeau">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Dolore magna aliqua. Ut enim ad minim veniam, quis nostrud. exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+			<!--Ajouter un champs chapeau dans la bdd ?-->
 			<p class="pg1">
 			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure orem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.
 			</p>
@@ -42,7 +41,7 @@
 		<div class="Ntxt">Notez cet article</div>
 		<div class="Etxt">&</div>
 		<div class="Atxt">Donnez nous votre avis</div>
-		<img id="arrow" src="../img/article/arrow.png" alt="">
+		<img id="arrow" src={{ asset('ressources/arrow.png') }} alt="">
 		<img id="star" src="../img/article/star_true.png" alt="">
 		<img id="star" src="../img/article/star_true.png" alt="">
 		<img id="star" src="../img/article/star_false.png" alt="">
@@ -117,7 +116,6 @@
 
 <footer>
 <!--<?php
-		include("footer.php");
 	?> -->
 </footer>
 
