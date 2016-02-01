@@ -21,10 +21,14 @@
 	<!--  toutes les divs et textes suivants devront être générées en php --> <!-- La première est le conteneur de l'article, la deuxième et le conteneur de sa description -->
 
 	{% for article in infosRubrique[0].articles %}
+        
 		<div class="articlesRubrique" >
+            <a href="{{ path('nsp_article_article', {'titreArticle': article.titre}) }}">
 			<div ><p class="desc"><span>{{ article.titre }}</span><span> par Melina</span><br>{{ article.texte }}</p></div>
 			<img src =	{{ asset("uploads/" ~ article.photos[0].fichier ~ "." ~ article.photos[0].format ~ "") }} >
+            </a>
 		</div>
+        
 		{% else %}
 		
     {% endfor %}

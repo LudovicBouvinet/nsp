@@ -7,10 +7,12 @@
 
         {% for article in listArticles %}
         <div><img src = {{ asset("uploads/" ~ article.photos[0].fichier ~ "." ~ article.photos[0].format ~ "") }} >
+            <a href="{{ path('nsp_article_article', {'titreArticle': article.titre}) }}">
             <div class="sub">
                 <h3>{{ article.titre }}</h3><span>Melina</span>
                 <p>Lorem Ipsum dolor sit amet, consectetur adipiscing elit. Duis rhoncus justo justo, a malesuada nisl ...</p>
             </div>
+            </a>
         </div>
         {% else %}
         <li>Zero articles repertoriés dans la base de donnée</li>
