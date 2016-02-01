@@ -1,13 +1,9 @@
-{% extends "NSPInterfaceBundle::layout.html.twig" %}
+{% extends "NSPInterfaceBundle::layout.html.twig" %} {% block title %}{{ parent() }} - Home {% endblock %} {% block css %}
+<link rel="stylesheet" href="{{ asset('bundles/nspinterface/css/homepage.css') }}">{% endblock %} {% block body %}
 
-{% block title %}{{ parent() }} - Home {% endblock %}
-{% block css %}<link rel="stylesheet" href="{{ asset('bundles/nspinterface/css/homepage.css') }}">{% endblock %}
-
-{% block body %}
-
-    <section class="actu">
-        <!--  toutes les divs et textes suivants devront être générées en php -->
-        <!-- La première est le conteneur de l'article, la deuxième et le conteneur de sa description -->
+<section class="actu">
+    <!--  toutes les divs et textes suivants devront être générées en php -->
+    <!-- La première est le conteneur de l'article, la deuxième et le conteneur de sa description -->
 
         {% for article in listArticles %}
         <div><img src =	{{ asset("uploads/" ~ article.photos[0].fichier ~ "." ~ article.photos[0].format ~ "") }} >
@@ -23,12 +19,12 @@
 
 
 
-    </section>
-    <section class="choose">
-        <div class="contenu">
+</section>
+<section class="choose">
+    <div class="contenu">
 
 
-            {% for article in listChoix %}
+{% for article in listChoix %}
             <div class="contenair">
                <img src =	{{ asset("uploads/" ~ article.photos[0].fichier ~ "." ~ article.photos[0].format ~ "") }} >
                 <div class="titre">
@@ -51,42 +47,45 @@
 
 
 
-        </div>
-    </section>
+    </div>
+</section>
 
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
-    <script type="text/javascript">
-        
-$(document).ready(function () {
-    $('.actu > div').mouseenter(function () {
-                $(this).find(".sub").css('bottom', '0');
-    })
-    .mouseleave(function () {
-                $(this).find(".sub").css('bottom', '-100%');
-     });``
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
+<script type="text/javascript">
     
-    var nbr = 8;
-        for(var i=1; i <= nbr; i++){
-            var largeur = $('.actu > div:nth-of-type('+i+')').width();
-            var hauteur = $('.actu > div:nth-of-type('+i+')').height();
-            var largeurImg = $('.actu > div:nth-of-type('+i+') > img').width();    
-            var hauteurImg = $('.actu > div:nth-of-type('+i+') > img').height();
-            if(largeur/largeurImg > hauteur/hauteurImg){
-                $('.actu > div:nth-of-type('+i+') > img').css('width','100%');
+    function redimensionnement(nbr, categorie) {
+
+        for (var i = 1; i <= nbr; i++) {
+            var largeur = $('.' + categorie + ' > div:nth-of-type(' + i + ')').width();
+            var hauteur = $('.' + categorie + ' > div:nth-of-type(' + i + ')').height();
+            var largeurImg = $('.' + categorie + ' > div:nth-of-type(' + i + ') > img').width();
+            var hauteurImg = $('.' + categorie + ' > div:nth-of-type(' + i + ') > img').height();
+            if (largeur / largeurImg > hauteur / hauteurImg) {
+                $('.' + categorie + ' > div:nth-of-type(' + i + ') > img').css('width', '100%');
+                $('.' + categorie + ' > div:nth-of-type(' + i + ') > img').css('height', 'auto');
+            } else if (hauteur / hauteurImg > largeur / largeurImg) {
+                $('.' + categorie + ' > div:nth-of-type(' + i + ') > img').css('height', '100%');
+                $('.' + categorie + ' > div:nth-of-type(' + i + ') > img').css('width', 'auto');
+                                $('.' + categorie + ' > div:nth-of-type(' + i + ') > img').css('text-align', 'center');
+            } else if (hauteur / hauteurImg === largeur / largeurImg) {
+                $('.' + categorie + ' > div:nth-of-type(' + i + ') > img').css('height', '100%');
+                $('.' + categorie + ' > div:nth-of-type(' + i + ') > img').css('width', '100%');
             }
-                        if(hauteur/hauteurImg > largeur/largeurImg){
-                $('.actu > div:nth-of-type('+i+') > img').css('height','100%');
-            }
-        
-        
-        
-        
-        
         }
-    
+    }
 
-});
-    </script> 
+
+    $(document).ready(function () {
+        $('.actu > div').mouseenter(function () {
+                $(this).find(".sub").css('bottom', '0');
+            })
+            .mouseleave(function () {
+                $(this).find(".sub").css('bottom', '-100%');
+            });
+        redimensionnement(8, "actu");
+        redimensionnement(2, "contenu");
+    });
+</script>
 
 
 {% endblock %}
