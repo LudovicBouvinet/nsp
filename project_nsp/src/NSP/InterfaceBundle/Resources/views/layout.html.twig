@@ -9,15 +9,13 @@
   </head>
   <body>
 
-  	<div id="container">
-		<form action="#">
-			<img src="{{ asset('ressources/NSP_plume.jpg') }}" alt="Logo du site web" class="logo">
-			<div id="connexion">
-				<input type="text" placeholder="Votre pseudo" id="holder_bold">
-				<input type="password" placeholder="Votre mot de passe" id="holder_bold">
-				<img src="{{ asset('ressources/loupe.png') }}" alt="" class="toolbar">
-			</div>
-		</form>
+  	<div id="header">
+		<img src="{{ asset('ressources/NSP_plume.jpg') }}" alt="Logo du site web" class="logo" height="100">
+		<div class="choice">
+			<div class="connexion"><p>Connexion</p></div>
+			<div class="inscription"><p>Inscription</p></div>
+			<img src="{{ asset('ressources/loupe.png') }}" alt="" class="toolbar">
+		</div>
 	</div>
 	<nav>
 		<ul>
