@@ -33,6 +33,33 @@
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.js"></script>
 <script type="text/javascript" src="../js/rubrique.js"></script>
+<script type="text/javascript">
+    
+    function redimensionnementRubrique(nbr, categorie) {
+
+        for (var i = 1; i <= nbr; i++) {
+            var largeur = $('.' + categorie + ':nth-of-type(' + i + ')').width();
+            var hauteur = $('.' + categorie + ':nth-of-type(' + i + ')').height();
+            var largeurImg = $('.' + categorie + ':nth-of-type(' + i + ') > img').width();
+            var hauteurImg = $('.' + categorie + ':nth-of-type(' + i + ') > img').height();
+            if (largeur / largeurImg > hauteur / hauteurImg) {
+                $('.' + categorie + ':nth-of-type(' + i + ') > img').css('width', '100%');
+                $('.' + categorie + ':nth-of-type(' + i + ') > img').css('height', 'auto');
+            } else if (hauteur / hauteurImg > largeur / largeurImg) {
+                $('.' + categorie + ':nth-of-type(' + i + ') > img').css('height', '100%');
+                $('.' + categorie + ':nth-of-type(' + i + ') > img').css('width', 'auto');
+            } else if (hauteur / hauteurImg === largeur / largeurImg) {
+                $('.' + categorie + ':nth-of-type(' + i + ') img').css('height', '100%');
+                $('.' + categorie + ':nth-of-type(' + i + ') img').css('width', '100%');
+            }
+        }
+    }
+
+
+    $(document).ready(function () {
+        redimensionnementRubrique(9, "articlesRubrique");
+    });
+</script>
 
 
 {% endblock %}
