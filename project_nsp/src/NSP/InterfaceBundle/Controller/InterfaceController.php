@@ -71,6 +71,12 @@ class InterfaceController extends Controller
 
     }
 
+    public function contactAction(){
+
+      return $this->render('NSPInterfaceBundle:Interface:contact.html.twig');
+
+    }
+
 
 
 }
