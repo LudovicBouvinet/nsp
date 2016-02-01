@@ -6,7 +6,7 @@
     <!-- La première est le conteneur de l'article, la deuxième et le conteneur de sa description -->
 
         {% for article in listArticles %}
-        <div><img src =	{{ asset("uploads/" ~ article.photos[0].fichier ~ "." ~ article.photos[0].format ~ "") }} >
+        <div><img src = {{ asset("uploads/" ~ article.photos[0].fichier ~ "." ~ article.photos[0].format ~ "") }} >
             <div class="sub">
                 <h3>{{ article.titre }}</h3><span>Melina</span>
                 <p>Lorem Ipsum dolor sit amet, consectetur adipiscing elit. Duis rhoncus justo justo, a malesuada nisl ...</p>
@@ -26,7 +26,7 @@
 
 {% for article in listChoix %}
             <div class="contenair">
-               <img src =	{{ asset("uploads/" ~ article.photos[0].fichier ~ "." ~ article.photos[0].format ~ "") }} >
+               <img src =   {{ asset("uploads/" ~ article.photos[0].fichier ~ "." ~ article.photos[0].format ~ "") }} >
                 <div class="titre">
                     <h4>Choix de la rédaction #1</h4>
                     <div class="sub2">
@@ -71,13 +71,6 @@
                 $('.' + categorie + ' > div:nth-of-type(' + i + ') > img').css('height', '100%');
                 $('.' + categorie + ' > div:nth-of-type(' + i + ') > img').css('width', '100%');
             }
-<<<<<<< Updated upstream
-=======
-                        if(hauteur/hauteurImg > largeur/largeurImg){
-                $('.actu > div:nth-of-type('+i+') > img').css('height','100%');
-            }   
-        
->>>>>>> Stashed changes
         }
     }
 
