@@ -67,15 +67,15 @@
             var hauteurImg = $('.' + categorie + ' > div:nth-of-type(' + i + ') > img').height();
             
             if (largeur / largeurImg > hauteur / hauteurImg) {
-                $('.' + categorie + ' > div:nth-of-type(' + i + ') > img').css('width', '100%').css('height', 'auto');                        
-                var hauteur = $('.' + categorie + ' > div:nth-of-type(' + i + ')').height();
+                $('.' + categorie + ' > div:nth-of-type(' + i + ') > img').css('width', '100%').css('height', 'auto');  
                 var hauteurImg = $('.' + categorie + ' > div:nth-of-type(' + i + ') > img').height();
-                $('.' + categorie + ' > div:nth-of-type(' + i + ') > img').css('top', "-"+((hauteurImg/2)-(hauteur/2))+"px");
+                $('.' + categorie + ' > div:nth-of-type(' + i + ') > img').css('top', '-'+((hauteurImg/2)-(hauteur/2))+"px");
+                
             } else if (hauteur / hauteurImg > largeur / largeurImg) {
                 $('.' + categorie + ' > div:nth-of-type(' + i + ') > img').css('height', '100%').css('width', 'auto');
-                var largeur = $('.' + categorie + ' > div:nth-of-type(' + i + ')').width();
                 var largeurImg = $('.' + categorie + ' > div:nth-of-type(' + i + ') > img').width();
-                $('.' + categorie + ' > div:nth-of-type(' + i + ') > img').css('left', "-"+((largeurImg/2)-(largeur/2))+"px");
+                $('.' + categorie + ' > div:nth-of-type(' + i + ') > img').css('left', '-'+((largeurImg/2)-(largeur/2))+"px");
+                
             } else if (hauteur / hauteurImg === largeur / largeurImg) {
                 $('.' + categorie + ' > div:nth-of-type(' + i + ') > img').css('height', '100%');
                 $('.' + categorie + ' > div:nth-of-type(' + i + ') > img').css('width', '100%');
