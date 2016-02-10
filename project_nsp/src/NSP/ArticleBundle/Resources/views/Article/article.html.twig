@@ -1,0 +1,45 @@
+{% extends "NSPArticleBundle::layout.html.twig" %}
+
+{% block title %}{{ parent() }} - {{ infosArticle[0].titre }} {% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{{ asset('bundles/nsparticle/css/article.css') }}">
+<link rel="stylesheet" href="{{ asset('bundles/nsparticle/css/theme2.css') }}">
+{% endblock %}
+
+{% block body %}
+
+<section class="article-global-content">
+
+<div class="titre-article"><h1 >{{ infosArticle[0].titre }}</h1></div>
+
+<div class="article-content">
+	<div class="header-article">
+		<div class="infosAuteur">
+			<div class="infosAuteur-content">
+				<div class="auteur">Ludovic Bouvinet</div>
+				<div class="photoAuteur"><img src="{{ asset('uploads/photo-ludo.png') }}" alt=""></div>
+				<div class="gradeAuteur">Rédacteur en chef</div>
+			</div>
+		</div>
+		<div class="chapeau">
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Dolore magna aliqua. Ut enim ad minim veniam, quis nostrud. exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+		</div>
+	</div>
+
+	<div class="column-left">
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure orem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. <br><br>
+		Duis aute irure Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
+	</div>
+	<div class="column-right">
+		<img src="{{ asset('uploads/time-journee.jpg') }}" alt="">
+		<img src="{{ asset('uploads/time-journee.jpg') }}" alt="">
+		<img src="{{ asset('uploads/time-journee.jpg') }}" alt="">
+	</div>
+
+
+
+</div>
+
+</section>
+{% endblock %}
