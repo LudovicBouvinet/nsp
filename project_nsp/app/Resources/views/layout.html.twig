@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>{% block title %}NSP {% endblock %}</title>
+    <link rel="stylesheet" href="{{ asset('bundles/nspinterface/css/footer.css') }}">
+	<link rel="stylesheet" href="{{ asset('bundles/nspinterface/css/header.css') }}">
+	{% block css %}{% endblock %}
+  </head>
+  <body>
+
+  	<div id="header">
+		<img src="{{ asset('ressources/NSP_plume.jpg') }}" alt="Logo du site web" class="logo" height="100">
+		<div class="choice">
+			<div class="connexion"><p>Connexion</p></div>
+			<div class="inscription"><p>Inscription</p></div>
+			<img src="{{ asset('ressources/loupe.png') }}" alt="" class="toolbar">
+		</div>
+	</div>
+	<nav>
+		<ul>
+			<li><a href="{{ path('nsp_interface_homepage') }}">Home</a></li>
+			<li><a href="{{ path('nsp_interface_rubrique', {'rubrique': 'Campus'}) }}">Campus</a></li>
+			<li><a href="{{ path('nsp_interface_rubrique', {'rubrique': 'BonPlan'}) }}">Bon Plan</a></li>
+			<li><a href="{{ path('nsp_interface_rubrique', {'rubrique': 'LifeStyle'}) }}">Life Style</a></li>
+			<li><a href="{{ path('nsp_interface_rubrique', {'rubrique': 'Culture'}) }}">Culture</a></li>
+			<li><a href="{{ path('nsp_interface_rubrique', {'rubrique': 'Evenement'}) }}">Evenement</a></li>
+		</ul>
+	</nav>
+
+    {% block body %}
+
+    {% endblock %}
+
+
+	<div class="background">
+		<div id="res_sociaux">
+			<a href=""><img src="{{ asset('ressources/twitter.png') }}" alt="" id="twit"></a>
+			<a href=""><img src="{{ asset('ressources/facebook.png') }}" alt="" id="fb"></a>
+			<img src="{{ asset('ressources/animal.png') }}" alt="">
+			<a href=""><img src="{{ asset('ressources/linkedin.png') }}" alt="" id="link"></a>
+			<a href=""><img src="{{ asset('ressources/youtube.png') }}" alt="" id="you"></a>
+		</div>
+		<div id="plan_site">
+			<ul>
+				<li><a href="{{ path('nsp_interface_homepage') }}">Home</a></li>
+				<li><a href="{{ path('nsp_interface_rubrique', {'rubrique': 'Campus'}) }}">Campus</a></li>
+				<li><a href="{{ path('nsp_interface_rubrique', {'rubrique': 'BonPlan'}) }}">Bon Plan</a></li>
+				<li><a href="{{ path('nsp_interface_rubrique', {'rubrique': 'LifeStyle'}) }}">Life Style</a></li>
+				<li><a href="{{ path('nsp_interface_rubrique', {'rubrique': 'Culture'}) }}">Culture</a></li>
+				<li><a href="{{ path('nsp_interface_rubrique', {'rubrique': 'Evenement'}) }}">Evenement</a></li>
+			</ul>
+		</div>
+		<div id="mentions">
+			<ul>
+				<li><a href="">A Propos</a></li>
+				<li><a href="">Mentions Légales</a></li>
+				<li><a href="">Nous contacter</a></li>
+			</ul>
+		</div>
+	</div>
+
+  </body>
+</html>
+
+
