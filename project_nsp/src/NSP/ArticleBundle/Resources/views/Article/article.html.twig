@@ -28,15 +28,20 @@
 	</div>
 
 	<div class="column-left ">
+		{% if infosArticle[0].theme.nom == 'theme3' %}
+			<img src="{{ asset('uploads/time-journee.jpg') }}" alt="">
+		{% endif %}
 		<p>
 			{{ infosArticle[0].texte_first }}
 		</p>
 	</div>
-	<div class="column-right">
-		<img src="{{ asset('uploads/time-journee.jpg') }}" alt="">
-		<img src="{{ asset('uploads/time-journee.jpg') }}" alt="">
-		<img src="{{ asset('uploads/time-journee.jpg') }}" alt="">
-	</div>
+	{% if infosArticle[0].theme.nom == 'theme2' %}
+		<div class="column-right">
+			<img src="{{ asset('uploads/time-journee.jpg') }}" alt="">
+			<img src="{{ asset('uploads/time-journee.jpg') }}" alt="">
+			<img src="{{ asset('uploads/time-journee.jpg') }}" alt="">
+		</div>
+	{% endif %}
 
 
 
