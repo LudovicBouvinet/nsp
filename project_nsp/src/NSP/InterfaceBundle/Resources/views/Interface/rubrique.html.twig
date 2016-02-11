@@ -24,7 +24,7 @@
         
 		<div class="articlesRubrique" >
             <a href="{{ path('nsp_article_article', {'titreArticle': article.titre}) }}">
-			<div ><p class="desc"><span>{{ article.titre }}</span><span> par Melina</span><br>{{ article.texte }}</p></div>
+			<div ><p class="desc"><span>{{ article.titre }}</span><span>{{ article.utilisateur.pseudo }}</span><br>{{ article.chapeau }}</p></div>
 			<img src =	{{ asset("uploads/" ~ article.photos[0].fichier ~ "." ~ article.photos[0].format ~ "") }} >
             </a>
 		</div>
