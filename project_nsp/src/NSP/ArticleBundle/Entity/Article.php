@@ -31,9 +31,23 @@ class Article
     /**
      * @var string
      *
-     * @ORM\Column(name="texte", type="string", length=255)
+     * @ORM\Column(name="texte_first", type="text")
      */
-    private $texte;
+    private $texte_first;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="texte_second", type="text")
+     */
+    private $texte_second;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="chapeau", type="text")
+     */
+    private $chapeau;
 
     /**
      * @var \DateTime
@@ -92,28 +106,77 @@ class Article
     }
 
     /**
-     * Set texte
+     * Set texte_first
      *
-     * @param string $texte
+     * @param string $texte_first
      *
      * @return Article
      */
-    public function setTexte($texte)
+    public function setTexte_first($texte_first)
     {
-        $this->texte = $texte;
+        $this->texte_first = $texte_first;
 
         return $this;
     }
 
     /**
-     * Get texte
+     * Get texte_first
      *
      * @return string
      */
-    public function getTexte()
+    public function getTexte_first()
     {
-        return $this->texte;
+        return $this->texte_first;
     }
+
+    /**
+     * Set chapeau
+     *
+     * @param string $chapeau
+     *
+     * @return Article
+     */
+    public function setChapeau($chapeau)
+    {
+        $this->chapeau = $chapeau;
+
+        return $this;
+    }
+
+    /**
+     * Get chapeau
+     *
+     * @return string
+     */
+    public function getChapeau()
+    {
+        return $this->chapeau;
+    }
+
+    /**
+     * Set texte_second
+     *
+     * @param string $texte_second
+     *
+     * @return Article
+     */
+    public function setTexte_second($texte_second)
+    {
+        $this->texte_second = $texte_second;
+
+        return $this;
+    }
+
+    /**
+     * Get texte_second
+     *
+     * @return string
+     */
+    public function getTexte_second()
+    {
+        return $this->texte_second;
+    }
+
 
     /**
      * Set datePublication
