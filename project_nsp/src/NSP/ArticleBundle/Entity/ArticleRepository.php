@@ -62,6 +62,38 @@ class ArticleRepository extends \Doctrine\ORM\EntityRepository
 	    ->getResult()
 	  ;
 	}
+
+	public function findByName($nameArticle)
+	{
+	  $qb = $this->createQueryBuilder('a');
+
+	  $qb
+	    ->where('a.titre = :titre')
+	    ->setParameter('titre', $nameArticle)
+	  ;
+
+	  return $qb
+	    ->getQuery()
+	    ->getResult()
+	  ;
+	}
+
+	public function findTheme($nameArticle)
+	{
+	  $qb = $this->createQueryBuilder('a');
+
+	  $qb
+	    ->where('a.titre = :titre')
+	    ->setParameter('titre', $nameArticle)
+	    ->leftJoin('a.theme', 't')
+	    ->addSelect('t')
+	  ;
+
+	  return $qb
+	    ->getQuery()
+	    ->getResult()
+	  ;
+	}
     
     
 }

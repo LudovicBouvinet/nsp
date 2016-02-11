@@ -46,10 +46,16 @@ class ArticleController extends Controller
         ->getManager()
       ;
 
+      // $article = $em
+      // 	->getRepository('NSPArticleBundle:Article')
+      // 	->find($titre)
+      // ;
+
       $infosArticle = $em
         ->getRepository('NSPArticleBundle:Article')
-        ->findTitre($titreArticle)
+        ->findByName($titreArticle)
       ;
+
 
       return $this->render('NSPArticleBundle:Article:article.html.twig', array(
         'infosArticle' => $infosArticle
