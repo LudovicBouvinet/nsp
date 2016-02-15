@@ -5,7 +5,8 @@
 
 {% block body %}
 
-    <section class="presentation-rubrique">
+<section class="presentation-rubrique">
+    <img src="{{ asset('ressources/'~infosRubrique[0].nom~'.jpg') }}" alt="">
 	<div id="nom"> {{ infosRubrique[0].nom}}</div>
 	<div id="presentation"> {{ infosRubrique[0].presentation}}</div>	
 </section>
