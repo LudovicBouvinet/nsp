@@ -1,85 +1,87 @@
-{% extends "NSPArticleBundle::layout.html.twig" %}
-
-{% block title %}{{ parent() }} - {{ infosArticle[0].titre }} {% endblock %}
-
-{% block css %}
+{% extends "NSPArticleBundle::layout.html.twig" %} {% block title %}{{ parent() }} - {{ infosArticle[0].titre }} {% endblock %} {% block css %}
 <link rel="stylesheet" href="{{ asset('bundles/nsparticle/css/article.css') }}">
-<link rel="stylesheet" href="{{ asset('bundles/nsparticle/css/'~infosArticle[0].theme.nom~'.css') }}">
-{% endblock %}
-
-{% block body %}
+<link rel="stylesheet" href="{{ asset('bundles/nsparticle/css/'~infosArticle[0].theme.nom~'.css') }}"> {% endblock %} {% block body %}
 
 <section class="article-global-content">
 
-<div class="titre-article"><h1 >{{ infosArticle[0].titre }}</h1></div>
+    <div class="titre-article">
+        <h1>{{ infosArticle[0].titre }}</h1></div>
 
-<div class="article-content">
-	<div class="header-article">
-		<div class="infosAuteur">
-			<div class="infosAuteur-content">
-				<div class="auteur">Ludovic Bouvinet</div>
-				<div class="photoAuteur"><img src="{{ asset('uploads/photo-ludo.png') }}" alt=""></div>
-				<div class="gradeAuteur">Rédacteur en chef</div>
-			</div>
-		</div>
-		<div class="chapeau">
-			<p>{{ infosArticle[0].chapeau }}</p>
-		</div>
-	</div>
+    <div class="article-content">
+        <div class="header-article">
+            <div class="infosAuteur">
+                <div class="infosAuteur-content">
+                    <div class="auteur">Ludovic Bouvinet</div>
+                    <div class="photoAuteur"><img src="{{ asset('uploads/photo-ludo.png') }}" alt=""></div>
+                    <div class="gradeAuteur">Rédacteur en chef</div>
+                </div>
+            </div>
+            <div class="chapeau">
+                <p>{{ infosArticle[0].chapeau }}</p>
+            </div>
+        </div>
+            {%  set i = 0 %}
 
-	<div class="column-left ">
-
-		
-
-		{% if infosArticle[0].theme.nom == 'theme1' %}
-			<img src="{{ asset('uploads/time-journee.jpg') }}" alt="">
-			<img src="{{ asset('uploads/time-journee.jpg') }}" alt="">
-		{% endif %}
-
-		{% if infosArticle[0].theme.nom == 'theme3' %}
-			<img src="{{ asset('uploads/time-journee.jpg') }}" alt="">
-		{% endif %}
-
-		{% if infosArticle[0].theme.nom == 'theme4' %}
-			<img src="{{ asset('uploads/time-journee.jpg') }}" alt="">
-		{% endif %}
-
-		<p>
-			{{ infosArticle[0].texte_first }}
-		</p>
-
-		{% if infosArticle[0].theme.nom == 'theme4' %}
-			<img src="{{ asset('uploads/time-journee.jpg') }}" alt="">
-			<img src="{{ asset('uploads/time-journee.jpg') }}" alt="">
-		{% endif %}
-
-		{% if infosArticle[0].theme.nom == 'theme5' %}
-			<img src="{{ asset('uploads/time-journee.jpg') }}" alt="">
-			<img src="{{ asset('uploads/time-journee.jpg') }}" alt="">
-		{% endif %}
-		
-		<p>
-			{% if infosArticle[0].texte_second is not null %}
-				{{ infosArticle[0].texte_second }}
-			{% endif %}
-		</p>
-
-		{% if infosArticle[0].theme.nom == 'theme5' %}
-			<img src="{{ asset('uploads/time-journee.jpg') }}" alt="">
-		{% endif %}
-
-	</div>
-	{% if infosArticle[0].theme.nom == 'theme2' %}
-		<div class="column-right">
-			<img src="{{ asset('uploads/time-journee.jpg') }}" alt="">
-			<img src="{{ asset('uploads/time-journee.jpg') }}" alt="">
-			<img src="{{ asset('uploads/time-journee.jpg') }}" alt="">
-		</div>
-	{% endif %}
+        <div class="column-left ">
 
 
 
-</div>
+            {% if infosArticle[0].theme.nom == 'theme1' %}
+            <img src="{{ asset('uploads/time-journee.jpg') }}" alt="">
+            <img src="{{ asset('uploads/time-journee.jpg') }}" alt=""> {% endif %} {% if infosArticle[0].theme.nom == 'theme3' %}
+            <img src="{{ asset('uploads/time-journee.jpg') }}" alt=""> {% endif %} {% if infosArticle[0].theme.nom == 'theme4' %}
+            <img src="{{ asset('uploads/time-journee.jpg') }}" alt=""> {% endif %} 
+            
+            
+            
+            
+            {% if infosArticle[0].theme.nom == 'theme6' %}
+            
+            
+            <div class="mosaique">
+        {% for photo in infosArticle[0].photos if i in 0..5 %}
+        <div><img src="{{ asset('uploads/'~photo.fichier~'.'~photo.format) }}" alt=""></div> 
+                    {%  set i = i +1 %}  
+        {% endfor %}
+            </div>
+            {% endif %}
+
+            <p>
+                {{ infosArticle[0].texte_first }}
+            </p>
+
+            {% if infosArticle[0].theme.nom == 'theme4' %}
+            
+            {% for photo in infosArticle[0].photos if i in 0..1 %}<img src="{{ asset('uploads/'~photo.fichier~'.'~photo.format) }}" alt="">
+                    {%  set i = i +1 %}  
+        {% endfor %}
+{% endif %}
+           
+            
+             
+               {% if infosArticle[0].theme.nom == 'theme5' %}
+            <img src="{{ asset('uploads/time-journee.jpg') }}" alt="">
+            <img src="{{ asset('uploads/time-journee.jpg') }}" alt=""> {% endif %}
+
+            <p>
+                {% if infosArticle[0].texte_second is not null %} {{ infosArticle[0].texte_second }} {% endif %}
+            </p>
+
+            {% if infosArticle[0].theme.nom == 'theme5' %}
+            <img src="{{ asset('uploads/time-journee.jpg') }}" alt=""> {% endif %}
+
+        </div>
+        {% if infosArticle[0].theme.nom == 'theme2' %}
+        <div class="column-right">
+            <img src="{{ asset('uploads/time-journee.jpg') }}" alt="">
+            <img src="{{ asset('uploads/time-journee.jpg') }}" alt="">
+            <img src="{{ asset('uploads/time-journee.jpg') }}" alt="">
+        </div>
+        {% endif %}
+
+
+
+    </div>
 
 </section>
 {% endblock %}
