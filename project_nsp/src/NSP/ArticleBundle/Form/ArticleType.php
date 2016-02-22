@@ -4,10 +4,13 @@ namespace NSP\ArticleBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\DataTransformerInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
 use NSP\ArticleBundle\Entity\ArticleRepository;
+use Symfony\Component\Validator\Constraints\Date;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class ArticleType extends AbstractType
 {
@@ -18,14 +21,21 @@ class ArticleType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('date',      'datetime')
-            ->add('title',     'text')
-            ->add('content',   'textarea')
-            // ajouter un champs form (formulaire imbriqué) :
-            ->add('image',      new ImageType())
+            ->add('titre',      'text')
+            ->add('chapeau',     'textarea')
+            ->add('texte_first',   'textarea')
+            ->add('texte_second',   'textarea')
+            ->add('photos',new PhotoType())
+        
+        
+        
+        // ajouter un champs form (formulaire imbriqué) :
+            //->add('image',      new ImageType())
             // ajouter un champ entité :
             ->add('save',      'submit')
         ;
+        
+        
 
 
         // On ajoute une fonction qui va écouter un évènement
@@ -55,21 +65,21 @@ class ArticleType extends AbstractType
 
 
     
-    // /**
-    //  * @param OptionsResolverInterface $resolver
-    //  */
-    // public function setDefaultOptions(OptionsResolverInterface $resolver)
-    // {
-    //     $resolver->setDefaults(array(
-    //         'data_class' => 'NSP\PlatformBundle\Entity\Advert'
-    //     ));
-    // }
+     /**
+      * @param OptionsResolverInterface $resolver
+      */
+     public function setDefaultOptions(OptionsResolverInterface $resolver)
+     {
+         $resolver->setDefaults(array(
+             'data_class' => 'NSP\ArticleBundle\Entity\Article'
+         ));
+     }
 
-    // /**
-    //  * @return string
-    //  */
-    // public function getName()
-    // {
-    //     return 'nsp_platformbundle_advert';
-    // }
+     /**
+      * @return string
+      */
+     public function getName()
+     {
+         return 'nsp_article_article';
+     }
 }

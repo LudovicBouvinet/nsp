@@ -3,7 +3,7 @@
 namespace NSP\ArticleBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 /**
  * Article
  *
@@ -69,7 +69,10 @@ class Article
      * @ORM\Column(name="publier", type="boolean")
      */
     private $publier;
+    
 
+
+    
 
     /**
      * Get id
@@ -105,29 +108,7 @@ class Article
         return $this->titre;
     }
 
-    /**
-     * Set texte_first
-     *
-     * @param string $texte_first
-     *
-     * @return Article
-     */
-    public function setTexte_first($texte_first)
-    {
-        $this->texte_first = $texte_first;
-
-        return $this;
-    }
-
-    /**
-     * Get texte_first
-     *
-     * @return string
-     */
-    public function getTexte_first()
-    {
-        return $this->texte_first;
-    }
+    
 
     /**
      * Set chapeau
@@ -152,15 +133,39 @@ class Article
     {
         return $this->chapeau;
     }
+    
+      /**
+     * Set texte_first
+     *
+     * @param string $texte_first
+     *
+     * @return Article
+     */
+    public function setTextefirst($texte_first)
+    {
+        $this->texte_first = $texte_first;
+
+        return $this;
+    }
 
     /**
+     * Get texte_first
+     *
+     * @return string
+     */
+    public function getTextefirst()
+    {
+        return $this->texte_first;
+    }
+    
+          /**
      * Set texte_second
      *
      * @param string $texte_second
      *
      * @return Article
      */
-    public function setTexte_second($texte_second)
+    public function setTextesecond($texte_second)
     {
         $this->texte_second = $texte_second;
 
@@ -172,11 +177,12 @@ class Article
      *
      * @return string
      */
-    public function getTexte_second()
+    public function getTextesecond()
     {
         return $this->texte_second;
     }
 
+    
 
     /**
      * Set datePublication
@@ -268,10 +274,12 @@ class Article
      */
     public function __construct()
     {
-        $this->photos = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->photos = new \UploadedFile();
         $this->commentaire = new \Doctrine\Common\Collections\ArrayCollection();
         $this->utilisateursNoteurs = new \Doctrine\Common\Collections\ArrayCollection();
         $this->datePublication = new \Datetime();
+        $this -> choixRedaction = false;
+        $this -> publier = false;
     }
 
     /**
