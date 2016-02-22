@@ -21,20 +21,6 @@ class ArticleController extends Controller
 	
 	public function addAction(Request $request)
 	{
-	    // Création de l'entité
-	    $article = new Article();
-	    $article->setTitre("Dernier ");
-	    $article->setTexte("Nous recherchons un développeur Symfony2 débutant sur Lyon. Blabla…");
-	    $article->setChoixRedaction(false);
-
-	    // On récupère l'EntityManager
-	    $em = $this->getDoctrine()->getManager();
-
-	    // Étape 1 : On « persiste » l'entité
-	    $em->persist($article);
-
-	    // Étape 2 : On « flush » tout ce qui a été persisté avant
-	    $em->flush();
 
 	    return $this->render('NSPArticleBundle:Article:add.html.twig');
 	}

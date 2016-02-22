@@ -1,5 +1,5 @@
 nsp_article_add:
-    path:     /ajout
+    path:     /ajoutArticle
     defaults: { _controller: NSPArticleBundle:Article:add }
 
 nsp_article_article:
