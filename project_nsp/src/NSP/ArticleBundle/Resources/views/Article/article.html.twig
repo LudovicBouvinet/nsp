@@ -6,6 +6,8 @@
 
     <div class="titre-article">
         <h1>{{ infosArticle[0].titre }}</h1></div>
+        
+    <div class="t"></div>
 
     <div class="article-content">
         <div class="header-article">
@@ -28,9 +30,11 @@
 
             {% if infosArticle[0].theme.nom == 'theme1' %}
             <img src="{{ asset('uploads/time-journee.jpg') }}" alt="">
-            <img src="{{ asset('uploads/time-journee.jpg') }}" alt=""> {% endif %} {% if infosArticle[0].theme.nom == 'theme3' %}
-            <img src="{{ asset('uploads/time-journee.jpg') }}" alt=""> {% endif %} {% if infosArticle[0].theme.nom == 'theme4' %}
             <img src="{{ asset('uploads/time-journee.jpg') }}" alt=""> {% endif %} 
+            {% if infosArticle[0].theme.nom == 'theme3' %}
+            <img src="{{ asset('uploads/time-journee.jpg') }}" alt=""> {% endif %} 
+            {% if infosArticle[0].theme.nom == 'theme4' %}
+            <div class="theme4"><div><img src="{{ asset('uploads/time-journee.jpg') }}" alt=""></div></div> {% endif %} 
             
             
             
@@ -38,9 +42,11 @@
             {% if infosArticle[0].theme.nom == 'theme6' %}
             
             
-            <div class="mosaique">
-        {% for photo in infosArticle[0].photos if i in 0..5 %}
-        <div><img src="{{ asset('uploads/'~photo.fichier~'.'~photo.format) }}" alt=""></div> 
+        <div class="mosaique">
+                    {% for photo in infosArticle[0].photos if i in 0..5 %}
+        <div>
+        <img src="{{ asset('uploads/'~photo.fichier~'.'~photo.format) }}" alt="">
+        </div> 
                     {%  set i = i +1 %}  
         {% endfor %}
             </div>
@@ -51,24 +57,29 @@
             </p>
 
             {% if infosArticle[0].theme.nom == 'theme4' %}
-            
-            {% for photo in infosArticle[0].photos if i in 0..1 %}<img src="{{ asset('uploads/'~photo.fichier~'.'~photo.format) }}" alt="">
+            <div class="theme4">
+                {% for photo in infosArticle[0].photos if i in 0..1 %}<div><img src="{{ asset('uploads/'~photo.fichier~'.'~photo.format) }}" alt=""></div>
                     {%  set i = i +1 %}  
         {% endfor %}
+        </div>
 {% endif %}
            
             
              
                {% if infosArticle[0].theme.nom == 'theme5' %}
-            <img src="{{ asset('uploads/time-journee.jpg') }}" alt="">
-            <img src="{{ asset('uploads/time-journee.jpg') }}" alt=""> {% endif %}
+               <div class="theme5a">
+            <div><img src="{{ asset('uploads/time-journee.jpg') }}" alt=""></div>
+            <div><img src="{{ asset('uploads/time-journee.jpg') }}" alt=""> </div>
+            </div>{% endif %}
 
             <p>
                 {% if infosArticle[0].texte_second is not null %} {{ infosArticle[0].texte_second }} {% endif %}
             </p>
 
             {% if infosArticle[0].theme.nom == 'theme5' %}
-            <img src="{{ asset('uploads/time-journee.jpg') }}" alt=""> {% endif %}
+            <div class="theme5b">
+            <div><img src="{{ asset('uploads/time-journee.jpg') }}" alt=""> </div>
+            </div>{% endif %}
 
         </div>
         {% if infosArticle[0].theme.nom == 'theme2' %}
@@ -84,4 +95,56 @@
     </div>
 
 </section>
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
+<script type="text/javascript">
+    
+    function redimensionnement(nbr, categorie) {
+
+        for (var i = 1; i <= nbr; i++) {
+            $('.' + categorie + ' > div:nth-of-type(' + i + ') > img').css('width', 'inherit').css('height', 'auto');  
+            
+            var largeur = $('.' + categorie + ' > div:nth-of-type(' + i + ')').width();
+            var hauteur = $('.' + categorie + ' > div:nth-of-type(' + i + ')').height();
+            var largeurImg = $('.' + categorie + ' > div:nth-of-type(' + i + ') > img').width();
+            var hauteurImg = $('.' + categorie + ' > div:nth-of-type(' + i + ') > img').height();
+            
+            if (largeur / largeurImg > hauteur / hauteurImg) {
+                $('.' + categorie + ' > div:nth-of-type(' + i + ') > img').css('width', '100%').css('height', 'auto');  
+                var hauteurImg = $('.' + categorie + ' > div:nth-of-type(' + i + ') > img').height();
+                $('.' + categorie + ' > div:nth-of-type(' + i + ') > img').css('top', '-'+((hauteurImg/2)-(hauteur/2))+"px");
+                
+            } else if (hauteur / hauteurImg > largeur / largeurImg) {
+                $('.' + categorie + ' > div:nth-of-type(' + i + ') > img').css('height', '100%').css('width', 'auto');
+                var largeurImg = $('.' + categorie + ' > div:nth-of-type(' + i + ') > img').width();
+                $('.' + categorie + ' > div:nth-of-type(' + i + ') > img').css('left', '-'+((largeurImg/2)-(largeur/2))+"px");
+                
+            } else if (hauteur / hauteurImg === largeur / largeurImg) {
+                $('.' + categorie + ' > div:nth-of-type(' + i + ') > img').css('height', '100%');
+                $('.' + categorie + ' > div:nth-of-type(' + i + ') > img').css('width', '100%');
+            }
+        }
+    }
+
+
+    $(document).ready(function () {
+    
+        if("{{infosArticle[0].theme.nom}}" == "theme6"){
+            redimensionnement(6, "mosaique");}
+        
+        if("{{infosArticle[0].theme.nom}}" != "theme6"){
+           redimensionnement(2, "{{infosArticle[0].theme.nom}}a");
+                   redimensionnement(1, "{{infosArticle[0].theme.nom}}b");}
+        
+        
+        $( window ).resize(function() {
+        if("{{infosArticle[0].theme.nom}}" == "theme6"){
+            redimensionnement(6, "mosaique");}
+        
+        if("{{infosArticle[0].theme.nom}}" != "theme6"){
+           redimensionnement(2, "{{infosArticle[0].theme.nom}}");         }
+        });
+    });
+</script>
 {% endblock %}
