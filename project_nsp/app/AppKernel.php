@@ -19,6 +19,7 @@ class AppKernel extends Kernel
             new AppBundle\AppBundle(),
             new NSP\ArticleBundle\NSPArticleBundle(),
             new NSP\InterfaceBundle\NSPInterfaceBundle(),
+            new NSP\BackBundle\NSPBackBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'), true)) {

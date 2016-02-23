@@ -1,0 +1,15 @@
+nsp_back_homepage:
+    path:     /back
+    defaults: { _controller: NSPBackBundle:Back:viewHomeBack }
+
+nsp_back_moderation:
+    path:     /back/moderation
+    defaults: { _controller: NSPBackBundle:Back:viewModerationBack }
+
+nsp_back_administration:
+    path:     /back/administration
+    defaults: { _controller: NSPBackBundle:Back:viewAdministrationBack }
+
+nsp_back_statistiques:
+    path:     /back/statistiques
+    defaults: { _controller: NSPBackBundle:Back:viewStatistiquesBack }

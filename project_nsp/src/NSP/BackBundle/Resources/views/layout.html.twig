@@ -1,0 +1,37 @@
+<!doctype html>
+<html class="no-js" lang="fr">  
+<head>  
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="Back Off Modérateur Aujour'nal" />
+    <title>{% block title %} Back office {% endblock %}</title>
+    <link rel="stylesheet" href="{{ asset('bundles/nspback/css/styles.css') }}"> 
+
+</head> 
+<body>
+
+	{% block bodyTitre %} {% endblock %}
+	{% block baniereRecherche %} {% endblock %}
+	<div id ="menu">
+
+        <div class="perso">
+            <div class="photo"></div>  
+                <div class="profil"> 
+                    <h1 class="nom">Bouvinet Ludovic</h1>
+                    <h2 class="grade">Rédacteur en Chef</h2>    
+                </div>  
+            <h3 class="return"><a href="{{ path('nsp_interface_homepage') }}" class="returna">Retour au site</a></h3>
+        </div>
+
+	    <ul class="backlien">
+
+	        <li class="lienli"><a href="{{ path('nsp_back_homepage') }}" class="liena">Home</a></li>
+	        <li class="lienli"><a href="{{ path('nsp_back_moderation') }}" class="liena">Modération</a></li>
+	        <li class="lienli"><a href="{{ path('nsp_back_administration') }}" class="liena">Administration</a></li>
+	        <li class="lienli"><a href="{{ path('nsp_back_statistiques') }}" class="liena">Statistiques</a></li>
+	        <li class="lienli"><a href="" class="liena">Déconnexion</a></li>
+
+	    </ul>    
+	</div>
+	{% block bodyContent %} {% endblock %}
+</body>
