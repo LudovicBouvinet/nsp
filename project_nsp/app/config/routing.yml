@@ -9,3 +9,4 @@ nsp_article:
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
+

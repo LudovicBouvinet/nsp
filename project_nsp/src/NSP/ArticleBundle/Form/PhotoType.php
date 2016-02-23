@@ -17,19 +17,18 @@ class PhotoType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder
-            ->add('photo', 'file')
-        ;
+    
     }
+
     
     /**
      * @param OptionsResolverInterface $resolver
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
-//        $resolver->setDefaults(array(
-//            'data_class' => 'NSP\ArticleBundle\Entity\Photo'
-//        ));
+       $resolver->setDefaults(array(
+        'data_class' => 'NSP\ArticleBundle\Entity\Photo'
+      ));
     }
 
     /**
@@ -37,6 +36,6 @@ class PhotoType extends AbstractType
      */
     public function getName()
     {
-        return 'nsp_article_photo';
+        return 'nsp_articlebundle_photo';
     }
 }

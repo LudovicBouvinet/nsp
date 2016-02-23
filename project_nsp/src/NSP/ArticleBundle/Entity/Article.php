@@ -31,16 +31,16 @@ class Article
     /**
      * @var string
      *
-     * @ORM\Column(name="texte_first", type="text")
+     * @ORM\Column(name="texteFirst", type="text")
      */
-    private $texte_first;
+    private $texteFirst;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="texte_second", type="text")
+     * @ORM\Column(name="texteSecond", type="text")
      */
-    private $texte_second;
+    private $texteSecond;
 
     /**
      * @var string
@@ -135,51 +135,51 @@ class Article
     }
     
       /**
-     * Set texte_first
+     * Set texteFirst
      *
-     * @param string $texte_first
+     * @param string $texteFirst
      *
      * @return Article
      */
-    public function setTextefirst($texte_first)
+    public function setTexteFirst($texteFirst)
     {
-        $this->texte_first = $texte_first;
+        $this->texteFirst = $texteFirst;
 
         return $this;
     }
 
     /**
-     * Get texte_first
+     * Get texteFirst
      *
      * @return string
      */
-    public function getTextefirst()
+    public function getTexteFirst()
     {
-        return $this->texte_first;
+        return $this->texteFirst;
     }
     
           /**
-     * Set texte_second
+     * Set texteSecond
      *
-     * @param string $texte_second
+     * @param string $texteSecond
      *
      * @return Article
      */
-    public function setTextesecond($texte_second)
+    public function setTexteSecond($texteSecond)
     {
-        $this->texte_second = $texte_second;
+        $this->texteSecond = $texteSecond;
 
         return $this;
     }
 
     /**
-     * Get texte_second
+     * Get texteSecond
      *
      * @return string
      */
-    public function getTextesecond()
+    public function getTexteSecond()
     {
-        return $this->texte_second;
+        return $this->texteSecond;
     }
 
     
@@ -255,7 +255,7 @@ class Article
   private $modo;
     
    /**
-   * @ORM\OneToMany(targetEntity="NSP\ArticleBundle\Entity\Photo", mappedBy="article")
+   * @ORM\OneToMany(targetEntity="NSP\ArticleBundle\Entity\Photo", mappedBy="article", cascade={"persist"})
    */
   private $photos; 
     
@@ -274,7 +274,7 @@ class Article
      */
     public function __construct()
     {
-        $this->photos = new \UploadedFile();
+        $this->photos = new \Doctrine\Common\Collections\ArrayCollection();
         $this->commentaire = new \Doctrine\Common\Collections\ArrayCollection();
         $this->utilisateursNoteurs = new \Doctrine\Common\Collections\ArrayCollection();
         $this->datePublication = new \Datetime();
