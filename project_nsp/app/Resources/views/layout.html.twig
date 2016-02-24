@@ -25,7 +25,7 @@
 
 	<div class="bar">
 	    <a href="javascript:;" class="menu_btn"> </a>
-	    <div class="logo">NSP</div>
+	    <div class="logo_mob">NSP</div>
 	    <div class="navmob">  
 	        <div class="connexion"> 
 	        	<div class="texteco">Connexion</div>
@@ -60,14 +60,13 @@
 
     {% endblock %}
 
-
 	<div class="background">
 		<div id="res_sociaux">
-			<a href=""><img src="{{ asset('ressources/twitter.png') }}" alt="" id="twit"></a>
-			<a href=""><img src="{{ asset('ressources/facebook.png') }}" alt="" id="fb"></a>
+			<a href="http://twitter.com/aujour_nal"><img src="{{ asset('ressources/twitter.png') }}" alt="" id="twit"></a>
+			<a href="http://www.facebook.com/aujournalupem"><img src="{{ asset('ressources/facebook.png') }}" alt="" id="fb"></a>
 			<img src="{{ asset('ressources/animal.png') }}" alt="">
 			<a href=""><img src="{{ asset('ressources/linkedin.png') }}" alt="" id="link"></a>
-			<a href=""><img src="{{ asset('ressources/youtube.png') }}" alt="" id="you"></a>
+			<a href="http://www.youtube.com/channel/UCLNnD3obwgu91iyORFKPNZw"><img src="{{ asset('ressources/youtube.png') }}" alt="" id="you"></a>
 		</div>
 		<div id="plan_site">
 			<ul>
@@ -83,13 +82,24 @@
 			<ul>
 				<li><a href="">A Propos</a></li>
 				<li><a href="">Mentions Légales</a></li>
-				<li><a href="">Nous contacter</a></li>
+				<li><a href="">Nous Contacter</a></li>
 			</ul>
 		</div>
 	</div>
+
+	<div class="background_mob">
+		<a href="">Nous Contacter</a>
+		<div class="reso">
+			<a href="http://twitter.com/aujour_nal"><img src="{{ asset('ressources/twitter.png') }}" alt=""></a>
+			<a href="http://www.facebook.com/aujournalupem"><img src="{{ asset('ressources/facebook.png') }}" alt=""></a>
+			<img src="{{ asset('ressources/animal.png') }}" alt="">
+			<a href=""><img src="{{ asset('ressources/linkedin.png') }}" alt=""></a>
+			<a href="http://www.youtube.com/channel/UCLNnD3obwgu91iyORFKPNZw"><img src="{{ asset('ressources/youtube.png') }}" alt=""></a>
+		</div>
+		<a href="">Mentions Légales</a>
+	</div>
+
   <script src="{{ asset('bundles/nspinterface/js/jquery.js') }}"></script>	
   <script src="{{ asset('bundles/nspinterface/js/menu.js') }}"></script>
   </body>
 </html>
-
-
