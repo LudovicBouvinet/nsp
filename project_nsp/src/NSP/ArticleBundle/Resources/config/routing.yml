@@ -1,6 +1,14 @@
-nsp_article_add:
-    path:     /ajout/
-    defaults: { _controller: NSPArticleBundle:Article:add }
+nsp_article_addNewArticle:
+    path:     /ajout
+    defaults: { _controller: NSPArticleBundle:Article:addNewArticle }
+
+nsp_article_addChampsArticle:
+    path:     /ajout/champs/{id}.{photo1}.{photo2}.{photo3}.{photo4}.{photo5}.{photo6}
+    defaults: { _controller: NSPArticleBundle:Article:addChampsArticle }
+
+nsp_article_addValidation:
+    path:     /validation/{id}
+    defaults: { _controller: NSPArticleBundle:Article:addValidation }
 
 nsp_article_article:
     path:     /{titreArticle}

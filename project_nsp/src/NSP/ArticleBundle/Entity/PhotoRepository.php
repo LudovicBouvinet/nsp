@@ -10,4 +10,23 @@ namespace NSP\ArticleBundle\Entity;
  */
 class PhotoRepository extends \Doctrine\ORM\EntityRepository
 {
+	public function update($infos)
+	{
+	  $qb = $this->createQueryBuilder('p');
+
+	  $qb
+	     ->update('NSP\ArticleBundle\Entity\Photo', 'p')
+	  	 ->set('p.fichier', '?1')
+	  	 ->set('p.format', '?2')
+         ->where('p.id = ?3' )
+         ->setParameter(1, $infos->getFichier())
+         ->setParameter(2, $infos->getFormat())
+         ->setParameter(3, $infos->getId())
+	  ;
+
+	  return $qb
+	    ->getQuery()
+	    ->execute()
+	  ;
+	}
 }

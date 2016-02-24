@@ -1,6 +1,7 @@
 {% extends "NSPArticleBundle::layout.html.twig" %} {% block title %}{{ parent() }} - Ajout Article {% endblock %} {% block css %}
     <link rel="stylesheet" href="{{ asset('bundles/nsparticle/css/ajoutArticle.css') }}"> 
 {% endblock %} 
+
 {% block body %}
 
 <div class="interface-ajout">
@@ -17,7 +18,13 @@
     </div>
 
     <div class="formulaire-ajout-article">
-      
+    {% if formArticle is defined %}
+        {{ form(formArticle) }}
+    {% endif %}
+
+      {% if test is defined %}
+        {{test}}
+      {% endif%}
     </div>
 
     <p class="id-article">
@@ -26,12 +33,53 @@
     <div class="choix-photos">
         <h1>Photos</h1>
         <div class="photo-choix-container">
-          
+            <div class="boite-photo">
+                
+            </div>
+            <div class="boite-photo">
+                
+            </div>
+            <div class="boite-photo">
+                
+            </div>
+            <div class="boite-photo">
+                
+            </div>
+            <div class="boite-photo">
+                
+            </div>
+            <div class="boite-photo">
+                
+            </div>
+        
+            {% if formPhoto is defined %}
+                {{ form(formPhoto) }}
+            {% endif %}
         </div>
     </div>
 
 </div>
 
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<script>
+    
+    $('.boite-photo').click(function() {
+        var fichier = prompt('rentrez votre fichier');
+        var format = prompt('rentrez votre format');
+        var id = prompt('rentrez votre id');
+
+        $('#nsp_articlebundle_photo_fichier').val(fichier);
+        $('#nsp_articlebundle_photo_format').val(format);
+        $('#nsp_articlebundle_photo_id').val(id);
+
+        $('#nsp_articlebundle_photo_save').click();
+
+    });
+
+
+
+</script>
 
 {% endblock %}
 

@@ -20,7 +20,11 @@ class ArticleType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-    
+        $builder
+            ->add('titre', 'text')
+            ->add('chapeau', 'text')
+            ->add('save', 'submit')
+        ;
        
     }
  
