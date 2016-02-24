@@ -3,20 +3,48 @@
   <head>
     <meta charset="utf-8">
     <title>{% block title %}NSP {% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ asset('bundles/nspinterface/css/footer.css') }}">
 	<link rel="stylesheet" href="{{ asset('bundles/nspinterface/css/header.css') }}">
 	{% block css %}{% endblock %}
   </head>
   <body>
 
+  	<div id="menu">  
+	    <a href="javascript:;" class="close"></a>
+	    <div class="tofprofil"></div>
+	    <ul>
+	        <li><a class="lienmob" href="{{ path('nsp_interface_homepage') }}">Home</a></li>
+	        <li><a class="lienmob" href="{{ path('nsp_interface_rubrique', {'rubrique': 'Campus'}) }}">Campus</a></li>
+			<li><a class="lienmob" href="{{ path('nsp_interface_rubrique', {'rubrique': 'BonPlan'}) }}">Bon Plan</a></li>
+			<li><a class="lienmob" href="{{ path('nsp_interface_rubrique', {'rubrique': 'LifeStyle'}) }}">Life Style</a></li>
+			<li><a class="lienmob" href="{{ path('nsp_interface_rubrique', {'rubrique': 'Culture'}) }}">Culture</a></li>
+	        <li><a class="lienmob" href="{{ path('nsp_interface_rubrique', {'rubrique': 'Evenement'}) }}">Evenement</a></li>
+	    </ul>
+	</div> 
+
+	<div class="bar">
+	    <a href="javascript:;" class="menu_btn"> </a>
+	    <div class="logo">NSP</div>
+	    <div class="navmob">  
+	        <div class="connexion"> 
+	        	<div class="texteco">Connexion</div>
+	        </div>
+	        <div class="inscription">
+	        	<div class="texteco">Inscription</div>
+	        </div>  
+	    </div>
+	</div>
+
   	<div id="header">
-		<img src="{{ asset('ressources/logo.jpg') }}" alt="Logo du site web" class="logo" height="100">
+		<img src="{{ asset('ressources/logo.jpg') }}" alt="Logo du site web" class="logo">
 		<div class="choice">
 			<div class="connexion"><p>Connexion</p></div>
 			<div class="inscription"><p>Inscription</p></div>
 			<img src="{{ asset('ressources/loupe.png') }}" alt="" class="toolbar">
 		</div>
 	</div>
+
 	<nav>
 		<ul>
 			<li><a href="{{ path('nsp_interface_homepage') }}">Home</a></li>
@@ -59,7 +87,8 @@
 			</ul>
 		</div>
 	</div>
-
+  <script src="{{ asset('bundles/nspinterface/js/jquery.js') }}"></script>	
+  <script src="{{ asset('bundles/nspinterface/js/menu.js') }}"></script>
   </body>
 </html>
 
