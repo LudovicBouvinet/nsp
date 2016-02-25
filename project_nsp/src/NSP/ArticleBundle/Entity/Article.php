@@ -69,8 +69,6 @@ class Article
      * @ORM\Column(name="publier", type="boolean")
      */
     private $publier;
-    
-
 
     
 

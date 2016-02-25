@@ -81,11 +81,33 @@ class ArticleController extends Controller
     if ($formPhoto->isSubmitted() && $formPhoto->isValid()) {
 
         $infos = $formPhoto->getData();
+        
+        $id = $infos->getId();
+        $file = $infos->getFile();
+        $format = $file->getClientOriginalExtension();
 
-        $em
-          ->getRepository('NSP\ArticleBundle\Entity\Photo')
-          ->update($infos)
-        ;
+        $ensemblePhotos = $article->getPhotos();
+
+        foreach ($ensemblePhotos as $key => $value) {
+
+          if ($ensemblePhotos[$key]->getId() == $id ){
+
+            $ensemblePhotos[$key]->setFile($file);
+            $ensemblePhotos[$key]->setFormat($format);
+            $ensemblePhotos[$key]->setFichier($id);
+            $ensemblePhotos[$key]->upload();
+
+          }
+
+          $em->persist($ensemblePhotos[$key]);
+          $em->flush($ensemblePhotos[$key]);
+          
+        }
+
+        // $em
+        //   ->getRepository('NSP\ArticleBundle\Entity\Photo')
+        //   ->update($infos)
+        // ;
 
     }
          

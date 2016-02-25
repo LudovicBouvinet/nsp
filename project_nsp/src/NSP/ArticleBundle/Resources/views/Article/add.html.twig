@@ -30,22 +30,34 @@
         <h1>Photos</h1>
         <div class="photo-choix-container">
             <div class="boite-photo" data-id-photo="{{ article.photos[0].id }}" data-url="{{ article.photos[0].fichier }}">
-                
+                {% if article.photos[0].format != 'n/a' %}
+                    <img src="{{ asset(article.photos[0].webPath) }}"/>
+                {% endif %}
             </div>
             <div class="boite-photo" data-id-photo="{{ article.photos[1].id }}" data-url="{{ article.photos[1].fichier }}">
-                
+                {% if article.photos[1].format != 'n/a' %}
+                    <img src="{{ asset(article.photos[1].webPath) }}"/>
+                {% endif %}
             </div>
             <div class="boite-photo" data-id-photo="{{ article.photos[2].id }}" data-url="{{ article.photos[2].fichier }}">
-                
+                {% if article.photos[2].format != 'n/a' %}
+                    <img src="{{ asset(article.photos[2].webPath) }}"/>
+                {% endif %}
             </div>
             <div class="boite-photo" data-id-photo="{{ article.photos[3].id }}" data-url="{{ article.photos[3].fichier }}">
-                
+                {% if article.photos[3].format != 'n/a' %}
+                    <img src="{{ asset(article.photos[3].webPath) }}"/>
+                {% endif %}
             </div>
             <div class="boite-photo" data-id-photo="{{ article.photos[4].id }}" data-url="{{ article.photos[4].fichier }}">
-                
+                {% if article.photos[4].format != 'n/a' %}
+                    <img src="{{ asset(article.photos[4].webPath) }}"/>
+                {% endif %}
             </div>
             <div class="boite-photo" data-id-photo="{{ article.photos[5].id }}" data-url="{{ article.photos[5].fichier }}">
-                
+                {% if article.photos[5].format != 'n/a' %}
+                    <img src="{{ asset(article.photos[5].webPath) }}"/>
+                {% endif %}
             </div>
         
             {% if formPhoto is defined %}
@@ -80,18 +92,28 @@
 
     $('.boite-photo').click(function() {
         
-        var fichier = prompt('rentrez votre fichier');
-        var format = prompt('rentrez votre format');
-        var id = $(this).data('id-photo');
+        var idN = $(this).data('id-photo');
+        var idS = idN.toString();
 
-        $('#nsp_articlebundle_photo_fichier').val(fichier);
-        $('#nsp_articlebundle_photo_format').val(format);
-        $('#nsp_articlebundle_photo_id').val(id);
+        $('#nsp_articlebundle_photo_id').val(''+ idS+'');
 
-        $('#nsp_articlebundle_photo_save').click();
+        $('#nsp_articlebundle_photo_file').click();
+
+        verify();
 
     });
 
+    function verify() {
+
+        if ($('#nsp_articlebundle_photo_file').get(0).files.length != 0) {
+            
+            $('#nsp_articlebundle_photo_save').click();
+            $('#nsp_articlebundle_photo_file').val('');
+            $('#nsp_articlebundle_photo_id').val('');
+        }
+        window.requestAnimationFrame(verify);
+    }
+    
 
 
 </script>
