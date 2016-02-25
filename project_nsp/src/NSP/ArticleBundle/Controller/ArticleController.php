@@ -41,7 +41,7 @@ class ArticleController extends Controller
     for ($i=0; $i < 6; $i++) {
       $photo[$i] = new Photo();
       $photo[$i]->setArticle($article);
-      $photo[$i]->setFichier('hat');
+      $photo[$i]->setFichier('n/a');
       $photo[$i]->setFormat('n/a');
 
       $em->persist($photo[$i]);
@@ -50,18 +50,12 @@ class ArticleController extends Controller
     $em->flush();
 
     return $this->redirect($this->generateUrl('nsp_article_addChampsArticle', array(
-      'id' => $article->getId(), 
-      'photo1' => $photo[0]->getId(),
-      'photo2' => $photo[1]->getId(),
-      'photo3' => $photo[2]->getId(), 
-      'photo4' => $photo[3]->getId(), 
-      'photo5' => $photo[4]->getId(), 
-      'photo6' => $photo[5]->getId() 
+      'id' => $article->getId()
     )));
 
   }
 
-	public function addChampsArticleAction(Request $request, $id, $photo1, $photo2, $photo3, $photo4, $photo5, $photo6)
+	public function addChampsArticleAction(Request $request, $id)
 	{
 
     $em = $this->getDoctrine()-> getManager();
@@ -97,7 +91,8 @@ class ArticleController extends Controller
          
       return $this->render('NSPArticleBundle:Article:add.html.twig', array(
       'formArticle' => $formArticle->createView(),
-      'formPhoto' => $formPhoto->createView()
+      'formPhoto' => $formPhoto->createView(),
+      'article' => $article
     ));
 
 	}

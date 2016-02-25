@@ -3,7 +3,7 @@ nsp_article_addNewArticle:
     defaults: { _controller: NSPArticleBundle:Article:addNewArticle }
 
 nsp_article_addChampsArticle:
-    path:     /ajout/champs/{id}.{photo1}.{photo2}.{photo3}.{photo4}.{photo5}.{photo6}
+    path:     /ajout/champs/{id}
     defaults: { _controller: NSPArticleBundle:Article:addChampsArticle }
 
 nsp_article_addValidation:

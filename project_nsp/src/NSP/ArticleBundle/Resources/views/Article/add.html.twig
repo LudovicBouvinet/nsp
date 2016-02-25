@@ -21,10 +21,6 @@
     {% if formArticle is defined %}
         {{ form(formArticle) }}
     {% endif %}
-
-      {% if test is defined %}
-        {{test}}
-      {% endif%}
     </div>
 
     <p class="id-article">
@@ -33,22 +29,22 @@
     <div class="choix-photos">
         <h1>Photos</h1>
         <div class="photo-choix-container">
-            <div class="boite-photo">
+            <div class="boite-photo" data-id-photo="{{ article.photos[0].id }}" data-url="{{ article.photos[0].fichier }}">
                 
             </div>
-            <div class="boite-photo">
+            <div class="boite-photo" data-id-photo="{{ article.photos[1].id }}" data-url="{{ article.photos[1].fichier }}">
                 
             </div>
-            <div class="boite-photo">
+            <div class="boite-photo" data-id-photo="{{ article.photos[2].id }}" data-url="{{ article.photos[2].fichier }}">
                 
             </div>
-            <div class="boite-photo">
+            <div class="boite-photo" data-id-photo="{{ article.photos[3].id }}" data-url="{{ article.photos[3].fichier }}">
                 
             </div>
-            <div class="boite-photo">
+            <div class="boite-photo" data-id-photo="{{ article.photos[4].id }}" data-url="{{ article.photos[4].fichier }}">
                 
             </div>
-            <div class="boite-photo">
+            <div class="boite-photo" data-id-photo="{{ article.photos[5].id }}" data-url="{{ article.photos[5].fichier }}">
                 
             </div>
         
@@ -64,10 +60,29 @@
 
 <script>
     
+    var affiche = true;
+
+    for (var i = 1; i <= 6; i++) {
+
+        if ($('.boite-photo:nth-of-type('+i+')').data('url') != 'n/a' && affiche) {
+
+            $('.boite-photo:nth-of-type('+i+')').css('display', 'block');
+
+        };
+
+        if ($('.boite-photo:nth-of-type('+i+')').data('url') == 'n/a' && affiche) {
+
+            $('.boite-photo:nth-of-type('+i+')').css('display', 'block');
+            affiche = false;
+
+        };
+    }
+
     $('.boite-photo').click(function() {
+        
         var fichier = prompt('rentrez votre fichier');
         var format = prompt('rentrez votre format');
-        var id = prompt('rentrez votre id');
+        var id = $(this).data('id-photo');
 
         $('#nsp_articlebundle_photo_fichier').val(fichier);
         $('#nsp_articlebundle_photo_format').val(format);
