@@ -142,6 +142,13 @@
           </div>
         </div>
 
+        <div class="">
+          <div class="">
+            {# Génération de l'input. #}
+            {{ form_widget(formArticle.rubrique, {'attr': {'class': 'form-rubrique'}}) }}
+          </div>
+        </div>
+
         {{ form_widget(formArticle.save, {'attr': {'class': 'save-button'}}) }}
 
         {{ form_end(formArticle) }}

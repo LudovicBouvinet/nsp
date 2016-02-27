@@ -30,6 +30,11 @@ class ArticleType extends AbstractType
               'property' => 'nom',
               'multiple' => false
             ))
+            ->add('rubrique', 'entity', array(
+              'class'    => 'NSPArticleBundle:Rubrique',
+              'property' => 'nom',
+              'multiple' => false
+            ))
             ->add('save', 'submit')
         ;
        
