@@ -78,6 +78,17 @@ class ArticleRepository extends \Doctrine\ORM\EntityRepository
 	  ;
 	}
 
+	public function findAllByDate()
+	{
+	  $qb = $this->createQueryBuilder('a');
+
+	  $qb->orderBy('a.id', 'DESC');
+
+	  return $qb
+	    ->getQuery()
+	    ->getResult()
+	  ;
+	}
 
     
     

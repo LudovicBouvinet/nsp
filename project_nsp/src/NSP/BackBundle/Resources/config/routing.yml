@@ -13,3 +13,11 @@ nsp_back_administration:
 nsp_back_statistiques:
     path:     /back/statistiques
     defaults: { _controller: NSPBackBundle:Back:viewStatistiquesBack }
+
+nsp_back_publier:
+    path:     /back/moderation/publication/{id}
+    defaults: { _controller: NSPBackBundle:Back:publier }
+
+nsp_back_supprimer:
+    path:     /back/administration/supression/{id}
+    defaults: { _controller: NSPBackBundle:Back:supprimer }

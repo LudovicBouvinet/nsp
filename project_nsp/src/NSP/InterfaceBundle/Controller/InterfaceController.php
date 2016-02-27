@@ -37,7 +37,7 @@ class InterfaceController extends Controller
 
      // On donne toutes les infos nécessaires à la vue
       return $this->render('NSPInterfaceBundle:Interface:index.html.twig', array(
-      'listArticles' => $listArticles,
+        'listArticles' => $listArticles,
         'listChoix' => $listChoix
     ));
 

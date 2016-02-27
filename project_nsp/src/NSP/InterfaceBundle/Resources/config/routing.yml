@@ -1,5 +1,5 @@
 nsp_interface_homepage:
-    path:     /
+    path:     /home
     defaults: { _controller: NSPInterfaceBundle:Interface:index }
 
 nsp_interface_rubrique:
