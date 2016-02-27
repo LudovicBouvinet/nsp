@@ -1,27 +1,156 @@
-{% extends "NSPArticleBundle::layout.html.twig" %} {% block title %}{{ parent() }} - Ajout Article {% endblock %} {% block css %}
-    <link rel="stylesheet" href="{{ asset('bundles/nsparticle/css/ajoutArticle.css') }}"> 
+{% extends "NSPArticleBundle::layout.html.twig" %} {% block title %}{{ parent() }} - Ajout Article {% endblock %} 
+{% block css %}
+    <link rel="stylesheet" href="{{ asset('bundles/nsparticle/css/ajoutArticle.css') }}">
+    <link rel="stylesheet" href="{{ asset('bundles/nsparticle/css/ajoutArticle'~article.theme.nom~'.css') }}">
 {% endblock %} 
 
 {% block body %}
 
 <div class="interface-ajout">
-    <div class="choix-selection">
+    <div class="choix-theme-selection">
         <h1>Thèmes</h1>
         <div class="theme-choix-container">
-            <div class="theme-choix"></div>
-            <div class="theme-choix"></div>
-            <div class="theme-choix"></div>
-            <div class="theme-choix"></div>
-            <div class="theme-choix"></div>
-            <div class="theme-choix"></div>
+            <div class="theme-choix" data-id-theme="1">1</div>
+            <div class="theme-choix" data-id-theme="2">2</div>
+            <div class="theme-choix" data-id-theme="3">3</div>
+            <div class="theme-choix" data-id-theme="4">4</div>
+            <div class="theme-choix" data-id-theme="5">5</div>
+            <div class="theme-choix" data-id-theme="6">6</div>
         </div>
     </div>
 
     <div class="formulaire-ajout-article">
-    {% if formArticle is defined %}
-        {{ form(formArticle) }}
-    {% endif %}
+
+        
+
+        {{ form_start(formArticle, {'attr': {'class': 'form-article'}}) }}
+
+        <div class="fond-blanc1"></div>
+        <div class="fond-blanc2"></div>
+
+        {% if article.photos[0].format != 'n/a' %}
+            <img src="{{ asset(article.photos[0].webPath) }}" class="photo-principale"/>
+        {% endif %}
+
+        {# Les erreurs générales du formulaire. #}
+        {{ form_errors(formArticle) }}
+
+
+        <div class="">
+          {# Génération du label. #}
+          {{ form_label(formArticle.titre, "Titre de l'article", {'label_attr': {'class': 'label'}}) }}
+
+          {# Affichage des erreurs pour ce champ précis. #}
+          {{ form_errors(formArticle.titre) }}
+
+          <div class="">
+            {# Génération de l'input. #}
+            {{ form_widget(formArticle.titre, {'attr': {'class': 'form-titre'}}) }}
+          </div>
+        </div>
+        
+        <div class="">
+          {# Génération du label. #}
+          {{ form_label(formArticle.chapeau, "Chapeau de l'article", {'label_attr': {'class': 'label label-chapeau'}}) }}
+
+          {# Affichage des erreurs pour ce champ précis. #}
+          {{ form_errors(formArticle.titre) }}
+
+          <div class="">
+            {# Génération de l'input. #}
+            {{ form_widget(formArticle.chapeau, {'attr': {'class': 'form-chapeau'}}) }}
+          </div>
+        </div>
+
+        {% if article.theme.nom == 'theme1' and article.photos[1].format != 'n/a' %}
+            <img src="{{ asset(article.photos[1].webPath) }}" class="photo-theme1"/>
+        {% endif %}
+        
+
+        {% if article.theme.nom == 'theme1' and article.photos[2].format != 'n/a' %}
+            <img src="{{ asset(article.photos[2].webPath) }}" class="photo-theme1"/>
+        {% endif %}
+
+        {% if article.theme.nom == 'theme3' and article.photos[1].format != 'n/a' %}
+            <img src="{{ asset(article.photos[1].webPath) }}" class="photo-theme3"/>
+        {% endif %}
+
+        {% if article.theme.nom == 'theme4' and article.photos[1].format != 'n/a' %}
+            <img src="{{ asset(article.photos[1].webPath) }}" class="photo-theme4"/>
+        {% endif %}
+
+        <div class="column-left">
+            {# Génération du label. #}
+            {{ form_label(formArticle.texteFirst, "Texte de l'article", {'label_attr': {'class': 'label label-texte1'}}) }}
+
+            {# Affichage des erreurs pour ce champ précis. #}
+            {{ form_errors(formArticle.texteFirst) }}
+
+            <div class="">
+                {# Génération de l'input. #}
+                {{ form_widget(formArticle.texteFirst, {'attr': {'class': 'form-texte1'}}) }}
+            </div>
+        </div>
+
+        <div class="column-right">
+            {% if article.theme.nom == 'theme2' and article.photos[1].format != 'n/a' %}
+                <img src="{{ asset(article.photos[1].webPath) }}" class="photo-theme2"/>
+            {% endif %}
+
+            {% if article.theme.nom == 'theme2' and article.photos[2].format != 'n/a' %}
+                <img src="{{ asset(article.photos[2].webPath) }}" class="photo-theme2"/>
+            {% endif %}
+
+            {% if article.theme.nom == 'theme2' and article.photos[3].format != 'n/a' %}
+                <img src="{{ asset(article.photos[3].webPath) }}" class="photo-theme2"/>
+            {% endif %}
+        </div>
+
+        {% if article.theme.nom == 'theme4' and article.photos[2].format != 'n/a' %}
+            <img src="{{ asset(article.photos[2].webPath) }}" class="photo-theme4"/>
+        {% endif %}
+
+        {% if article.theme.nom == 'theme5' and article.photos[1].format != 'n/a' %}
+            <img src="{{ asset(article.photos[1].webPath) }}" class="photo-theme5"/>
+        {% endif %}
+    
+        {% if article.theme.nom == 'theme4' or article.theme.nom == 'theme5' %}
+
+            <div class="">
+                {# Génération du label. #}
+                {{ form_label(formArticle.texteSecond, "Texte de l'article", {'label_attr': {'class': 'label label-texte2'}}) }}
+    
+                {# Affichage des erreurs pour ce champ précis. #}
+                {{ form_errors(formArticle.texteFirst) }}
+
+                <div class="">
+                {# Génération de l'input. #}
+                {{ form_widget(formArticle.texteSecond, {'attr': {'class': 'form-texte2'}}) }}
+                </div>
+            </div>
+
+        {% endif %}
+
+        {% if article.theme.nom == 'theme5' and article.photos[2].format != 'n/a' %}
+            <img src="{{ asset(article.photos[2].webPath) }}" class="photo-theme5"/>
+        {% endif %}
+
+        <div class="">
+          <div class="">
+            {# Génération de l'input. #}
+            {{ form_widget(formArticle.theme, {'attr': {'class': 'form-theme'}}) }}
+          </div>
+        </div>
+
+        {{ form_widget(formArticle.save, {'attr': {'class': 'save-button'}}) }}
+
+        {{ form_end(formArticle) }}
+
+        
+
     </div>
+
+    
 
     <p class="id-article">
     </p>
@@ -114,6 +243,18 @@
         window.requestAnimationFrame(verify);
     }
     
+    $('.theme-choix').click(function() {
+        
+        var idN = $(this).data('id-theme');
+        var idS = idN.toString();
+
+        console.log(idS);
+
+        $('#nsp_articlebundle_article_theme').val(''+ idS+'');
+
+        $('#nsp_articlebundle_article_save').click();
+
+    });
 
 
 </script>

@@ -22,17 +22,24 @@ class ArticleController extends Controller
 {
 
 
-  public function addNewArticleAction(Request $request)
+  public function addNewArticleAction()
   {
 
     $em = $this ->getDoctrine() -> getManager();
+
+    $theme = $em
+      ->getRepository('NSPArticleBundle:Theme')
+      ->find(1)
+    ;
     
     $article = new Article();
     $article->setChapeau('hat');
     $article->setTitre('n/a');
     $article->setTexteFirst('n/a');
     $article->setTexteSecond('n/a');
+    $article->setTheme($theme);
 
+    
     $em->persist($article);
     $em->flush();
 
@@ -49,7 +56,7 @@ class ArticleController extends Controller
 
     $em->flush();
 
-    return $this->redirect($this->generateUrl('nsp_article_addChampsArticle', array(
+    return $this->redirect($this->generateUrl('nsp_article_add_champs_article', array(
       'id' => $article->getId()
     )));
 
@@ -61,7 +68,7 @@ class ArticleController extends Controller
     $em = $this->getDoctrine()-> getManager();
 
     $article = $em
-        ->getRepository('NSP\ArticleBundle\Entity\Article') # ecriture 1 pour entity
+        ->getRepository('NSP\ArticleBundle\Entity\Article')
         ->find($id)
     ;
 
@@ -103,11 +110,6 @@ class ArticleController extends Controller
           $em->flush($ensemblePhotos[$key]);
           
         }
-
-        // $em
-        //   ->getRepository('NSP\ArticleBundle\Entity\Photo')
-        //   ->update($infos)
-        // ;
 
     }
          

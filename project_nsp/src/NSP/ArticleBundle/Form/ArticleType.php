@@ -22,7 +22,14 @@ class ArticleType extends AbstractType
     {
         $builder
             ->add('titre', 'text')
-            ->add('chapeau', 'text')
+            ->add('chapeau', 'textarea')
+            ->add('texteFirst', 'textarea')
+            ->add('texteSecond', 'textarea')
+            ->add('theme', 'entity', array(
+              'class'    => 'NSPArticleBundle:Theme',
+              'property' => 'nom',
+              'multiple' => false
+            ))
             ->add('save', 'submit')
         ;
        

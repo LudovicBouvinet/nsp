@@ -276,8 +276,8 @@ class Article
         $this->commentaire = new \Doctrine\Common\Collections\ArrayCollection();
         $this->utilisateursNoteurs = new \Doctrine\Common\Collections\ArrayCollection();
         $this->datePublication = new \Datetime();
-        $this -> choixRedaction = false;
-        $this -> publier = false;
+        $this->choixRedaction = false;
+        $this->publier = false;
     }
 
     /**
