@@ -29,12 +29,25 @@
 
 
             {% if infosArticle[0].theme.nom == 'theme1' %}
-            <img src="{{ asset('uploads/time-journee.jpg') }}" alt="">
-            <img src="{{ asset('uploads/time-journee.jpg') }}" alt=""> {% endif %} 
+            <div class="theme1">
+                    {% for photo in infosArticle[0].photos if i in 0..1 %}
+        <div>
+        <img src="{{ asset('uploads/'~photo.fichier~'.'~photo.format) }}" alt="">
+        </div> 
+                    {%  set i = i +1 %}  
+        {% endfor %}
+            </div> {% endif %} 
             {% if infosArticle[0].theme.nom == 'theme3' %}
-            <img src="{{ asset('uploads/time-journee.jpg') }}" alt=""> {% endif %} 
+            <div class="theme3">
+         <div>
+        <img src="{{ asset('uploads/'~infosArticle[0].photos[0].fichier~'.'~infosArticle[0].photos[0].format) }}" alt="">
+        </div> 
+            </div> {% endif %} 
+            
             {% if infosArticle[0].theme.nom == 'theme4' %}
-            <div class="theme4"><div><img src="{{ asset('uploads/time-journee.jpg') }}" alt=""></div></div> {% endif %} 
+            <div class="theme4">
+            <div><img src="{{ asset('uploads/'~infosArticle[0].photos[0].fichier~'.'~infosArticle[0].photos[0].format) }}" alt=""></div>
+            </div> {% endif %} 
             
             
             
@@ -67,9 +80,13 @@
             
              
                {% if infosArticle[0].theme.nom == 'theme5' %}
-               <div class="theme5a">
-            <div><img src="{{ asset('uploads/time-journee.jpg') }}" alt=""></div>
-            <div><img src="{{ asset('uploads/time-journee.jpg') }}" alt=""> </div>
+               <div class="theme5">
+                    {% for photo in infosArticle[0].photos if i in 0..1 %}
+        <div>
+        <img src="{{ asset('uploads/'~photo.fichier~'.'~photo.format) }}" alt="">
+        </div> 
+                    {%  set i = i +1 %}  
+        {% endfor %}
             </div>{% endif %}
 
             <p>
@@ -77,16 +94,21 @@
             </p>
 
             {% if infosArticle[0].theme.nom == 'theme5' %}
-            <div class="theme5b">
-            <div><img src="{{ asset('uploads/time-journee.jpg') }}" alt=""> </div>
+            <div class="theme5">
+            <div><img src="{{ asset('uploads/'~infosArticle[0].photos[0].fichier~'.'~infosArticle[0].photos[0].format) }}" alt=""></div>
             </div>{% endif %}
 
         </div>
         {% if infosArticle[0].theme.nom == 'theme2' %}
         <div class="column-right">
-            <img src="{{ asset('uploads/time-journee.jpg') }}" alt="">
-            <img src="{{ asset('uploads/time-journee.jpg') }}" alt="">
-            <img src="{{ asset('uploads/time-journee.jpg') }}" alt="">
+           <div class="theme2">
+                                {% for photo in infosArticle[0].photos if i in 0..2 %}
+        <div>
+        <img src="{{ asset('uploads/'~photo.fichier~'.'~photo.format) }}" alt="">
+        </div> 
+                    {%  set i = i +1 %}  
+        {% endfor %}
+        </div>
         </div>
         {% endif %}
 
@@ -134,8 +156,8 @@
             redimensionnement(6, "mosaique");}
         
         if("{{infosArticle[0].theme.nom}}" != "theme6"){
-           redimensionnement(2, "{{infosArticle[0].theme.nom}}a");
-                   redimensionnement(1, "{{infosArticle[0].theme.nom}}b");}
+           redimensionnement(3, "{{infosArticle[0].theme.nom}}:nth-of-type(1)");
+                   redimensionnement(2, "{{infosArticle[0].theme.nom}}:nth-of-type(2)");}
         
         
         $( window ).resize(function() {
@@ -143,7 +165,8 @@
             redimensionnement(6, "mosaique");}
         
         if("{{infosArticle[0].theme.nom}}" != "theme6"){
-           redimensionnement(2, "{{infosArticle[0].theme.nom}}");         }
+           redimensionnement(2, "{{infosArticle[0].theme.nom}}:nth-of-type(1)");
+                   redimensionnement(2, "{{infosArticle[0].theme.nom}}:nth-of-type(2)");}
         });
     });
 </script>
