@@ -66,7 +66,7 @@
             {% endif %}
 
             <p>
-                {{ infosArticle[0].texteFirst }}
+{{ infosArticle[0].texteFirst|replace({'<br>': '<br>'}) | raw}}
             </p>
 
             {% if infosArticle[0].theme.nom == 'theme4' %}
@@ -90,7 +90,7 @@
             </div>{% endif %}
 
             <p>
-                {% if infosArticle[0].texteSecond is not null %} {{ infosArticle[0].texteSecond }} {% endif %}
+                {% if infosArticle[0].texteSecond is not null %}                 {{ infosArticle[0].texteSecond|replace({'<br>': '<br>'}) | raw}} {% endif %}
             </p>
 
             {% if infosArticle[0].theme.nom == 'theme5' %}
