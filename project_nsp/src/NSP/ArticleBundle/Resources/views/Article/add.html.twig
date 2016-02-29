@@ -62,21 +62,21 @@
           </div>
         </div>
 
-        {% if article.theme.nom == 'theme1' and article.photos[1].format != 'n/a' %}
-            <img src="{{ asset(article.photos[1].webPath) }}" class="photo-theme1"/>
+        {% if article.theme.nom == 'theme1' and article.photos[0].format != 'n/a' %}
+            <img src="{{ asset(article.photos[0].webPath) }}" class="photo-theme1"/>
         {% endif %}
         
 
-        {% if article.theme.nom == 'theme1' and article.photos[2].format != 'n/a' %}
-            <img src="{{ asset(article.photos[2].webPath) }}" class="photo-theme1"/>
+        {% if article.theme.nom == 'theme1' and article.photos[1].format != 'n/a' %}
+            <img src="{{ asset(article.photos[1].webPath) }}" class="photo-theme1"/>
         {% endif %}
 
-        {% if article.theme.nom == 'theme3' and article.photos[1].format != 'n/a' %}
-            <img src="{{ asset(article.photos[1].webPath) }}" class="photo-theme3"/>
+        {% if article.theme.nom == 'theme3' and article.photos[0].format != 'n/a' %}
+            <img src="{{ asset(article.photos[0].webPath) }}" class="photo-theme3"/>
         {% endif %}
 
-        {% if article.theme.nom == 'theme4' and article.photos[1].format != 'n/a' %}
-            <img src="{{ asset(article.photos[1].webPath) }}" class="photo-theme4"/>
+        {% if article.theme.nom == 'theme4' and article.photos[0].format != 'n/a' %}
+            <img src="{{ asset(article.photos[0].webPath) }}" class="photo-theme4-1"/>
         {% endif %}
 
         <div class="column-left">
@@ -93,6 +93,10 @@
         </div>
 
         <div class="column-right">
+            {% if article.theme.nom == 'theme2' and article.photos[0].format != 'n/a' %}
+                <img src="{{ asset(article.photos[0].webPath) }}" class="photo-theme2"/>
+            {% endif %}
+
             {% if article.theme.nom == 'theme2' and article.photos[1].format != 'n/a' %}
                 <img src="{{ asset(article.photos[1].webPath) }}" class="photo-theme2"/>
             {% endif %}
@@ -100,18 +104,22 @@
             {% if article.theme.nom == 'theme2' and article.photos[2].format != 'n/a' %}
                 <img src="{{ asset(article.photos[2].webPath) }}" class="photo-theme2"/>
             {% endif %}
-
-            {% if article.theme.nom == 'theme2' and article.photos[3].format != 'n/a' %}
-                <img src="{{ asset(article.photos[3].webPath) }}" class="photo-theme2"/>
-            {% endif %}
         </div>
 
+        {% if article.theme.nom == 'theme4' and article.photos[1].format != 'n/a' %}
+            <img src="{{ asset(article.photos[1].webPath) }}" class="photo-theme4-2"/>
+        {% endif %}
+
         {% if article.theme.nom == 'theme4' and article.photos[2].format != 'n/a' %}
-            <img src="{{ asset(article.photos[2].webPath) }}" class="photo-theme4"/>
+            <img src="{{ asset(article.photos[2].webPath) }}" class="photo-theme4-2"/>
+        {% endif %}
+
+        {% if article.theme.nom == 'theme5' and article.photos[0].format != 'n/a' %}
+            <img src="{{ asset(article.photos[0].webPath) }}" class="photo-theme5-1"/>
         {% endif %}
 
         {% if article.theme.nom == 'theme5' and article.photos[1].format != 'n/a' %}
-            <img src="{{ asset(article.photos[1].webPath) }}" class="photo-theme5"/>
+            <img src="{{ asset(article.photos[1].webPath) }}" class="photo-theme5-1"/>
         {% endif %}
     
         {% if article.theme.nom == 'theme4' or article.theme.nom == 'theme5' %}
@@ -132,7 +140,7 @@
         {% endif %}
 
         {% if article.theme.nom == 'theme5' and article.photos[2].format != 'n/a' %}
-            <img src="{{ asset(article.photos[2].webPath) }}" class="photo-theme5"/>
+            <img src="{{ asset(article.photos[2].webPath) }}" class="photo-theme5-2"/>
         {% endif %}
 
         <div class="">
@@ -224,6 +232,34 @@
             affiche = false;
 
         };
+
+        if ($('#nsp_articlebundle_article_theme').val() == '1') {
+
+            $('.boite-photo:nth-of-type(3)').css('display', 'none');
+            $('.boite-photo:nth-of-type(4)').css('display', 'none');
+            $('.boite-photo:nth-of-type(5)').css('display', 'none');
+            $('.boite-photo:nth-of-type(6)').css('display', 'none');
+
+        };
+
+        if ($('#nsp_articlebundle_article_theme').val() == '2' || $('#nsp_articlebundle_article_theme').val() == '4' || $('#nsp_articlebundle_article_theme').val() == '5' ) {
+
+            $('.boite-photo:nth-of-type(4)').css('display', 'none');
+            $('.boite-photo:nth-of-type(5)').css('display', 'none');
+            $('.boite-photo:nth-of-type(6)').css('display', 'none');
+            
+        };
+
+        if ($('#nsp_articlebundle_article_theme').val() == '3') {
+
+            $('.boite-photo:nth-of-type(2)').css('display', 'none');
+            $('.boite-photo:nth-of-type(3)').css('display', 'none');
+            $('.boite-photo:nth-of-type(4)').css('display', 'none');
+            $('.boite-photo:nth-of-type(5)').css('display', 'none');
+            $('.boite-photo:nth-of-type(6)').css('display', 'none');
+            
+        };
+
     }
 
     $('.boite-photo').click(function() {
