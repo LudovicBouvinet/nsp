@@ -260,7 +260,7 @@ class Article
        /**
    * @ORM\OneToMany(targetEntity="NSP\ArticleBundle\Entity\Commentaire", mappedBy="article")
    */
-  private $commentaire; 
+  private $commentaires; 
     
                   /**
    * @ORM\OneToMany(targetEntity="NSP\ArticleBundle\Entity\UtilisateurArticle", mappedBy="article")
@@ -419,7 +419,7 @@ class Article
      */
     public function addCommentaire(\NSP\ArticleBundle\Entity\Commentaire $commentaire)
     {
-        $this->commentaire[] = $commentaire;
+        $this->commentaires[] = $commentaire;
 
         return $this;
     }
@@ -431,17 +431,17 @@ class Article
      */
     public function removeCommentaire(\NSP\ArticleBundle\Entity\Commentaire $commentaire)
     {
-        $this->commentaire->removeElement($commentaire);
+        $this->commentaires->removeElement($commentaire);
     }
 
     /**
-     * Get commentaire
+     * Get commentaires
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getCommentaire()
+    public function getCommentaires()
     {
-        return $this->commentaire;
+        return $this->commentaires;
     }
 
     /**
