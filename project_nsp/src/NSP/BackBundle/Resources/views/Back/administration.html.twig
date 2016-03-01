@@ -66,7 +66,7 @@
          <div class="zoneiconsuppralone">
 
           {% for article in articles %}
-            <a class="iconsuppalone" href="{{ path('nsp_back_supprimer', {'id': article.id}) }}"><img class="suppalone" src="{{ asset('ressources/iconsupp.png') }}"></img></a>
+            <a class="iconsuppalone" href="{{ path('nsp_back_supprimer_article', {'id': article.id}) }}"><img class="suppalone" src="{{ asset('ressources/iconsupp.png') }}"></img></a>
           {% endfor %}
              
           </div> 

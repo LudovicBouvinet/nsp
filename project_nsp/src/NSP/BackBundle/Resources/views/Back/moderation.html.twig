@@ -81,7 +81,7 @@
      
     <div class="zoneusers">
         
-            <table class="tabarticle">
+         <table class="tabarticle">
 
                <tr class="entete">
                    <th class="thead">Article</th>
@@ -90,39 +90,36 @@
                    <th class="thead">Auteur</th>
                </tr> 
                 
-           <tr class="trstylemodo">
-               <td>Super soirée 2016</td>
-               <td >10/06/16</td>
-               <td>Evenements</td>
-               <td>Ludovic Bouvinet</td>
-           </tr>
+
+              {% for commentaire in commentaires %}
+
+                  <tr class="trstyle">
+                     <td>{{commentaire.article.titre }}</td>
+                     <td >{{commentaire.date | date('Y-m-d') }}</td>
+                     <td>{{commentaire.article.rubrique.nom }}</td>
+                     <td>FOS</td>
+                 </tr>
+
+                  <tr class="trstyle">
+                      <td class="com" colspan="4">{{ commentaire.texte }}</td>
+                  </tr>
+          
+                {% else %}
                 
-           <tr class="trstyle">
-                <td class="com" colspan="4">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolo</td>
-           </tr>
-                
-           <tr class="trstyle">
-                <td>Super soirée 2016</td>
-               <td >10/06/16</td>
-               <td>Evenements</td>
-               <td>Ludovic Bouvinet</td>
-           </tr>
-                
-            <tr class="trstyle">
-                <td class="com" colspan="4">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolo</td>
-           </tr>    
+              {% endfor %}
+
+                   
                 
         </table>
         
-    <div class="zonesuppr">
-        <div class="zoneiconsuppr">   
-             <a class="supplien" href="modifmodo.php"><img class="crayon" src="{{ asset('ressources/crayon.png') }}"</img>   </a> 
-            <a class="supplien" href="#"><img class="supp" src="{{ asset('ressources/iconsupp.png') }}"></img></a>
-            <a class="supplien" href="modifmodo.php"><img class="crayon" src="{{ asset('ressources/crayon.png') }}"</img>   </a> 
-            <a class="supplien" href="#"><img class="supp" src="{{ asset('ressources/iconsupp.png') }}"></img></a>
-            <a class="supplien" href="modifmodo.php"><img class="crayon" src="{{ asset('ressources/crayon.png') }}"</img>   </a> 
-            <a class="supplien" href="#"><img class="supp" src="{{ asset('ressources/iconsupp.png') }}"></img></a>
-                </div> 
+      <div class="zonesuppr">
+          <div class="zoneiconsuppr">
+
+          {% for commentaire in commentaires %}
+              <a class="supplien" href="#"><img class="crayon" src="{{ asset('ressources/crayon.png') }}"></img></a> 
+              <a class="supplien" href="{{ path('nsp_back_supprimer_commentaire', {'id': commentaire.id}) }}"><img class="supp" src="{{ asset('ressources/iconsupp.png') }}"></img></a>
+          {% endfor %}   
+          </div> 
         
         </div> 
     </div>

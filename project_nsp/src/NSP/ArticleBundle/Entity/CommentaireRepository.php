@@ -10,4 +10,33 @@ namespace NSP\ArticleBundle\Entity;
  */
 class CommentaireRepository extends \Doctrine\ORM\EntityRepository
 {
+
+	public function findComments($article)
+	{
+	  $qb = $this->createQueryBuilder('c');
+
+	  $qb
+	    ->where('c.article = :article')
+	    ->setParameter('article', $article)
+	    ->orderBy('c.id', 'DESC')
+	  ;
+
+	  return $qb
+	    ->getQuery()
+	    ->getResult()
+	  ;
+	}
+
+	public function findAllByDate()
+	{
+	  $qb = $this->createQueryBuilder('c');
+
+	  $qb->orderBy('c.id', 'DESC');
+
+	  return $qb
+	    ->getQuery()
+	    ->getResult()
+	  ;
+	}
+
 }

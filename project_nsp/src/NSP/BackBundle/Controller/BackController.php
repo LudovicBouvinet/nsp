@@ -25,8 +25,14 @@ class BackController extends Controller
             ->findAllByDate()
         ;
 
+        $commentaires = $em
+            ->getRepository('NSPArticleBundle:Commentaire')
+            ->findAllByDate()
+        ;
+
         return $this->render('NSPBackBundle:Back:moderation.html.twig', array( 
-            'articles' => $articles
+            'articles' => $articles,
+            'commentaires' => $commentaires
         ));
     }
 
@@ -75,7 +81,7 @@ class BackController extends Controller
         )));
     }
 
-    public function supprimerAction($id)
+    public function supprimerArticleAction($id)
     {
 
         $em = $this->getDoctrine()->getManager();
@@ -84,6 +90,15 @@ class BackController extends Controller
             ->getRepository('NSPArticleBundle:Article')
             ->find($id)
         ;
+
+        $ensembleCommentaires = $article->getCommentaires();
+
+        foreach ($ensembleCommentaires as $key => $value) {
+
+            $em->remove($ensembleCommentaires[$key]);
+            $em->flush();
+        }
+
 
         $ensemblePhotos = $article->getPhotos();
 
@@ -98,6 +113,7 @@ class BackController extends Controller
             }
         }
 
+
         $articles = $em
             ->getRepository('NSPArticleBundle:Article')
             ->findAllByDate()
@@ -105,6 +121,36 @@ class BackController extends Controller
 
         return $this->redirect($this->generateUrl('nsp_back_administration', array(
             'articles' => $articles
+        )));
+    }
+
+    public function supprimerCommentaireAction($id)
+    {
+
+        $em = $this->getDoctrine()->getManager();
+
+        $commentaire = $em
+            ->getRepository('NSPArticleBundle:Commentaire')
+            ->find($id)
+        ;
+
+        $em->remove($commentaire);
+        $em->flush();
+
+
+        $articles = $em
+            ->getRepository('NSPArticleBundle:Article')
+            ->findAllByDate()
+        ;
+
+        $commentaires = $em
+            ->getRepository('NSPArticleBundle:Commentaire')
+            ->findAllByDate()
+        ;
+
+        return $this->redirect($this->generateUrl('nsp_back_moderation', array(
+            'articles' => $articles,
+            'commentaires' => $commentaires
         )));
     }
 }

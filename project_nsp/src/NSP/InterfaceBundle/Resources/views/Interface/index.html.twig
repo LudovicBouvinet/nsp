@@ -7,7 +7,7 @@
 
         {% for article in listArticles %}
         <div><img src = {{ asset("uploads/" ~ article.photos[0].fichier ~ "." ~ article.photos[0].format ~ "") }} >
-            <a href="{{ path('nsp_article_article', {'titreArticle': article.titre}) }}">
+            <a href="{{ path('nsp_article_article', {'id': article.id}) }}">
             <div class="sub">
                 <h3>{{ article.titre }}</h3><span>{{ article.utilisateur.pseudo }}</span>
                 <p>{{ article.chapeau }}</p>
@@ -31,7 +31,7 @@
                <img src =   {{ asset("uploads/" ~ article.photos[0].fichier ~ "." ~ article.photos[0].format ~ "") }} >
                 <div class="titre">
                     <h4>Choix de la rédaction #1</h4>
-                    <a href="{{ path('nsp_article_article', {'titreArticle': article.titre}) }}" class="lire">
+                    <a href="{{ path('nsp_article_article', {'id': article.id}) }}" class="lire">
                     <div class="sub2">
                         <h3>{{ article.titre }}</h3><span> {{ article.utilisateur.pseudo }}</span>
                         <br>

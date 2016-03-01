@@ -11,6 +11,6 @@ nsp_article_add_validation:
     defaults: { _controller: NSPArticleBundle:Article:addValidation }
 
 nsp_article_article:
-    path:     /{titreArticle}
+    path:     /{id}
     defaults: {_controller: NSPArticleBundle:Article:viewArticle }
     # requirements: {titreArticle: "[a-zA-Z0-9]{3,25}"}

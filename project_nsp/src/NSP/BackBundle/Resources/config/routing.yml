@@ -18,6 +18,10 @@ nsp_back_publier:
     path:     /back/moderation/publication/{id}
     defaults: { _controller: NSPBackBundle:Back:publier }
 
-nsp_back_supprimer:
+nsp_back_supprimer_article:
     path:     /back/administration/supression/{id}
-    defaults: { _controller: NSPBackBundle:Back:supprimer }
+    defaults: { _controller: NSPBackBundle:Back:supprimerArticle }
+
+nsp_back_supprimer_commentaire:
+    path:     /back/administration/supression/commentaire/{id}
+    defaults: { _controller: NSPBackBundle:Back:supprimerCommentaire }

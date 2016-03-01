@@ -125,25 +125,22 @@ class ArticleController extends Controller
 
 
 
-	public function viewArticleAction(Request $request, $titreArticle) {
+	public function viewArticleAction(Request $request, $id) {
 
       $em = $this
         ->getDoctrine()
         ->getManager()
       ;
 
-      $infosArticle = $em
+      $article = $em
         ->getRepository('NSPArticleBundle:Article')
-        ->findByName($titreArticle)
+        ->find($id)
       ;
 
-      // $id = $infosArticle->getId();
-
-      // $article = $em
-      //   ->getRepository('NSP\ArticleBundle\Entity\Article')
-      //   ->find($id)
-      // ;
-
+      $commentaires = $em
+        ->getRepository('NSPArticleBundle:Commentaire')
+        ->findComments($article)
+      ;
 
       $commentaireForm = $this->createForm(new CommentaireType());
       $commentaireForm->handleRequest($request);
@@ -156,15 +153,16 @@ class ArticleController extends Controller
           $texte = $infos->getTexte();
 
           $commentaire->setTexte($texte);
-          $commentaire->setArticle($infosArticle[0]);
+          $commentaire->setArticle($article);
 
           $em->persist($commentaire);
           $em->flush();
       }
 
       return $this->render('NSPArticleBundle:Article:article.html.twig', array(
-        'infosArticle' => $infosArticle,
-        'commentaireForm' => $commentaireForm->createView()
+        'article' => $article,
+        'commentaireForm' => $commentaireForm->createView(),
+        'commentaires' => $commentaires
       ));
 	}
 

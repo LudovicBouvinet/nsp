@@ -1,11 +1,11 @@
-{% extends "NSPArticleBundle::layout.html.twig" %} {% block title %}{{ parent() }} - {{ infosArticle[0].titre }} {% endblock %} {% block css %}
+{% extends "NSPArticleBundle::layout.html.twig" %} {% block title %}{{ parent() }} - {{ article.titre }} {% endblock %} {% block css %}
 <link rel="stylesheet" href="{{ asset('bundles/nsparticle/css/article.css') }}">
-<link rel="stylesheet" href="{{ asset('bundles/nsparticle/css/'~infosArticle[0].theme.nom~'.css') }}"> {% endblock %} {% block body %}
+<link rel="stylesheet" href="{{ asset('bundles/nsparticle/css/'~article.theme.nom~'.css') }}"> {% endblock %} {% block body %}
 
 <section class="article-global-content">
 
     <div class="titre-article">
-        <h1>{{ infosArticle[0].titre }}</h1></div>
+        <h1>{{ article.titre }}</h1></div>
 
     <div class="t"></div>
 
@@ -19,7 +19,7 @@
                 </div>
             </div>
             <div class="chapeau">
-                <p>{{ infosArticle[0].chapeau }}</p>
+                <p>{{ article.chapeau }}</p>
             </div>
         </div>
         {% set i = 0 %}
@@ -28,26 +28,26 @@
 
 
 
-            {% if infosArticle[0].theme.nom == 'theme1' %}
+            {% if article.theme.nom == 'theme1' %}
             <div class="theme1">
-                {% for photo in infosArticle[0].photos if i in 0..1 %}
+                {% for photo in article.photos if i in 0..1 %}
                 <div>
                     <img src="{{ asset('uploads/'~photo.fichier~'.'~photo.format) }}" alt="">
                 </div>
                 {% set i = i +1 %} {% endfor %}
-            </div> {% endif %} {% if infosArticle[0].theme.nom == 'theme3' %}
+            </div> {% endif %} {% if article.theme.nom == 'theme3' %}
             <div class="theme3">
                 <div>
-                    <img src="{{ asset('uploads/'~infosArticle[0].photos[0].fichier~'.'~infosArticle[0].photos[0].format) }}" alt="">
+                    <img src="{{ asset('uploads/'~article.photos[0].fichier~'.'~article.photos[0].format) }}" alt="">
                 </div>
-            </div> {% endif %} {% if infosArticle[0].theme.nom == 'theme4' %}
+            </div> {% endif %} {% if article.theme.nom == 'theme4' %}
             <div class="theme4">
-                <div><img src="{{ asset('uploads/'~infosArticle[0].photos[0].fichier~'.'~infosArticle[0].photos[0].format) }}" alt=""></div>
-            </div> {% endif %} {% if infosArticle[0].theme.nom == 'theme6' %}
+                <div><img src="{{ asset('uploads/'~article.photos[0].fichier~'.'~article.photos[0].format) }}" alt=""></div>
+            </div> {% endif %} {% if article.theme.nom == 'theme6' %}
 
 
             <div class="mosaique">
-                {% for photo in infosArticle[0].photos if i in 0..5 %}
+                {% for photo in article.photos if i in 0..5 %}
                 <div>
                     <img src="{{ asset('uploads/'~photo.fichier~'.'~photo.format) }}" alt="">
                 </div>
@@ -56,20 +56,20 @@
             {% endif %}
 
             <p>
-                {{ infosArticle[0].texteFirst|replace({'
+                {{ article.texteFirst|replace({'
                 <br>': '
                 <br>'}) | raw}}
             </p>
 
-            {% if infosArticle[0].theme.nom == 'theme4' %}
+            {% if article.theme.nom == 'theme4' %}
             <div class="theme4">
-                {% for photo in infosArticle[0].photos if i in 0..1 %}
+                {% for photo in article.photos if i in 0..1 %}
                 <div><img src="{{ asset('uploads/'~photo.fichier~'.'~photo.format) }}" alt=""></div>
                 {% set i = i +1 %} {% endfor %}
             </div>
-            {% endif %} {% if infosArticle[0].theme.nom == 'theme5' %}
+            {% endif %} {% if article.theme.nom == 'theme5' %}
             <div class="theme5">
-                {% for photo in infosArticle[0].photos if i in 0..1 %}
+                {% for photo in article.photos if i in 0..1 %}
                 <div>
                     <img src="{{ asset('uploads/'~photo.fichier~'.'~photo.format) }}" alt="">
                 </div>
@@ -77,21 +77,21 @@
             </div>{% endif %}
 
             <p>
-                {% if infosArticle[0].texteSecond is not null %} {{ infosArticle[0].texteSecond|replace({'
+                {% if article.texteSecond is not null %} {{ article.texteSecond|replace({'
                 <br>': '
                 <br>'}) | raw}} {% endif %}
             </p>
 
-            {% if infosArticle[0].theme.nom == 'theme5' %}
+            {% if article.theme.nom == 'theme5' %}
             <div class="theme5">
-                <div><img src="{{ asset('uploads/'~infosArticle[0].photos[0].fichier~'.'~infosArticle[0].photos[0].format) }}" alt=""></div>
+                <div><img src="{{ asset('uploads/'~article.photos[0].fichier~'.'~article.photos[0].format) }}" alt=""></div>
             </div>{% endif %}
 
         </div>
-        {% if infosArticle[0].theme.nom == 'theme2' %}
+        {% if article.theme.nom == 'theme2' %}
         <div class="column-right">
             <div class="theme2">
-                {% for photo in infosArticle[0].photos if i in 0..2 %}
+                {% for photo in article.photos if i in 0..2 %}
                 <div>
                     <img src="{{ asset('uploads/'~photo.fichier~'.'~photo.format) }}" alt="">
                 </div>
@@ -197,7 +197,7 @@
                         <div class="prenomnote">Ludovic Bouvinet</div>
                         <img class="etoilenote" src="{{ asset('ressources/petitetoile.png') }}" alt="note des lecteurs"></img>
                     </div>
-                                    <div class="affichettnote"><a href="$">Afficher toutes les notes</a></div>
+                                    <div class="affichettnote"><a href="#">Afficher toutes les notes</a></div>
                 </div>
 
 
@@ -206,53 +206,34 @@
 
             <div class="zonedroite">
                 <div class="contentzonedroite">
-                    <div class="contentleftcom">
-                        <img class="tofprofilnotebottom" src="{{ asset('ressources/tofprofilnotebottom.png') }}"></img>
-                        <img class="bottomform" src="{{ asset('ressources/formbottom.png') }}"></img>
-                    </div>
+                        {% set a = 0 %}
 
-                    <div class="contentrightcom">
-                        <img class="tofprofilnotebottomright" src="{{ asset('ressources/tofprofilnotebottom.png') }}"></img>
-                        <img class="bottomformright" src="{{ asset('ressources/formright.png') }}"></img>
-                    </div>
+                        {% for commentaire in commentaires %}
+                            
+                            {% if a is even %}
+                                <div class="contentleftcom">
+                                    <img class="tofprofilnotebottom" src="{{ asset('ressources/tofprofilnotebottom.png') }}"></img>
+                                    <div>
+                                        <p class="commentaire-texte">{{ commentaire.texte }}</p>
+                                        <img class="bottomform" src="{{ asset('ressources/formbottom.png') }}"></img>    
+                                    </div>
+                                </div>
+                            {% endif%}
+                            
+                            {% if a is odd %}
+                                <div class="contentrightcom">
+                                    <img class="tofprofilnotebottomright" src="{{ asset('ressources/tofprofilnotebottom.png') }}"></img>
+                                    <div>
+                                        <p class="commentaire-texte">{{ commentaire.texte }}</p>
+                                        <img class="bottomformright" src="{{ asset('ressources/formright.png') }}"></img>    
+                                    </div>
+                                </div>
+                            {% endif%}
 
-                    <div class="contentleftcom">
-                        <img class="tofprofilnotebottom" src="{{ asset('ressources/tofprofilnotebottom.png') }}"></img>
-                        <img class="bottomform" src="{{ asset('ressources/formbottom.png') }}"></img>
-                    </div>
+                            {% set a = a +1 %}
 
-                    <div class="contentrightcom">
-                        <img class="tofprofilnotebottomright" src="{{ asset('ressources/tofprofilnotebottom.png') }}"></img>
-                        <img class="bottomformright" src="{{ asset('ressources/formright.png') }}"></img>
-                    </div>
+                        {% endfor %}
 
-                    <div class="contentleftcom">
-                        <img class="tofprofilnotebottom" src="{{ asset('ressources/tofprofilnotebottom.png') }}"></img>
-                        <img class="bottomform" src="{{ asset('ressources/formbottom.png') }}"></img>
-                    </div>
-                           
-                    <div class="contentrightcom">
-                        <img class="tofprofilnotebottomright" src="{{ asset('ressources/tofprofilnotebottom.png') }}"></img>
-                        <img class="bottomformright" src="{{ asset('ressources/formright.png') }}"></img>
-                    </div>
-
-                    <div class="contentleftcom">
-                        <img class="tofprofilnotebottom" src="{{ asset('ressources/tofprofilnotebottom.png') }}"></img>
-                        <img class="bottomform" src="{{ asset('ressources/formbottom.png') }}"></img>
-                    </div>
-                          
-                    <div class="contentrightcom">
-                        <img class="tofprofilnotebottomright" src="{{ asset('ressources/tofprofilnotebottom.png') }}"></img>
-                        <img class="bottomformright" src="{{ asset('ressources/formright.png') }}"></img>
-                    </div>
-
-                    <div class="contentleftcom">
-                        <img class="tofprofilnotebottom" src="{{ asset('ressources/tofprofilnotebottom.png') }}"></img>
-                        <img class="bottomform" src="{{ asset('ressources/formbottom.png') }}"></img>
-                    </div>
-                           
-                           
-                            <div class="affichettnote"><a href="$">Afficher toutes les commentaires</a></div>
                 </div>
 
 
@@ -270,6 +251,7 @@
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
 <script type="text/javascript">
+
     function redimensionnement(nbr, categorie) {
 
         for (var i = 1; i <= nbr; i++) {
@@ -300,13 +282,13 @@
 
     $(document).ready(function () {
 
-        if ("{{infosArticle[0].theme.nom}}" == "theme6") {
+        if ("{{article.theme.nom}}" == "theme6") {
             redimensionnement(6, "mosaique");
         }
 
-        if ("{{infosArticle[0].theme.nom}}" != "theme6") {
-            redimensionnement(3, "{{infosArticle[0].theme.nom}}:nth-of-type(1)");
-            redimensionnement(2, "{{infosArticle[0].theme.nom}}:nth-of-type(2)");
+        if ("{{article.theme.nom}}" != "theme6") {
+            redimensionnement(3, "{{article.theme.nom}}:nth-of-type(1)");
+            redimensionnement(2, "{{article.theme.nom}}:nth-of-type(2)");
         }
 
         for (var i = 0; i <= 3; i++) {
@@ -324,21 +306,23 @@
             }
 
 
-            $('.article-global-content').css('background', '' + pre + 'linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0.95), rgba(255,255,255,1)), url({{ asset("uploads/"~infosArticle[0].photos[0].fichier~"."~infosArticle[0].photos[0].format) }})').css('background-size', 'cover');
+            $('.article-global-content').css('background', '' + pre + 'linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0.95), rgba(255,255,255,1)), url({{ asset("uploads/"~article.photos[0].fichier~"."~article.photos[0].format) }})').css('background-size', 'cover');
 
         }
 
-
         $(window).resize(function () {
-            if ("{{infosArticle[0].theme.nom}}" == "theme6") {
+            if ("{{article.theme.nom}}" == "theme6") {
                 redimensionnement(6, "mosaique");
             }
 
-            if ("{{infosArticle[0].theme.nom}}" != "theme6") {
-                redimensionnement(2, "{{infosArticle[0].theme.nom}}:nth-of-type(1)");
-                redimensionnement(2, "{{infosArticle[0].theme.nom}}:nth-of-type(2)");
+            if ("{{article.theme.nom}}" != "theme6") {
+                redimensionnement(2, "{{article.theme.nom}}:nth-of-type(1)");
+                redimensionnement(2, "{{article.theme.nom}}:nth-of-type(2)");
             }
         });
+
+        $('#nsp_articlebundle_commentaire_texte').val('');
+
     });
 </script>
 {% endblock %}
