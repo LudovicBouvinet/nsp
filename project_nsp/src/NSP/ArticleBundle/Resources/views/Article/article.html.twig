@@ -90,7 +90,9 @@
             </div>{% endif %}
 
             <p>
-                {% if infosArticle[0].texteSecond is not null %}                 {{ infosArticle[0].texteSecond|replace({'<br>': '<br>'}) | raw}} {% endif %}
+                {% if infosArticle[0].texteSecond is not null %} 
+                    {{ infosArticle[0].texteSecond|replace({'<br>': '<br>'}) | raw}} 
+                {% endif %}
             </p>
 
             {% if infosArticle[0].theme.nom == 'theme5' %}
@@ -111,6 +113,41 @@
         </div>
         </div>
         {% endif %}
+        
+          <div class="zonenotetop">
+            <div class="titrenote">Notez cet <br>article</div>
+            <div class="etcommercial">&</div>
+            <div class="titrecom">Donnez nous <br>votre avis</div>
+        </div>
+        <div class="zonenotemiddle">
+            <img class="flechenote" src="{{ asset('ressources/arrownote.png') }}" alt="fleche"></img>
+            <img class="etoileform" src="{{ asset('ressources/rangeeetoile.png') }}" alt="formulaire de note"></img>
+            <img class="tofprofilnote" src="{{ asset('ressources/tofprofilnote.png') }}" alt="photo de profil"></img>
+            
+<img class="inputcom" src="{{ asset('ressources/form.png') }}" alt="formulaire de commentaire">
+</img>
+      
+       
+        </div>
+        
+<div class="vous">Vous</div>
+        
+<div class="bandonoir">
+    <div class="zonegauche">
+       <div class="contentzonegauche">
+        <img class="tofprofilnotebottom" src="{{ asset('ressources/tofprofilnotebottom.png') }}"></img>
+        <div class="prenomnote">Ludovic Bouvinet</div>
+        <img class="etoilenote" src="{{ asset('ressources/petitetoile.png') }}" alt="note des lecteurs"></img>
+        
+    <div class="affichettnote"><a href="$">Afficher toutes les notes</a></div>
+    </div>
+</div>
+    <div class="zonedroite">
+    <div class="contentzonedroite">
+     <img class="tofprofilnotebottom" src="{{ asset('ressources/tofprofilnotebottom.png') }}"></img>
+</div>
+     </div>
+</div>
 
 
 
