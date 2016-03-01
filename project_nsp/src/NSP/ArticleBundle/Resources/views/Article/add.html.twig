@@ -29,7 +29,7 @@
         <div class="fond-blanc2"></div>
 
         {% if article.photos[0].format != 'n/a' %}
-            <img src="{{ asset(article.photos[0].webPath) }}" class="photo-principale"/>
+        <div class="photo-principale"><img src="{{ asset(article.photos[0].webPath) }}" /></div>
         {% endif %}
 
         {# Les erreurs générales du formulaire. #}
@@ -63,20 +63,20 @@
         </div>
 
         {% if article.theme.nom == 'theme1' and article.photos[0].format != 'n/a' %}
-            <img src="{{ asset(article.photos[0].webPath) }}" class="photo-theme1"/>
+        <div class="photo-theme1 photoredim"><img src="{{ asset(article.photos[0].webPath) }}" /></div>
         {% endif %}
         
 
         {% if article.theme.nom == 'theme1' and article.photos[1].format != 'n/a' %}
-            <img src="{{ asset(article.photos[1].webPath) }}" class="photo-theme1"/>
+        <div class="photo-theme1 photoredim"><img src="{{ asset(article.photos[1].webPath) }}" /></div>
         {% endif %}
 
         {% if article.theme.nom == 'theme3' and article.photos[0].format != 'n/a' %}
-            <img src="{{ asset(article.photos[0].webPath) }}" class="photo-theme3"/>
+        <div class="photo-theme3 photoredim"><img src="{{ asset(article.photos[0].webPath) }}" /></div>
         {% endif %}
 
         {% if article.theme.nom == 'theme4' and article.photos[0].format != 'n/a' %}
-            <img src="{{ asset(article.photos[0].webPath) }}" class="photo-theme4-1"/>
+        <div class="photo-theme4-1 photoredim"><img src="{{ asset(article.photos[0].webPath) }}" /></div>
         {% endif %}
 
         <div class="column-left">
@@ -94,32 +94,32 @@
 
         <div class="column-right">
             {% if article.theme.nom == 'theme2' and article.photos[0].format != 'n/a' %}
-                <img src="{{ asset(article.photos[0].webPath) }}" class="photo-theme2"/>
+            <div class="photo-theme2 photoredim"><img src="{{ asset(article.photos[0].webPath) }}"/></div>
             {% endif %}
 
             {% if article.theme.nom == 'theme2' and article.photos[1].format != 'n/a' %}
-                <img src="{{ asset(article.photos[1].webPath) }}" class="photo-theme2"/>
+            <div class="photo-theme2 photoredim"><img src="{{ asset(article.photos[1].webPath) }}" /></div>
             {% endif %}
 
             {% if article.theme.nom == 'theme2' and article.photos[2].format != 'n/a' %}
-                <img src="{{ asset(article.photos[2].webPath) }}" class="photo-theme2"/>
+            <div class="photo-theme2 photoredim"><img src="{{ asset(article.photos[2].webPath) }}" /></div>
             {% endif %}
         </div>
 
         {% if article.theme.nom == 'theme4' and article.photos[1].format != 'n/a' %}
-            <img src="{{ asset(article.photos[1].webPath) }}" class="photo-theme4-2"/>
+        <div class="photo-theme4-2 photoredim"><img src="{{ asset(article.photos[1].webPath) }}" /></div>
         {% endif %}
 
         {% if article.theme.nom == 'theme4' and article.photos[2].format != 'n/a' %}
-            <img src="{{ asset(article.photos[2].webPath) }}" class="photo-theme4-2"/>
+        <div class="photo-theme4-2 photoredim"><img src="{{ asset(article.photos[2].webPath) }}" /></div>
         {% endif %}
 
         {% if article.theme.nom == 'theme5' and article.photos[0].format != 'n/a' %}
-            <img src="{{ asset(article.photos[0].webPath) }}" class="photo-theme5-1"/>
+        <div class="photo-theme5-1 photoredim"><img src="{{ asset(article.photos[0].webPath) }}" /></div>
         {% endif %}
 
         {% if article.theme.nom == 'theme5' and article.photos[1].format != 'n/a' %}
-            <img src="{{ asset(article.photos[1].webPath) }}" class="photo-theme5-1"/>
+        <div class="photo-theme5-1 photoredim"><img src="{{ asset(article.photos[1].webPath) }}" /></div>
         {% endif %}
     
         {% if article.theme.nom == 'theme4' or article.theme.nom == 'theme5' %}
@@ -140,7 +140,7 @@
         {% endif %}
 
         {% if article.theme.nom == 'theme5' and article.photos[2].format != 'n/a' %}
-            <img src="{{ asset(article.photos[2].webPath) }}" class="photo-theme5-2"/>
+        <div class="photo-theme5-2 photoredim"><img src="{{ asset(article.photos[2].webPath) }}" /></div>
         {% endif %}
 
         <div class="">
@@ -173,32 +173,32 @@
     <div class="choix-photos">
         <h1>Photos</h1>
         <div class="photo-choix-container">
-            <div class="boite-photo" data-id-photo="{{ article.photos[0].id }}" data-url="{{ article.photos[0].fichier }}">
+            <div class="boite-photo photoredim" data-id-photo="{{ article.photos[0].id }}" data-url="{{ article.photos[0].fichier }}">
                 {% if article.photos[0].format != 'n/a' %}
                     <img src="{{ asset(article.photos[0].webPath) }}"/>
                 {% endif %}
             </div>
-            <div class="boite-photo" data-id-photo="{{ article.photos[1].id }}" data-url="{{ article.photos[1].fichier }}">
+            <div class="boite-photo photoredim" data-id-photo="{{ article.photos[1].id }}" data-url="{{ article.photos[1].fichier }}">
                 {% if article.photos[1].format != 'n/a' %}
                     <img src="{{ asset(article.photos[1].webPath) }}"/>
                 {% endif %}
             </div>
-            <div class="boite-photo" data-id-photo="{{ article.photos[2].id }}" data-url="{{ article.photos[2].fichier }}">
+            <div class="boite-photo photoredim" data-id-photo="{{ article.photos[2].id }}" data-url="{{ article.photos[2].fichier }}">
                 {% if article.photos[2].format != 'n/a' %}
                     <img src="{{ asset(article.photos[2].webPath) }}"/>
                 {% endif %}
             </div>
-            <div class="boite-photo" data-id-photo="{{ article.photos[3].id }}" data-url="{{ article.photos[3].fichier }}">
+            <div class="boite-photo photoredim" data-id-photo="{{ article.photos[3].id }}" data-url="{{ article.photos[3].fichier }}">
                 {% if article.photos[3].format != 'n/a' %}
                     <img src="{{ asset(article.photos[3].webPath) }}"/>
                 {% endif %}
             </div>
-            <div class="boite-photo" data-id-photo="{{ article.photos[4].id }}" data-url="{{ article.photos[4].fichier }}">
+            <div class="boite-photo photoredim" data-id-photo="{{ article.photos[4].id }}" data-url="{{ article.photos[4].fichier }}">
                 {% if article.photos[4].format != 'n/a' %}
                     <img src="{{ asset(article.photos[4].webPath) }}"/>
                 {% endif %}
             </div>
-            <div class="boite-photo" data-id-photo="{{ article.photos[5].id }}" data-url="{{ article.photos[5].fichier }}">
+            <div class="boite-photo photoredim" data-id-photo="{{ article.photos[5].id }}" data-url="{{ article.photos[5].fichier }}">
                 {% if article.photos[5].format != 'n/a' %}
                     <img src="{{ asset(article.photos[5].webPath) }}"/>
                 {% endif %}
@@ -216,6 +216,36 @@
 
 <script>
     
+    
+    function redimensionnement(nbr, categorie) {
+
+        for (var i = 1; i <= nbr; i++) {
+            $('.' + categorie + ' > .photoredim:nth-of-type(' + i + ') > img').css('width', 'inherit').css('height', 'auto');  
+            
+            var largeur = $('.' + categorie + ' > .photoredim:nth-of-type(' + i + ')').width();
+            var hauteur = $('.' + categorie + ' > .photoredim:nth-of-type(' + i + ')').height();
+            var largeurImg = $('.' + categorie + ' > .photoredim:nth-of-type(' + i + ') > img').width();
+            var hauteurImg = $('.' + categorie + ' > .photoredim:nth-of-type(' + i + ') > img').height();
+            
+            if (largeur / largeurImg > hauteur / hauteurImg) {
+                $('.' + categorie + ' > .photoredim:nth-of-type(' + i + ') > img').css('width', '100%').css('height', 'auto');  
+                var hauteurImg = $('.' + categorie + ' > .photoredim:nth-of-type(' + i + ') > img').height();
+                $('.' + categorie + ' > .photoredim:nth-of-type(' + i + ') > img').css('top', '-'+((hauteurImg/2)-(hauteur/2))+"px");
+                
+            } else if (hauteur / hauteurImg > largeur / largeurImg) {
+                $('.' + categorie + ' > .photoredim:nth-of-type(' + i + ') > img').css('height', '100%').css('width', 'auto');
+                var largeurImg = $('.' + categorie + ' > .photoredim:nth-of-type(' + i + ') > img').width();
+                $('.' + categorie + ' > .photoredim:nth-of-type(' + i + ') > img').css('left', '-'+((largeurImg/2)-(largeur/2))+"px");
+                
+            } else if (hauteur / hauteurImg === largeur / largeurImg) {
+                $('.' + categorie + ' > .photoredim:nth-of-type(' + i + ') > img').css('height', '100%');
+                $('.' + categorie + ' > .photoredim:nth-of-type(' + i + ') > img').css('width', '100%');
+            }
+        }
+    }
+    
+    
+    $(document).ready(function () {    
     var affiche = true;
 
     for (var i = 1; i <= 6; i++) {
@@ -298,6 +328,27 @@
         $('#nsp_articlebundle_article_save').click();
 
     });
+        
+        
+        redimensionnement(12, "form-article");
+        redimensionnement(4, "column-right");
+        redimensionnement(6, "photo-choix-container");
+    
+    });
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+
+    
+
 
 
 </script>
