@@ -16,6 +16,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use NSP\ArticleBundle\Form\ArticleType;
 use NSP\ArticleBundle\Form\PhotoType;
+use NSP\ArticleBundle\Form\CommentaireType;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class ArticleController extends Controller
@@ -124,7 +125,7 @@ class ArticleController extends Controller
 
 
 
-	public function viewArticleAction($titreArticle) {
+	public function viewArticleAction(Request $request, $titreArticle) {
 
       $em = $this
         ->getDoctrine()
@@ -136,8 +137,34 @@ class ArticleController extends Controller
         ->findByName($titreArticle)
       ;
 
+      // $id = $infosArticle->getId();
+
+      // $article = $em
+      //   ->getRepository('NSP\ArticleBundle\Entity\Article')
+      //   ->find($id)
+      // ;
+
+
+      $commentaireForm = $this->createForm(new CommentaireType());
+      $commentaireForm->handleRequest($request);
+
+      if ($commentaireForm->isSubmitted() && $commentaireForm->isValid()) {
+
+          $commentaire = new Commentaire();
+
+          $infos = $commentaireForm->getData();
+          $texte = $infos->getTexte();
+
+          $commentaire->setTexte($texte);
+          $commentaire->setArticle($infosArticle[0]);
+
+          $em->persist($commentaire);
+          $em->flush();
+      }
+
       return $this->render('NSPArticleBundle:Article:article.html.twig', array(
-        'infosArticle' => $infosArticle
+        'infosArticle' => $infosArticle,
+        'commentaireForm' => $commentaireForm->createView()
       ));
 	}
 

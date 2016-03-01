@@ -128,6 +128,7 @@ class Commentaire
     {
         $this->utilisateurs = new \Doctrine\Common\Collections\ArrayCollection();
         $this->utilisateursSignaleurs = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->date = new \Datetime();
     }
 
     /**
