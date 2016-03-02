@@ -17,6 +17,7 @@
 
 {% block bodyContent %} 
 
+<div class="fond-gris"></div>
 <div class="container">
     
     <div class="zonearticle">
@@ -29,6 +30,7 @@
                <th class="thead">Date</th>
                <th class="thead">Rubrique</th>
                <th class="thead">Auteur</th>
+               <th class="thead">Action</th>
            </tr>
         </div> 
 
@@ -41,6 +43,10 @@
                 <td >{{ article.datePublication | date('Y-m-d')}}</td>
                 <td>{{ article.rubrique.nom}}</td>
                 <td>{{ article.utilisateur.pseudo}}</td>
+                <td>
+                  <a href="{{ path('nsp_back_publier', {'id': article.id}) }}"><img class="ajoutart" src="{{ asset('ressources/ajoutart.png') }}"></img></a>
+                  <a href="{{ path('nsp_article_add_champs_article', {'id': article.id}) }}"><img class="crayon" src="{{ asset('ressources/crayon.png') }}"></img></a>
+                </td>
             </tr>
 
           {% endif %}
@@ -52,6 +58,10 @@
                 <td >{{ article.datePublication | date('Y-m-d')}}</td>
                 <td>{{ article.rubrique.nom}}</td>
                 <td>{{ article.utilisateur.pseudo}}</td>
+                <td>
+                  <a href="{{ path('nsp_back_publier', {'id': article.id}) }}"><img class="ajoutart" src="{{ asset('ressources/ajoutart.png') }}"></img></a>
+                  <a href="{{ path('nsp_article_add_champs_article', {'id': article.id}) }}"><img class="crayon" src="{{ asset('ressources/crayon.png') }}"></img></a>
+                </td>
             </tr>
 
           {% endif %}
@@ -63,18 +73,7 @@
 
         </table>
 
-        <div class="zonesuppr">
-          <div class="zoneiconsuppr">
-
-            {% for article in articles %}
-              <a href="{{ path('nsp_back_publier', {'id': article.id}) }}"><img class="ajoutart" src="{{ asset('ressources/ajoutart.png') }}"></img></a>
-              <a href="{{ path('nsp_article_add_champs_article', {'id': article.id}) }}"><img class="crayon" src="{{ asset('ressources/crayon.png') }}"></img>   </a>
-            {% endfor %}
-           
-          </div> 
-        </div>
-                
-        
+                      
     </div>
     
 <!--Fin du premièr tableau     -->
@@ -102,6 +101,15 @@
 
                   <tr class="trstyle">
                       <td class="com" colspan="4">{{ commentaire.texte }}</td>
+                      <td>
+                        <a class="supplien" data-id="commentaire.id" href="#"><img class="supp" src="{{ asset('ressources/iconsupp.png') }}"></img></a>
+
+                        <div class="pop-up" data-id="commentaire.id">
+                          <p class="avertissement-suppression-commentaire">Si vous supprimez ce commentaire, son texte sera remplacé par un le texte de substitution : Ce commentaire a été supprimé car il été jugé trop abusif.</p>
+                          <a href="{{ path('nsp_back_supprimer_commentaire', {'id': commentaire.id}) }}" class="supprimer-commentaire">Supprimer</a>
+                          <a href="#" class="quit-pop-up">Annuler</a>
+                        </div>
+                      </td>
                   </tr>
           
                 {% else %}
@@ -112,20 +120,36 @@
                 
         </table>
         
-      <div class="zonesuppr">
-          <div class="zoneiconsuppr">
-
-          {% for commentaire in commentaires %}
-              <a class="supplien" href="#"><img class="crayon" src="{{ asset('ressources/crayon.png') }}"></img></a> 
-              <a class="supplien" href="{{ path('nsp_back_supprimer_commentaire', {'id': commentaire.id}) }}"><img class="supp" src="{{ asset('ressources/iconsupp.png') }}"></img></a>
-          {% endfor %}   
-          </div> 
-        
-        </div> 
-    </div>
-    
 </div>   
 
 </div>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.2/TweenMax.min.js"></script>
+<script>
+  
+    $('.supplien').click(function(){
+
+      $(this).next().css('display', 'block');
+      $('.fond-gris').css('display', 'block');
+
+      TweenMax.to( $(this).next(), 0.6, {
+        alpha: 1
+      });
+
+      TweenMax.to( $('.fond-gris'), 0.6, {
+        alpha: 1
+      });
+        
+    });
+
+    $('.quit-pop-up').click(function(){
+
+      $('.pop-up').css('display', 'none');
+      $('.fond-gris').css('display', 'none');
+        
+    });
+
+</script>
 
 {% endblock %}

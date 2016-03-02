@@ -134,7 +134,8 @@ class BackController extends Controller
             ->find($id)
         ;
 
-        $em->remove($commentaire);
+        $commentaire->setTexte('Ce commentaire à été supprimé car il a été jugé trop abusif.');
+        $em->persist($commentaire);
         $em->flush();
 
 
