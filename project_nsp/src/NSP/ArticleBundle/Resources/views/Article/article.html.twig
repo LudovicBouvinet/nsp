@@ -96,31 +96,34 @@
         </div>
         {% endif %}
 
-        <div class="zonenotetop">
-            <div class="titrenote">Notez cet
-                <br>article</div>
-            <div class="etcommercial">&</div>
-            <div class="titrecom">Donnez nous
-                <br>votre avis</div>
-        </div>
-        <div class="zonenotemiddle">
-            <img class="flechenote" src="{{ asset('ressources/arrownote.png') }}" alt="fleche"></img>
-            
-
-            <div class="profilvous">
-                <img class="tofprofilnote" src="{{ asset('ressources/tofprofilnote.png') }}" alt="photo de profil"> </img>
-
-                <div class="vous">Vous</div>
+        <div class="container-commenter-noter">
+            <div class="zonenotetop">
+                <div class="titrenote">Notez cet
+                    <br>article</div>
+                <div class="etcommercial">&</div>
+                <div class="titrecom">Donnez nous
+                    <br>votre avis</div>
             </div>
 
+            <div class="zonenotemiddle">
+                <img class="flechenote" src="{{ asset('ressources/arrownote.png') }}" alt="fleche"></img>
+                
 
-            <div class="ajout-commentaire">
-                {{ form_start(commentaireForm, {'attr': {'class': 'form-commentaire'}}) }} {{ form_widget(commentaireForm.texte, {'attr': {'class': 'form-commentaire'}}) }} {{ form_end(commentaireForm) }}
-                <img class="inputcom" src="{{ asset('ressources/form.png') }}" alt="formulaire de commentaire">
-                </img>
+                <div class="profilvous">
+                    <img class="tofprofilnote" src="{{ asset('ressources/tofprofilnote.png') }}" alt="photo de profil"> </img>
+
+                    <div class="vous">Vous</div>
+                </div>
+
+                <div class="ajout-commentaire">
+                    {{ form_start(commentaireForm, {'attr': {'class': 'form-commentaire'}}) }} 
+                        {{ form_widget(commentaireForm.texte, {'attr': {'class': 'input-form-commentaire'}}) }}
+                        {{ form_widget(commentaireForm.save, {'attr': {'class': 'save-button-commentaire'}}) }}
+                    {{ form_end(commentaireForm) }}
+                    <img class="inputcom" src="{{ asset('ressources/form.png') }}" alt="formulaire de commentaire">
+                    </img>
+                </div>
             </div>
-
-
         </div>
 
 
@@ -198,23 +201,27 @@
 
             <div class="zonedroite">
                 <div class="contentzonedroite">
-                    {% set a = 0 %} {% for commentaire in commentaires %} {% if a is even %}
-                    <div class="contentleftcom">
-                        <img class="tofprofilnotebottom" src="{{ asset('ressources/tofprofilnotebottom.png') }}"></img>
-                        <div>
-                            <p class="commentaire-texte">{{ commentaire.texte }}</p>
-                            <img class="bottomform" src="{{ asset('ressources/formbottom.png') }}"></img>
-                        </div>
-                    </div>
-                    {% endif%} {% if a is odd %}
-                    <div class="contentrightcom">
-                        <img class="tofprofilnotebottomright" src="{{ asset('ressources/tofprofilnotebottom.png') }}"></img>
-                        <div>
-                            <p class="commentaire-texte">{{ commentaire.texte }}</p>
-                            <img class="bottomformright" src="{{ asset('ressources/formright.png') }}"></img>
-                        </div>
-                    </div>
-                    {% endif%} {% set a = a +1 %} {% endfor %}
+                    {% set a = 0 %} 
+                    {% for commentaire in commentaires %}
+                        {% if a is even %}
+                            <div class="contentleftcom">
+                                <img class="tofprofilnotebottom" src="{{ asset('ressources/tofprofilnotebottom.png') }}">
+                                <div class="container-commentaire">
+                                    <p class="commentaire-texte-left">{{ commentaire.texte }}</p>
+                                    <img class="bottomform" src="{{ asset('ressources/formbottom.png') }}"></img>
+                                </div>
+                            </div>
+                        {% endif%}
+                        {% if a is odd %}
+                            <div class="contentrightcom">
+                                <img class="tofprofilnotebottomright" src="{{ asset('ressources/tofprofilnotebottom.png') }}">
+                                <div class="container-commentaire">
+                                    <p class="commentaire-texte-right">{{ commentaire.texte }}</p>
+                                    <img class="bottomformright" src="{{ asset('ressources/formright.png') }}"></img>
+                                </div>
+                            </div>
+                        {% endif%} {% set a = a +1 %} 
+                    {% endfor %}
 
                 </div>
 
