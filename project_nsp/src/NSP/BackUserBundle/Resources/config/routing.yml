@@ -1,0 +1,11 @@
+nsp_back_user_message:
+    path:     /backuser/messagerie
+    defaults: { _controller: NSPBackUserBundle:BackUser:message }
+
+nsp_back_user_mesarticles:
+    path:     /backuser/articles
+    defaults: { _controller: NSPBackUserBundle:BackUser:myArticle }
+
+nsp_back_user_profil:
+    path:     /backuser
+    defaults: { _controller: NSPBackUserBundle:BackUser:profil }

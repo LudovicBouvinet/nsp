@@ -1,0 +1,99 @@
+{% extends "NSPBackUserBundle::layout.html.twig" %} {% block title %}{{ parent() }} - Espace Personnel {% endblock %} {% block css %}
+<link rel="stylesheet" href="{{ asset('bundles/nspbackuser/css/styles.css') }}">{% endblock %} 
+
+{% block body %}
+<div class="menugauche">
+    <a class="profil" href="#"><div class="tofprofil"><div class="nbrenotifprofil">1</div></div></a> 
+    <a href="myprofil.php"><div class="myprofil"></div></a> 
+    <a href="index.php"><div class="iconmsg"></div></a>
+    <a href="myarticle.php"><div class="iconart"></div></a>  
+</div>
+
+<div class="zoneperso">
+       <div class="mesarticle">
+           
+            <div class="topmsg">
+                <div class="txtmsg">Mes Articles</div>
+                <a class="liennewmsg" href="##"><div class="newmsg"></div></a>
+            </div> 
+            
+            <div class="mymsgs">
+               
+                <a class="lienmsg" href=""><div class="encarmsg">
+                    <div class="resummsg">
+                       <div class="firstlign">
+                            <div class="auteur">COP 21</div>
+                            <div class="date">17 oct.</div>
+                        </div>
+                        <div class="stars"></div>
+                        <div class="lastlign">
+                            <div class="pitchmsg">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ....</div>
+                            <a class="liensupp" href="#"><div class="modarticle"></div></a>
+                        </div>
+                    </div>   
+                </div></a>
+                
+                <a class="lienmsg" href=""><div class="encarmsg">
+                      <div class="resummsg">
+                       <div class="firstlign">
+                            <div class="auteur">Offre du Playstation Store</div>
+                            <div class="date">17 oct.</div>
+                        </div>
+                        <div class="stars"></div>
+                        <div class="lastlign">
+                            <div class="pitchmsg">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ....</div>
+                            <a class="liensupp" href="#"><div class="modarticle"></div></a>
+                        </div>
+                    </div>    
+                </div></a>
+                
+                <a class="lienmsg" href=""><div class="encarmsg">
+                      <div class="resummsg">
+                       <div class="firstlign">
+                            <div class="auteur">Uncharted 4 sortie </div>
+                            <div class="date">17 oct.</div>
+                        </div>
+                        <div class="stars"></div>
+                        <div class="lastlign">
+                            <div class="pitchmsg">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ....</div>
+                            <a class="liensupp" href="#"><div class="modarticle"></div></a>
+                        </div>
+                    </div>    
+                </div></a>
+                
+                <a class="lienmsg" href=""><div class="encarmsg">
+                      <div class="resummsg">
+                       <div class="firstlign">
+                            <div class="auteur">Nike Flyknit Racer</div>
+                            <div class="date">17 oct.</div>
+                        </div>
+                        <div class="stars"></div>
+                        <div class="lastlign">
+                            <div class="pitchmsg">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ....</div>
+                            <a class="liensupp" href="#"><div class="modarticle"></div></a>
+                        </div>
+                    </div> 
+                    </div></a>
+            </div>                    
+           
+       </div>
+       
+       
+       <div class="bloczonerightmyarticle">
+           <div class="zonemsg">
+               
+                   <div class="titremsg"> INCLURE ICI UN FICHIER ARTICLE</div> 
+                    
+                    <div class="zonetexteenvoie">
+                    
+                   </div>
+               
+           </div>
+           
+           
+       </div>
+
+</div>
+{% endblock %}
+
+

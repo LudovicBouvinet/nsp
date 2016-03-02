@@ -1,0 +1,41 @@
+{% extends "NSPBackUserBundle::layout.html.twig" %} {% block title %}{{ parent() }} - Espace Personnel {% endblock %} {% block css %}
+<link rel="stylesheet" href="{{ asset('bundles/nspbackuser/css/styles.css') }}">{% endblock %} 
+
+{% block body %}
+
+<div class="menugauche">
+    <a class="profil" href="#"><div class="tofprofil"><div class="nbrenotifprofil">1</div></div></a> 
+    <a href="myprofil.php"><div class="myprofil"></div></a> 
+    <a href="index.php"><div class="iconmsg"></div></a>
+    <a href="myarticle.php"><div class="iconart"></div></a>  
+</div>
+
+<div class="zoneperso">
+
+   <div class="blocleftprofil">
+    <a href="#"><div class="modprof"></div></a> 
+       <a href="#"><div class="supprofmobile"></div></a>
+        <div class="titleinfocompte">Informations de Compte</div>
+            <div class="zoneinfotop">
+                <div class="cadreinfo"><p class="info">Pseudo</p></div><br>
+                <div class="cadreinfo"><p class="info">Adresse Mail</p></div><br>
+                <div class="cadreinfo"><p class="info">Mot de Passe</p></div><br>
+            </div>
+        <div class="titleoption">Options du Compte</div>
+        <div class="cadreinfo"><p class="info">Abonnée à la Newsletters</p></div>
+   </div>
+
+   <div class="blocrightprofil">
+    <a href="#"><div class="supprof"></div></a>
+        <div class="titleinfocompte2">Détails Personnels</div>
+            <div class="zoneinfotop">
+                <div class="cadreinfo"><p class="info">Nom</p></div><br>
+                <div class="cadreinfo"><p class="info">Prenom</p></div><br>
+                <div class="cadreinfo"><p class="info">Date</p></div><br>
+            </div>
+        <div class="cadreinfo"><p class="info">Sexe</p></div>
+   </div>
+   <div class="tofprofilmod"></div>     
+   
+</div>
+{% endblock %}

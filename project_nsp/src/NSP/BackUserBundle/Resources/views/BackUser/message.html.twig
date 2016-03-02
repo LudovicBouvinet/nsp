@@ -1,0 +1,113 @@
+{% extends "NSPBackUserBundle::layout.html.twig" %} {% block title %}{{ parent() }} - Espace Personnel {% endblock %} {% block css %}
+<link rel="stylesheet" href="{{ asset('bundles/nspbackuser/css/styles.css') }}">{% endblock %} 
+
+{% block body %}
+
+<div class="menugauche">
+    <a class="profil" href="#"><div class="tofprofil"><div class="nbrenotifprofil">1</div></div></a> 
+    <a href="myprofil.php"><div class="myprofil"></div></a> 
+    <a href="index.php"><div class="iconmsg"></div></a>
+    <a href="myarticle.php"><div class="iconart"></div></a>  
+</div>
+
+<div class="zoneperso">
+       
+       <div class="mesarticle">
+           
+            <div class="topmsg">
+                <div class="txtmsg">Messagerie</div>
+                <a class="liennewmsg" href="##"><div class="newmsg"></div></a>
+            </div> 
+            
+            <div class="mymsgs">
+               
+                <a class="lienmsg" href=""><div class="encarmsg">
+                    <div class="resummsg">
+                       <div class="firstlign">
+                            <div class="auteur">Mélina</div>
+                            <div class="date">17 oct.</div>
+                        </div>
+                        <div class="subject">Super soirée 2016</div>
+                        <div class="lastlign">
+                            <div class="pitchmsg">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ....</div>
+                            <a class="liensupp" href="#"><div class="suppmsg"></div></a>
+                        </div>
+                    </div>   
+                </div></a>
+                
+                <a class="lienmsg" href=""><div class="encarmsg">
+                      <div class="resummsg">
+                       <div class="firstlign">
+                            <div class="auteur">Mélina</div>
+                            <div class="date">17 oct.</div>
+                        </div>
+                        <div class="subject">Super soirée 2016</div>
+                        <div class="lastlign">
+                            <div class="pitchmsg">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ....</div>
+                            <a class="liensupp" href="#"><div class="suppmsg"></div></a>
+                        </div>
+                    </div>    
+                </div></a>
+                
+                <a class="lienmsg" href=""><div class="encarmsg">
+                      <div class="resummsg">
+                       <div class="firstlign">
+                            <div class="auteur">Mélina</div>
+                            <div class="date">17 oct.</div>
+                        </div>
+                        <div class="subject">Super soirée 2016</div>
+                        <div class="lastlign">
+                            <div class="pitchmsg">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ....</div>
+                            <a class="liensupp" href="#"><div class="suppmsg"></div></a>
+                        </div>
+                    </div>    
+                </div></a>
+                
+                <a class="lienmsg" href=""><div class="encarmsg">
+                      <div class="resummsg">
+                       <div class="firstlign">
+                            <div class="auteur">Mélina</div>
+                            <div class="date">17 oct.</div>
+                        </div>
+                        <div class="subject">Super soirée 2016</div>
+                        <div class="lastlign">
+                            <div class="pitchmsg">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ....</div>
+                            <a class="liensupp" href="#"><div class="suppmsg"></div></a>
+                        </div>
+                    </div> 
+                    </div></a>
+            </div>                    
+           
+       </div>
+       
+       
+       <div class="bloczoneright">
+           <div class="zonemsg">
+               <div class="zonefili">
+                   <div class="titremsg"> Mélina Guyon - Chef Rédacteur</div>
+                    <div class="photoenvoie"></div>  
+                    
+                    <div class="zonetexteenvoie">
+                    <p class="textemsg">  
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum </p> 
+                   <br>
+                   <p class="textemsg">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+                   
+                   <br> 
+                   </div>
+               </div>
+           </div>
+           
+           
+       </div>
+             <div class="submitbloczoneright">
+           <div class="submit"><input  type="submit" value="ENVOYEZ" id="button-blue"/><div class="ease"></div></div>
+           
+       </div>
+ 
+</div>
+{% endblock %}
+
+

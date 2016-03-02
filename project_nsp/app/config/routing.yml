@@ -1,3 +1,7 @@
+nsp_back_user:
+    resource: "@NSPBackUserBundle/Resources/config/routing.yml"
+    prefix:   /
+
 nsp_back:
     resource: "@NSPBackBundle/Resources/config/routing.yml"
     prefix:   /
