@@ -31,6 +31,7 @@
         {% if article.photos[0].format != 'n/a' %}
         <div class="photo-principale"><img src="{{ asset(article.photos[0].webPath) }}" /></div>
         {% endif %}
+        
 
         {# Les erreurs générales du formulaire. #}
         {{ form_errors(formArticle) }}
@@ -61,7 +62,20 @@
             {{ form_widget(formArticle.chapeau, {'attr': {'class': 'form-chapeau'}}) }}
           </div>
         </div>
-
+        
+               
+        {% if article.theme.nom == 'theme6' %}
+        {%  set z = 0 %}            
+        <div class="mosaique">
+        {% for photo in article.photos if z in 0..5 and article.photos[z].format != 'n/a' %}
+        
+        <div class="photoredim" ><img src="{{ asset(article.photos[z].webPath) }}" alt=""></div> 
+        {%  set z = z +1 %}  
+        {% endfor %}
+        </div>
+        {% endif %}
+    
+   
         {% if article.theme.nom == 'theme1' and article.photos[0].format != 'n/a' %}
         <div class="photo-theme1 photoredim"><img src="{{ asset(article.photos[0].webPath) }}" /></div>
         {% endif %}
@@ -78,6 +92,8 @@
         {% if article.theme.nom == 'theme4' and article.photos[0].format != 'n/a' %}
         <div class="photo-theme4-1 photoredim"><img src="{{ asset(article.photos[0].webPath) }}" /></div>
         {% endif %}
+        
+        
 
         <div class="column-left">
             {# Génération du label. #}
@@ -105,6 +121,8 @@
             <div class="photo-theme2 photoredim"><img src="{{ asset(article.photos[2].webPath) }}" /></div>
             {% endif %}
         </div>
+
+        
 
         {% if article.theme.nom == 'theme4' and article.photos[1].format != 'n/a' %}
         <div class="photo-theme4-2 photoredim"><img src="{{ asset(article.photos[1].webPath) }}" /></div>
@@ -333,6 +351,25 @@
         redimensionnement(12, "form-article");
         redimensionnement(4, "column-right");
         redimensionnement(6, "photo-choix-container");
+        redimensionnement(6, "mosaique");
+        
+        if( $(".form-texte1").focus() ){
+             $(document).keyup(function(touche){
+
+            var appui = touche.which || touche.keyCode;
+
+            if(appui == 13){ 
+               $(".form-texte1").val($(".form-texte1").val()+'<SautDeLigne>');
+            }
+        });
+        }
+       
+   
+    
+    
+    
+    
+    
     
     });
     
