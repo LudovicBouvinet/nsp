@@ -56,7 +56,7 @@
             {% endif %}
 
             <p>
-{{ infosArticle[0].texteFirst|replace({'<br>': '<br>'}) | raw}}
+{{ article.texteFirst|replace({'<br>': '<br>'}) | raw}}
             </p>
 
             {% if article.theme.nom == 'theme4' %}
@@ -75,7 +75,7 @@
             </div>{% endif %}
 
             <p>
-                {% if article.texteSecond is not null %} {{ infosArticle[0].texteSecond|replace({'<br>': '<br>'}) | raw}} {% endif %}
+                {% if article.texteSecond is not null %} {{ article.texteSecond|replace({'<br>': '<br>'}) | raw}} {% endif %}
             </p>
 
             {% if article.theme.nom == 'theme5' %}
@@ -105,15 +105,6 @@
         </div>
         <div class="zonenotemiddle">
             <img class="flechenote" src="{{ asset('ressources/arrownote.png') }}" alt="fleche"></img>
-           
-<!--
-            <div class="ajout-note">
-               
-                {{ form_start(noteForm, {'attr': {'class': 'form-note'}}) }} {{ form_widget(noteForm.note, {'attr': {'class': 'form-note'}}) }} {{ form_end(noteForm) }}
-                
-<img class="etoileform" src="{{ asset('ressources/rangeeetoile.png') }}" alt="formulaire de note"></img>
-            </div>
--->
             
 
             <div class="profilvous">
