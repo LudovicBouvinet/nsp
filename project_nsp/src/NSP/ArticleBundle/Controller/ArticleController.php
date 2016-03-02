@@ -141,6 +141,11 @@ class ArticleController extends Controller
         ->getRepository('NSPArticleBundle:Commentaire')
         ->findComments($article)
       ;
+        
+        $notes = $em
+        ->getRepository('NSPArticleBundle:UtilisateurArticle')
+        ->findNotes($article)
+      ;
 
       $commentaireForm = $this->createForm(new CommentaireType());
       $commentaireForm->handleRequest($request);
@@ -163,8 +168,30 @@ class ArticleController extends Controller
         'article' => $article,
         'commentaireForm' => $commentaireForm->createView(),
         'commentaires' => $commentaires
-      ));
+      ));            
+        
+//      $noteForm = $this->createForm(new NoteType());
+//      $noteForm->handleRequest($request);
+//
+//      if ($noteForm->isSubmitted() && $noteForm->isValid()) {
+//
+//          $note = new Note();
+//
+//          $infos = $noteForm->getData();
+//          $note = $infos->getNote();
+//
+//          $note->setNote($note);
+//          $note->setArticle($article);
+//
+//          $em->persist($note);
+//          $em->flush();
+//      }
+//
+//      return $this->render('NSPArticleBundle:Article:article.html.twig', array(
+//        'article' => $article,
+//        'noteForm' => $noteForm->createView(),
+//        'notes' => $notes
+//      ));    
 	}
-
-
 }
+

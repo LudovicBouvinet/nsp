@@ -109,7 +109,16 @@
         </div>
         <div class="zonenotemiddle">
             <img class="flechenote" src="{{ asset('ressources/arrownote.png') }}" alt="fleche"></img>
-            <img class="etoileform" src="{{ asset('ressources/rangeeetoile.png') }}" alt="formulaire de note"></img>
+           
+<!--
+            <div class="ajout-note">
+               
+                {{ form_start(noteForm, {'attr': {'class': 'form-note'}}) }} {{ form_widget(noteForm.note, {'attr': {'class': 'form-note'}}) }} {{ form_end(noteForm) }}
+                
+<img class="etoileform" src="{{ asset('ressources/rangeeetoile.png') }}" alt="formulaire de note"></img>
+            </div>
+-->
+            
 
             <div class="profilvous">
                 <img class="tofprofilnote" src="{{ asset('ressources/tofprofilnote.png') }}" alt="photo de profil"> </img>
@@ -119,11 +128,7 @@
 
 
             <div class="ajout-commentaire">
-                {{ form_start(commentaireForm, {'attr': {'class': 'form-commentaire'}}) }}
-                    
-                    {{ form_widget(commentaireForm.texte, {'attr': {'class': 'form-commentaire'}}) }}
-
-                {{ form_end(commentaireForm) }}
+                {{ form_start(commentaireForm, {'attr': {'class': 'form-commentaire'}}) }} {{ form_widget(commentaireForm.texte, {'attr': {'class': 'form-commentaire'}}) }} {{ form_end(commentaireForm) }}
                 <img class="inputcom" src="{{ asset('ressources/form.png') }}" alt="formulaire de commentaire">
                 </img>
             </div>
@@ -197,7 +202,7 @@
                         <div class="prenomnote">Ludovic Bouvinet</div>
                         <img class="etoilenote" src="{{ asset('ressources/petitetoile.png') }}" alt="note des lecteurs"></img>
                     </div>
-                                    <div class="affichettnote"><a href="#">Afficher toutes les notes</a></div>
+                    <div class="affichettnote"><a href="#">Afficher toutes les notes</a></div>
                 </div>
 
 
@@ -206,33 +211,23 @@
 
             <div class="zonedroite">
                 <div class="contentzonedroite">
-                        {% set a = 0 %}
-
-                        {% for commentaire in commentaires %}
-                            
-                            {% if a is even %}
-                                <div class="contentleftcom">
-                                    <img class="tofprofilnotebottom" src="{{ asset('ressources/tofprofilnotebottom.png') }}"></img>
-                                    <div>
-                                        <p class="commentaire-texte">{{ commentaire.texte }}</p>
-                                        <img class="bottomform" src="{{ asset('ressources/formbottom.png') }}"></img>    
-                                    </div>
-                                </div>
-                            {% endif%}
-                            
-                            {% if a is odd %}
-                                <div class="contentrightcom">
-                                    <img class="tofprofilnotebottomright" src="{{ asset('ressources/tofprofilnotebottom.png') }}"></img>
-                                    <div>
-                                        <p class="commentaire-texte">{{ commentaire.texte }}</p>
-                                        <img class="bottomformright" src="{{ asset('ressources/formright.png') }}"></img>    
-                                    </div>
-                                </div>
-                            {% endif%}
-
-                            {% set a = a +1 %}
-
-                        {% endfor %}
+                    {% set a = 0 %} {% for commentaire in commentaires %} {% if a is even %}
+                    <div class="contentleftcom">
+                        <img class="tofprofilnotebottom" src="{{ asset('ressources/tofprofilnotebottom.png') }}"></img>
+                        <div>
+                            <p class="commentaire-texte">{{ commentaire.texte }}</p>
+                            <img class="bottomform" src="{{ asset('ressources/formbottom.png') }}"></img>
+                        </div>
+                    </div>
+                    {% endif%} {% if a is odd %}
+                    <div class="contentrightcom">
+                        <img class="tofprofilnotebottomright" src="{{ asset('ressources/tofprofilnotebottom.png') }}"></img>
+                        <div>
+                            <p class="commentaire-texte">{{ commentaire.texte }}</p>
+                            <img class="bottomformright" src="{{ asset('ressources/formright.png') }}"></img>
+                        </div>
+                    </div>
+                    {% endif%} {% set a = a +1 %} {% endfor %}
 
                 </div>
 
@@ -251,7 +246,6 @@
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
 <script type="text/javascript">
-
     function redimensionnement(nbr, categorie) {
 
         for (var i = 1; i <= nbr; i++) {

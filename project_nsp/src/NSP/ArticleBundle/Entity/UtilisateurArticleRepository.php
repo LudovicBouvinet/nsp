@@ -10,4 +10,21 @@ namespace NSP\ArticleBundle\Entity;
  */
 class UtilisateurArticleRepository extends \Doctrine\ORM\EntityRepository
 {
+    
+    public function findNotes($article)
+	{
+	  $qb = $this->createQueryBuilder('n');
+
+	  $qb
+	    ->where('n.article = :article')
+	    ->setParameter('article', $article)
+	    ->orderBy('n.id', 'DESC')
+	  ;
+
+	  return $qb
+	    ->getQuery()
+	    ->getResult()
+	  ;
+	}
+    
 }
