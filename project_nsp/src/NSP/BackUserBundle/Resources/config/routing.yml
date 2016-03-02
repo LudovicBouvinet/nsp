@@ -1,3 +1,0 @@
-nsp_back_user_homepage:
-    path:     /backuser
-    defaults: { _controller: NSPBackUserBundle:BackUser:viewHomeBackUser }
