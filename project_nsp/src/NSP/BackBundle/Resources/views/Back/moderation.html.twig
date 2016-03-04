@@ -42,7 +42,7 @@
                 <td>{{ article.titre }}</td>
                 <td >{{ article.datePublication | date('Y-m-d')}}</td>
                 <td>{{ article.rubrique.nom}}</td>
-                <td>{{ article.utilisateur.pseudo}}</td>
+                <td>Melina</td>
                 <td>
                   <a href="{{ path('nsp_back_publier', {'id': article.id}) }}"><img class="ajoutart" src="{{ asset('ressources/ajoutart.png') }}"></img></a>
                   <a href="{{ path('nsp_article_add_champs_article', {'id': article.id}) }}"><img class="crayon" src="{{ asset('ressources/crayon.png') }}"></img></a>
@@ -57,7 +57,7 @@
                 <td>{{ article.titre }}</td>
                 <td >{{ article.datePublication | date('Y-m-d')}}</td>
                 <td>{{ article.rubrique.nom}}</td>
-                <td>{{ article.utilisateur.pseudo}}</td>
+                <td>Melina</td>
                 <td>
                   <a href="{{ path('nsp_back_publier', {'id': article.id}) }}"><img class="ajoutart" src="{{ asset('ressources/ajoutart.png') }}"></img></a>
                   <a href="{{ path('nsp_article_add_champs_article', {'id': article.id}) }}"><img class="crayon" src="{{ asset('ressources/crayon.png') }}"></img></a>
