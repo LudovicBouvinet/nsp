@@ -3,6 +3,7 @@
 namespace NSP\ArticleBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use FOS\UserBundle\Model\User as BaseUser;
 
 /**
  * Utilisateur
@@ -10,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="NSP\ArticleBundle\Entity\UtilisateurRepository")
  */
-class Utilisateur
+class Utilisateur extends BaseUser
 {
     /**
      * @var integer
@@ -19,7 +20,7 @@ class Utilisateur
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
 
     /**
      * @var string
@@ -448,6 +449,7 @@ class Utilisateur
      */
     public function __construct()
     {
+        parent::__construct();
         $this->articlesEcrits = new \Doctrine\Common\Collections\ArrayCollection();
         $this->articlesVerifies = new \Doctrine\Common\Collections\ArrayCollection();
         $this->articlesNotes = new \Doctrine\Common\Collections\ArrayCollection();

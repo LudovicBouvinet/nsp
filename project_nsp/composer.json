@@ -18,7 +18,8 @@
         "sensio/distribution-bundle": "~4.0",
         "sensio/framework-extra-bundle": "^3.0.2",
         "incenteev/composer-parameter-handler": "~2.0",
-        "symfony-cmf/media-bundle" : "~1.3.0-RC1"
+        "symfony-cmf/media-bundle" : "~1.3.0-RC1",
+        "friendsofsymfony/user-bundle": "dev-master"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3",

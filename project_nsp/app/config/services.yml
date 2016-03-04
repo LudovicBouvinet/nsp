@@ -3,7 +3,7 @@
 parameters:
 #    parameter_name: value
 
+
 services:
-#    service_name:
-#        class: AppBundle\Directory\ClassName
-#        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
+    fos_user.doctrine_registry:
+        alias: doctrine
