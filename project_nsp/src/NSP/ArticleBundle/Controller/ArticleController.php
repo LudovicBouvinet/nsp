@@ -17,6 +17,7 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use NSP\ArticleBundle\Form\ArticleType;
 use NSP\ArticleBundle\Form\PhotoType;
 use NSP\ArticleBundle\Form\CommentaireType;
+use NSP\ArticleBundle\Form\NoteType;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class ArticleController extends Controller
@@ -163,35 +164,33 @@ class ArticleController extends Controller
           $em->persist($commentaire);
           $em->flush();
       }
+        
+                
+      $noteForm = $this->createForm(new NoteType());
+      $noteForm->handleRequest($request);
+
+      if ($noteForm->isSubmitted() && $noteForm->isValid()) {
+
+          $utilisateur = new UtilisateurArticle();
+
+          $infos = $noteForm->getData();
+          $note = $infos->getNote();
+
+          $utilisateur->setNote($note);
+          $utilisateur->setArticle($article);
+
+          $em->persist($utilisateur);
+          $em->flush();
+      }
 
       return $this->render('NSPArticleBundle:Article:article.html.twig', array(
         'article' => $article,
         'commentaireForm' => $commentaireForm->createView(),
-        'commentaires' => $commentaires
+        'commentaires' => $commentaires,
+        'noteForm' => $noteForm->createView(),
+        'notes' => $notes
       ));            
-        
-//      $noteForm = $this->createForm(new NoteType());
-//      $noteForm->handleRequest($request);
-//
-//      if ($noteForm->isSubmitted() && $noteForm->isValid()) {
-//
-//          $note = new Note();
-//
-//          $infos = $noteForm->getData();
-//          $note = $infos->getNote();
-//
-//          $note->setNote($note);
-//          $note->setArticle($article);
-//
-//          $em->persist($note);
-//          $em->flush();
-//      }
-//
-//      return $this->render('NSPArticleBundle:Article:article.html.twig', array(
-//        'article' => $article,
-//        'noteForm' => $noteForm->createView(),
-//        'notes' => $notes
-//      ));    
+
 	}
 }
 

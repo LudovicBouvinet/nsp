@@ -17,7 +17,14 @@ class NoteType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('note', 'select')
+            ->add('note', 'choice', array(
+            'choices' => array(
+                '1' => 'Notez 1',
+                '2' => 'Notez 2',
+                '3' => 'Notez 3',
+                '4' => 'Notez 4',
+                '5' => 'Notez 5',
+            )))
             ->add('save', 'submit')
         ;
     }
@@ -36,8 +43,8 @@ class NoteType extends AbstractType
     /**
      * @return string
      */
-    public function getNote()
+    public function getName()
     {
-        return 'nsp_articlebundle_note';
+        return 'nsp_articlebundle_UtilisateurArticle';
     }
 }
