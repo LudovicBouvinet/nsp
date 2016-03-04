@@ -115,11 +115,12 @@
                 {{ form_start(noteForm, {'attr': {'class': 'form-note'}}) }} {{ form_widget(noteForm.note, {'attr': {'class': 'form-note'}}) }} {{ form_end(noteForm) }}
                 
                 
-<img class="etoileform" src="{{ asset('ressources/etoile-selectionnee.png') }}" alt="formulaire de note"></img>
-<img class="etoileform" src="{{ asset('ressources/etoile-selectionnee.png') }}" alt="formulaire de note"></img>      
-<img class="etoileform" src="{{ asset('ressources/etoile-selectionnee.png') }}" alt="formulaire de note"></img>
-<img class="etoileform" src="{{ asset('ressources/etoile-selectionnee.png') }}" alt="formulaire de note"></img>
-<img class="etoileform" src="{{ asset('ressources/etoile-selectionnee.png') }}" alt="formulaire de note"></img> 
+
+<img class="etoileform" src="{{ asset('ressources/etoile-selectionnee.png') }}" alt="formulaire de note" data-note="1" ></img>
+<img class="etoileform" src="{{ asset('ressources/etoile-selectionnee.png') }}" alt="formulaire de note"  data-note="2" ></img>      
+<img class="etoileform" src="{{ asset('ressources/etoile-selectionnee.png') }}" alt="formulaire de note"  data-note="3" ></img>
+<img class="etoileform" src="{{ asset('ressources/etoile-selectionnee.png') }}" alt="formulaire de note"  data-note="4" ></img>
+<img class="etoileform" src="{{ asset('ressources/etoile-selectionnee.png') }}" alt="formulaire de note"  data-note="5" ></img> 
            
            
             </div>
@@ -132,11 +133,16 @@
             </div>
 
 
-            <div class="ajout-commentaire">
-                {{ form_start(commentaireForm, {'attr': {'class': 'form-commentaire'}}) }} {{ form_widget(commentaireForm.texte, {'attr': {'class': 'form-commentaire'}}) }} {{ form_end(commentaireForm) }}
-                <img class="inputcom" src="{{ asset('ressources/form.png') }}" alt="formulaire de commentaire">
-                </img>
-            </div>
+
+                <div class="ajout-commentaire">
+                    {{ form_start(commentaireForm, {'attr': {'class': 'form-commentaire'}}) }} 
+                        {{ form_widget(commentaireForm.texte, {'attr': {'class': 'input-form-commentaire'}}) }}
+                        {{ form_widget(commentaireForm.save, {'attr': {'class': 'save-button-commentaire'}}) }}
+                    {{ form_end(commentaireForm) }}
+                    <img class="inputcom" src="{{ asset('ressources/form.png') }}" alt="formulaire de commentaire">
+                    </img>
+                </div>
+
 
 
         </div>
@@ -294,7 +300,7 @@
 
             var pre = "";
 
-            if (i === 1) {
+             if (i === 1) {
                 pre = "-webkit-";
             }
             if (i === 2) {
@@ -321,6 +327,17 @@
         });
 
         $('#nsp_articlebundle_commentaire_texte').val('');
+                    $('#nsp_articlebundle_UtilisateurArticle_note').css('visibility','hidden');
+            $('#nsp_articlebundle_UtilisateurArticle_save').css('visibility','hidden');
+        
+        $('.etoileform').on('click',function(){
+
+            $('#nsp_articlebundle_UtilisateurArticle_note').val($(this).data('note'));
+            $('#nsp_articlebundle_UtilisateurArticle_save').click();
+            
+            
+            
+        });
 
     });
 </script>

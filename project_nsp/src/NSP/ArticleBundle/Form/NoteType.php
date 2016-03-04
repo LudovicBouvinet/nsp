@@ -1,3 +1,4 @@
+
 <?php
 
 namespace NSP\ArticleBundle\Form;
@@ -47,4 +48,5 @@ class NoteType extends AbstractType
     {
         return 'nsp_articlebundle_UtilisateurArticle';
     }
+
 }
