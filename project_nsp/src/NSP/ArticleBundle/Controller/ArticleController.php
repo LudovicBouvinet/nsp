@@ -153,6 +153,10 @@ class ArticleController extends Controller
         ->getRepository('NSPArticleBundle:UtilisateurArticle')
         ->findNotes($article)
       ;
+        
+         $moyenne = $em 
+        ->getRepository('NSPArticleBundle:UtilisateurArticle')
+        -> findNote($article);
 
       $commentaireForm = $this->createForm(new CommentaireType());
       $commentaireForm->handleRequest($request);
@@ -194,7 +198,8 @@ class ArticleController extends Controller
         'commentaireForm' => $commentaireForm->createView(),
         'commentaires' => $commentaires,
         'noteForm' => $noteForm->createView(),
-        'notes' => $notes
+        'notes' => $notes,
+        'moyenne' => $moyenne  
       ));            
 
 	}
