@@ -27,9 +27,12 @@
 
     	        <li class="lienli"><a href="{{ path('nsp_back_homepage') }}" class="liena">Home</a></li>
     	        <li class="lienli"><a href="{{ path('nsp_back_moderation') }}" class="liena">Modération</a></li>
-    	        <li class="lienli"><a href="{{ path('nsp_back_administration') }}" class="liena">Administration</a></li>
+                {% if is_granted('ROLE_SUPER_ADMIN') %}
+                  <li class="lienli"><a href="{{ path('nsp_back_administration') }}" class="liena">Administration</a></li>
+                {% endif %}
+    	        
     	        <li class="lienli"><a href="{{ path('nsp_back_statistiques') }}" class="liena">Statistiques</a></li>
-    	        <li class="lienli"><a href="" class="liena">Déconnexion</a></li>
+    	        <li class="lienli"><a href="{{ path('fos_user_security_logout') }}" class="liena">Déconnexion</a></li>
 
     	    </ul>    
     	</div>

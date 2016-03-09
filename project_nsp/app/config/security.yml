@@ -5,6 +5,11 @@ security:
     encoders:
         NSP\ArticleBundle\Entity\Utilisateur: sha512
 
+    role_hierarchy:
+        ROLE_USER:           ROLE_USER
+        ROLE_MODERATEUR:       [ROLE_USER, ROLE_MODERATEUR]
+        ROLE_SUPER_ADMIN:      [ROLE_USER, ROLE_MODERATEUR ,ROLE_SUPER_ADMIN]
+
     providers:
         main:
             id: fos_user.user_provider.username
@@ -23,6 +28,6 @@ security:
                 check_path: fos_user_security_check
             logout:
                 path:       fos_user_security_logout
-                target:     /home
+                target:     /
             remember_me:
                 key:        %secret%

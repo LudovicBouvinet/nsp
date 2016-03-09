@@ -19,11 +19,14 @@ use NSP\ArticleBundle\Form\PhotoType;
 use NSP\ArticleBundle\Form\CommentaireType;
 use NSP\ArticleBundle\Form\NoteType;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 class ArticleController extends Controller
 {
 
-
+  /**
+  * @Security("has_role('ROLE_USER')")
+  */
   public function addNewArticleAction()
   {
 
@@ -64,6 +67,9 @@ class ArticleController extends Controller
 
   }
 
+  /**
+  * @Security("has_role('ROLE_USER')")
+  */
 	public function addChampsArticleAction(Request $request, $id)
 	{
 

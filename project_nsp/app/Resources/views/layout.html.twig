@@ -85,6 +85,9 @@
 				<li><a href="">A Propos</a></li>
 				<li><a href="">Mentions Légales</a></li>
 				<li><a href="">Nous Contacter</a></li>
+				{% if is_granted('ROLE_MODERATEUR') %}
+				  <li><a href="{{ path('nsp_back_homepage') }}">Modération</a></li>
+				{% endif %}
 			</ul>
 		</div>
 	</div>

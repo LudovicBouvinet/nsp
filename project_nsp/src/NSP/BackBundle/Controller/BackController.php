@@ -7,14 +7,21 @@ use NSP\ArticleBundle\Entity\Article;
 use NSP\ArticleBundle\Entity\Rubrique;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 class BackController extends Controller
 {
+    /**
+    * @Security("has_role('ROLE_MODERATEUR')")
+    */
     public function viewHomeBackAction()
     {
         return $this->render('NSPBackBundle:Back:index.html.twig');
     }
 
+    /**
+    * @Security("has_role('ROLE_MODERATEUR')")
+    */
     public function viewModerationBackAction()
     {
 
@@ -36,6 +43,9 @@ class BackController extends Controller
         ));
     }
 
+    /**
+    * @Security("has_role('ROLE_SUPER_ADMIN')")
+    */
     public function viewAdministrationBackAction()
     {
         $em = $this->getDoctrine()->getManager();
@@ -50,6 +60,9 @@ class BackController extends Controller
         ));
     }
 
+    /**
+    * @Security("has_role('ROLE_MODERATEUR')")
+    */
     public function viewStatistiquesBackAction()
     {
         return $this->render('NSPBackBundle:Back:statistiques.html.twig');
@@ -81,6 +94,9 @@ class BackController extends Controller
         )));
     }
 
+    /**
+    * @Security("has_role('ROLE_SUPER_ADMIN')")
+    */
     public function supprimerArticleAction($id)
     {
 
@@ -124,6 +140,9 @@ class BackController extends Controller
         )));
     }
 
+    /**
+    * @Security("has_role('ROLE_MODERATEUR')")
+    */
     public function supprimerCommentaireAction($id)
     {
 
