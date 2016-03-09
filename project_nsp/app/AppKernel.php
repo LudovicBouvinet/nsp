@@ -21,6 +21,7 @@ class AppKernel extends Kernel
             new NSP\BackBundle\NSPBackBundle(),
             new NSP\BackUserBundle\NSPBackUserBundle(),
             new FOS\UserBundle\FOSUserBundle(),
+            
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'), true)) {

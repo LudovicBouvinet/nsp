@@ -27,4 +27,19 @@ class UtilisateurArticleRepository extends \Doctrine\ORM\EntityRepository
 	  ;
 	}
     
+    	public function findNote($article)
+	{
+	  $qb = $this->createQueryBuilder('n');
+
+	  $qb
+        ->select("avg(n.note)")
+        ->where('n.article = :article')
+	    ->setParameter('article', $article);
+
+	  return $qb
+	    ->getQuery()
+	    ->getResult()
+	  ;
+	}
+    
 }

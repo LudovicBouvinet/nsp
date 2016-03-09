@@ -5,7 +5,18 @@
 <section class="article-global-content">
 
     <div class="titre-article">
-        <h1>{{ article.titre }}</h1></div>
+        <h1>{{ article.titre }}</h1>
+        <div class="note" data-note="{{moyenne[0][1]}}">
+            
+<div class="etoile" alt="" data-note="1" ></div>
+<div class="etoile" alt="" data-note="2" ></div>    
+<div class="etoile" alt="" data-note="3" ></div>
+<div class="etoile" alt="" data-note="4" ></div>
+<div class="etoile" alt="" data-note="5" ></div>
+            
+            
+            
+        </div></div>
 
     <div class="t"></div>
 
@@ -15,7 +26,7 @@
                 <div class="infosAuteur-content">
                     <div class="auteur">Ludovic Bouvinet</div>
                     <div class="photoAuteur"><img src="{{ asset('uploads/photo-ludo.png') }}" alt=""></div>
-                    <div class="gradeAuteur">Rédacteur en chef</div>
+                    <div class="gradeAuteur">Rédacteur en chef </div> 
                 </div>
             </div>
             <div class="chapeau">
@@ -283,6 +294,17 @@
             }
         }
     }
+    
+    
+    function calculmoyenne() {
+        var moyenne = Math.round($('.note').data('note'));
+        for ( i=0; i<moyenne; i++){
+            z = i +1;
+            $('.etoile:nth-of-type('+z+')')
+            .css('opacity','1')
+        }
+        
+    }
 
 
     $(document).ready(function () {
@@ -338,19 +360,20 @@
             
             
         });
-
-    });
-</script>
-
-
-<script>
-    $( ".etoileform" ).mouseover(function() { 
-        var data = $(this).data('note')
+        
+        $( ".etoileform" ).mouseover(function() { 
+         $( ".etoileform" ).css('opacity','0.5');
+        var data = $(this).data('note');
         for ( i=0; i<data; i++){
-            $('.etoileform:nth-of-type('+i+1+')')
-            .css('background-image','{{ asset('ressources/etoileselect.png') }}')
+            z = i +1;
+            $('.etoileform:nth-of-type('+z+')')
+            .css('opacity','1')
         }
     });
-                
+        $('.ajout-note').mouseout(function() {         $( ".etoileform" ).css('opacity','0.5')});
+        
+        calculmoyenne();
+
+    });
 </script> 
 {% endblock %}
