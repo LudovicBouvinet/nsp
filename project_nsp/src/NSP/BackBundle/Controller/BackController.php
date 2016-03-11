@@ -78,7 +78,10 @@ class BackController extends Controller
             ->find($id)
         ;
 
+        $user = $this->get('security.context')->getToken()->getUser();
+
         $article->setPublier(true);
+        $article->setModo($user);
 
         $em->persist($article);
         $em->flush();

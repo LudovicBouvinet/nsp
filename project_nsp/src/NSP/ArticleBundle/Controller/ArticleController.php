@@ -37,12 +37,17 @@ class ArticleController extends Controller
       ->find(1)
     ;
     
+    $user = $this->get('security.context')->getToken()->getUser();
+
     $article = new Article();
     $article->setChapeau('hat');
     $article->setTitre('n/a');
     $article->setTexteFirst('n/a');
     $article->setTexteSecond('n/a');
     $article->setTheme($theme);
+    $article->setUtilisateur($user);
+
+
 
     
     $em->persist($article);
@@ -167,9 +172,12 @@ class ArticleController extends Controller
 
           $infos = $commentaireForm->getData();
           $texte = $infos->getTexte();
+          $user = $this->get('security.context')->getToken()->getUser();
 
           $commentaire->setTexte($texte);
           $commentaire->setArticle($article);
+          $commentaire->setUtilisateur($user);
+
 
           $em->persist($commentaire);
           $em->flush();
@@ -185,9 +193,11 @@ class ArticleController extends Controller
 
           $infos = $noteForm->getData();
           $note = $infos->getNote();
+          $user = $this->get('security.context')->getToken()->getUser();
 
           $utilisateur->setNote($note);
           $utilisateur->setArticle($article);
+          $utilisateur->setUtilisateur($user);
 
           $em->persist($utilisateur);
           $em->flush();

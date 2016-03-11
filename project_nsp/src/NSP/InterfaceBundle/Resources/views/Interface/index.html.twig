@@ -6,6 +6,7 @@
     <!-- La première est le conteneur de l'article, la deuxième et le conteneur de sa description -->
 
         {% for article in listArticles %}
+
         <div><img src = {{ asset("uploads/" ~ article.photos[0].fichier ~ "." ~ article.photos[0].format ~ "") }} >
             <a href="{{ path('nsp_article_article', {'id': article.id}) }}">
             <div class="sub">
@@ -24,7 +25,6 @@
 </section>
 <section class="choose">
     <div class="contenu">
-
 
 {% for article in listChoix %}
             <div class="contenair">
