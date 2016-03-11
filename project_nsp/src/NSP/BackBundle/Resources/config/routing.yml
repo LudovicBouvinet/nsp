@@ -18,6 +18,10 @@ nsp_back_publier:
     path:     /back/moderation/publication/{id}
     defaults: { _controller: NSPBackBundle:Back:publier }
 
+nsp_back_choix_redac:
+    path:     /back/moderation/choixRedac/{id}
+    defaults: { _controller: NSPBackBundle:Back:choixRedac }
+
 nsp_back_supprimer_article:
     path:     /back/administration/supression/{id}
     defaults: { _controller: NSPBackBundle:Back:supprimerArticle }

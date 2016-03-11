@@ -10,7 +10,7 @@
         <div><img src = {{ asset("uploads/" ~ article.photos[0].fichier ~ "." ~ article.photos[0].format ~ "") }} >
             <a href="{{ path('nsp_article_article', {'id': article.id}) }}">
             <div class="sub">
-                <h3>{{ article.titre }}</h3><span>Ludo</span>
+                <h3>{{ article.titre }}</h3><span>{{ article.utilisateur.username }}</span>
                 <p>{{ article.chapeau }}</p>
             </div>
             </a>
@@ -33,7 +33,7 @@
                     <h4>Choix de la rédaction #1</h4>
                     <a href="{{ path('nsp_article_article', {'id': article.id}) }}" class="lire">
                     <div class="sub2">
-                        <h3>{{ article.titre }}</h3><span> Ludo</span>
+                        <h3>{{ article.titre }}</h3><span> {{ article.utilisateur.username }}</span>
                         <br>
                         <p>{{ article.chapeau }}</p>
                         <br>

@@ -97,6 +97,31 @@ class BackController extends Controller
         )));
     }
 
+    public function choixRedacAction($id)
+    {
+
+        $em = $this->getDoctrine()->getManager();
+
+        $article = $em
+            ->getRepository('NSPArticleBundle:Article')
+            ->find($id)
+        ;
+
+        $article->setChoixRedaction(true);
+
+        $em->persist($article);
+        $em->flush();
+
+        $articles = $em
+            ->getRepository('NSPArticleBundle:Article')
+            ->findAllByDate()
+        ;
+
+        return $this->redirect($this->generateUrl('nsp_back_moderation', array(
+            'articles' => $articles
+        )));
+    }
+
     /**
     * @Security("has_role('ROLE_SUPER_ADMIN')")
     */
