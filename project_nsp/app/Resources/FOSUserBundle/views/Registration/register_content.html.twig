@@ -1,8 +1,137 @@
 {% trans_default_domain 'FOSUserBundle' %}
+    
+    
+    <script src='https://www.google.com/recaptcha/api.js'></script>
 
+     <div class="popup-inscri">
+        <div class="head"><img src="../img/inscription/tete.png">
+            <h2>Inscription</h2><img src="../img/inscription/plume.png"> </div>  
+            
 {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
-    {{ form_widget(form) }}
+            <h3>Informations du compte</h3>
+            <p>
+           
+            <div class="">
+          {# NOM #}
+          {# Génération du label. #}
+          {{ form_label(form.username, "Chapeau de l'article", {'label_attr': {'class': 'label label-nom'}}) }}
+
+          {# Affichage des erreurs pour ce champ précis. #}
+          {{ form_errors(form.username) }}
+
+          <div class="">
+            {# Génération de l'input. #}
+            {{ form_widget(form.username, {'attr': {'class': 'form-nom'}}) }}
+          </div>
+        </div>
+        
+        <div class="">
+          {# EMAIL #}
+          {# Génération du label. #}
+          {{ form_label(form.email, "Chapeau de l'article", {'label_attr': {'class': 'label label-nom'}}) }}
+
+          {# Affichage des erreurs pour ce champ précis. #}
+          {{ form_errors(form.email) }}
+
+          <div class="">
+            {# Génération de l'input. #}
+            {{ form_widget(form.email, {'attr': {'class': 'form-nom'}}) }}
+          </div>
+        </div>
+        
+        <div class="">
+
+          <div class="">
+            {# Génération de l'input. #}
+            {{ form_widget(form.plainPassword, {'attr': {'class': 'form-nom'}}) }}
+          </div>
+        </div>
+</p>
+        <div class="">
+          {# LIEN #}
+          {# Génération du label. #}
+          {{ form_label(form.lienPhoto, "Chapeau de l'article", {'label_attr': {'class': 'label label-nom'}}) }}
+
+          {# Affichage des erreurs pour ce champ précis. #}
+          {{ form_errors(form.lienPhoto) }}
+
+          <div class="">
+            {# Génération de l'input. #}
+            {{ form_widget(form.lienPhoto, {'attr': {'class': 'form-nom'}}) }}
+          </div>
+        </div>
+        
+                    <h3>Détails personnels</h3>
+            <p>
+        <div class="">
+          {# PRENOM #}
+          {# Génération du label. #}
+          {{ form_label(form.prenom, "Chapeau de l'article", {'label_attr': {'class': 'label label-nom'}}) }}
+
+          {# Affichage des erreurs pour ce champ précis. #}
+          {{ form_errors(form.prenom) }}
+
+          <div class="">
+            {# Génération de l'input. #}
+            {{ form_widget(form.prenom, {'attr': {'class': 'form-nom'}}) }}
+          </div>
+        </div>
+        
+                <div class="">
+          {# NOM #}
+          {# Génération du label. #}
+          {{ form_label(form.nom, "Chapeau de l'article", {'label_attr': {'class': 'label label-nom'}}) }}
+
+          {# Affichage des erreurs pour ce champ précis. #}
+          {{ form_errors(form.nom) }}
+
+          <div class="">
+            {# Génération de l'input. #}
+            {{ form_widget(form.nom, {'attr': {'class': 'form-nom'}}) }}
+          </div>
+        </div>
+        
+</p>
+        
+                <div class="">
+          {# Date de Naissance  #}
+          {{ form_label(form.dateNaissance, "Chapeau de l'article", {'label_attr': {'class': 'label label-nom'}}) }}
+
+          {# Affichage des erreurs pour ce champ précis. #}
+          {{ form_errors(form.dateNaissance) }}
+
+          <div class="">
+            {# Génération de l'input. #}
+            {{ form_widget(form.dateNaissance, {'attr': {'class': 'form-nom'}}) }}
+          </div>
+        </div>
+        
+               
+                    <h3>Options du compte</h3>
+            <p class="news">
+                <div class="">
+          {# Newsletter #}
+          {# Génération du label. #}
+          {{ form_label(form.newsletter, "Chapeau de l'article", {'label_attr': {'class': 'label label-nom'}}) }}
+
+          {# Affichage des erreurs pour ce champ précis. #}
+          {{ form_errors(form.newsletter) }}
+
+          <div class="">
+            {# Génération de l'input. #}
+            {{ form_widget(form.newsletter, {'attr': {'class': 'form-nom'}}) }}
+          </div>
+        </div>
+</p>
+   
+   <h3>Vérification</h3>
+            <div class="g-recaptcha" data-sitekey="6LdTnxMTAAAAAER7A4FQzYcBPyi4Oa0bra54usjg"></div>
+            
+            
     <div>
         <input type="submit" value="{{ 'registration.submit'|trans }}" />
+        <INPUT type="reset" name="reset" class="reset" value=" Reinitialiser les champs ">
     </div>
+
 {{ form_end(form) }}
+</div>
