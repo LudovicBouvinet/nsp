@@ -44,9 +44,14 @@
 			<img src="{{ asset('ressources/loupe.png') }}" alt="" class="toolbar">
 		</div>
 	</div>
-	
-	{{ render(controller('FOSUserBundle:Security:login')) }}
-		{{ render(controller('FOSUserBundle:Registration:register')) }}
+
+	<div class="div-noire"></div>
+
+	<div class="pop-up-connexion">
+		{{ render(controller('FOSUserBundle:Security:login')) }}
+	</div>
+
+	{{ render(controller('FOSUserBundle:Registration:register')) }}
 
 	<nav>
 		<ul>
@@ -107,5 +112,18 @@
 
   <script src="{{ asset('bundles/nspinterface/js/jquery.js') }}"></script>	
   <script src="{{ asset('bundles/nspinterface/js/menu.js') }}"></script>
+  <script>
+  	$('.connexion').click(function(){
+  		$('.div-noire').toggleClass('connexion-go');
+  		$('.pop-up-connexion').toggleClass('connexion-go');
+  		$('html').css('overflow', 'hidden');
+  	});
+
+  	$('.div-noire').click(function(){
+  		$('.div-noire').toggleClass('connexion-go');
+  		$('.pop-up-connexion').toggleClass('connexion-go');
+  		$('html').css('overflow', 'auto');
+  	});
+  </script>
   </body>
 </html>
