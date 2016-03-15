@@ -10,9 +10,29 @@
   </head>
   <body>
 
+	{% if is_granted('ROLE_USER') or is_granted('ROLE_MODERATEUR') or is_granted('ROLE_SUPER_ADMIN') %}
+		<div id="header">
+			<img src="{{ asset('ressources/logo.jpg') }}" alt="Logo du site web" class="logo">
+			<div id="profil">
+				<img id="photo_profil" src="{{ asset('ressources/tofprofilmenu.png') }}" alt="Photo de profil">
+				<span>Ludovic Bouvinet</span>
+				<br>
+				<a href="{{ path('nsp_back_user_profil') }}">Paramètres du compte</a>
+				<br>
+				<a href="{{ path('nsp_back_user_mesarticles') }}">Rédiger un article</a>
+			</div>
+		</div>
+	{% endif %}
+
   	<div id="menu">  
 	    <a href="javascript:;" class="close"></a>
+	    {% if is_granted('ROLE_USER') %}
 	    <div class="tofprofil"></div>
+	    {% endif %}
+		{% if not is_granted('ROLE_USER') %}
+	    <div class="anonym"></div>
+	    {% endif %}
+
 	    <ul>
 	        <li><a class="lienmob" href="{{ path('nsp_interface_homepage') }}">Home</a></li>
 	        <li><a class="lienmob" href="{{ path('nsp_interface_rubrique', {'rubrique': 'Campus'}) }}">Campus</a></li>
@@ -36,22 +56,25 @@
 	    </div>
 	</div>
 
-  	<div id="header">
-		<img src="{{ asset('ressources/logo.jpg') }}" alt="Logo du site web" class="logo">
-		<div class="choice">
-			<div class="connexion"><p>Connexion</p></div>
-			<div class="inscription"><p>Inscription</p></div>
-			<img src="{{ asset('ressources/loupe.png') }}" alt="" class="toolbar">
+	{% if not is_granted('ROLE_USER') %}
+	  	<div id="header">
+			<img src="{{ asset('ressources/logo.jpg') }}" alt="Logo du site web" class="logo">
+			<div class="choice">
+				<div class="connexion"><p>Connexion</p></div>
+				<div class="inscription"><p>Inscription</p></div>
+				<img src="{{ asset('ressources/loupe.png') }}" alt="" class="toolbar">
+			</div>
 		</div>
-	</div>
+	{% endif %}
 
 	<div class="div-noire"></div>
-
+	
 	<div class="pop-up-connexion">
 		{{ render(controller('FOSUserBundle:Security:login')) }}
 	</div>
 
 	{{ render(controller('FOSUserBundle:Registration:register')) }}
+
 
 	<nav>
 		<ul>
