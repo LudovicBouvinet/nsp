@@ -15,11 +15,13 @@
 			<img src="{{ asset('ressources/logo.jpg') }}" alt="Logo du site web" class="logo">
 			<div id="profil">
 				<img id="photo_profil" src="{{ asset('ressources/tofprofilmenu.png') }}" alt="Photo de profil">
-				<span>{{ user.username }}</span>
+				<span>ludovic</span>
 				<br>
 				<a href="{{ path('nsp_back_user_profil') }}">Paramètres du compte</a>
 				<br>
 				<a href="{{ path('nsp_back_user_mesarticles') }}">Rédiger un article</a>
+				<br>
+				<a href="{{ path('nsp_logout') }}">Déco</a>
 			</div>
 		</div>
 	{% endif %}

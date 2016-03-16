@@ -17,3 +17,6 @@ nsp_article:
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
 
+
+nsp_logout:
+    path:     /logout
