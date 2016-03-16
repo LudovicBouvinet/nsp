@@ -145,9 +145,33 @@
 
   	$('.div-noire').click(function(){
   		$('.div-noire').toggleClass('connexion-go');
-  		$('.pop-up-connexion').toggleClass('connexion-go');
+  		$('.pop-up-connexion').removeClass('connexion-go');
+        	$('.popup-inscri').css('display','none');
   		$('html').css('overflow', 'auto');
   	});
+      
+      $('.inscription').click(function(){
+          
+  		$('.div-noire').toggleClass('connexion-go');
+  		$('.popup-inscri').css('display','block');
+          
+          
+          
+      });
+      
+      function centre(){
+      largeurFenetre = window.innerWidth;
+      largeurPopup = $('.popup-inscri').width();
+      marge = ( largeurFenetre - largeurPopup ) /2;
+           $('.popup-inscri').css('left',marge);
+      };
+      centre();
+        $(window).resize(function () {
+            centre();
+        });
+      
+      
+
   </script>
   </body>
 </html>
