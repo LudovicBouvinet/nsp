@@ -5,9 +5,9 @@
 
 <div class="menugauche">
     <a class="profil" href="#"><div class="tofprofil"><div class="nbrenotifprofil">1</div></div></a> 
-    <a href="myprofil.php"><div class="myprofil"></div></a> 
-    <a href="index.php"><div class="iconmsg"></div></a>
-    <a href="myarticle.php"><div class="iconart"></div></a>  
+    <a href="{{ path('nsp_back_user_profil') }}"><div class="myprofil"></div></a> 
+    <a href="{{ path('nsp_back_user_message') }}"><div class="iconmsg"></div></a>
+    <a href="{{ path('nsp_back_user_mesarticles') }}"><div class="iconart"></div></a>  
 </div>
 
 <div class="zoneperso">
@@ -16,66 +16,31 @@
            
             <div class="topmsg">
                 <div class="txtmsg">Messagerie</div>
-                <a class="liennewmsg" href="##"><div class="newmsg"></div></a>
+                <a class="liennewmsg" href="{{ path('nsp_back_user_write_message') }}"><div class="newmsg"></div></a>
             </div> 
             
             <div class="mymsgs">
-               
-                <a class="lienmsg" href=""><div class="encarmsg">
+
+              {% for message in messages %}
+
+                <a class="lienmsg" data-id="message{{message.id}}">
+                  <div class="encarmsg">
                     <div class="resummsg">
                        <div class="firstlign">
-                            <div class="auteur">Mélina</div>
-                            <div class="date">17 oct.</div>
+                            <div class="auteur">{{message.emetteur}}</div>
+                            <div class="date">{{message.date | date('Y-m-d')}}</div>
                         </div>
-                        <div class="subject">Super soirée 2016</div>
+                        <div class="subject">{{message.objet}}</div>
                         <div class="lastlign">
-                            <div class="pitchmsg">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ....</div>
+                            <div class="pitchmsg">{{message.corps}}</div>
                             <a class="liensupp" href="#"><div class="suppmsg"></div></a>
                         </div>
                     </div>   
-                </div></a>
-                
-                <a class="lienmsg" href=""><div class="encarmsg">
-                      <div class="resummsg">
-                       <div class="firstlign">
-                            <div class="auteur">Mélina</div>
-                            <div class="date">17 oct.</div>
-                        </div>
-                        <div class="subject">Super soirée 2016</div>
-                        <div class="lastlign">
-                            <div class="pitchmsg">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ....</div>
-                            <a class="liensupp" href="#"><div class="suppmsg"></div></a>
-                        </div>
-                    </div>    
-                </div></a>
-                
-                <a class="lienmsg" href=""><div class="encarmsg">
-                      <div class="resummsg">
-                       <div class="firstlign">
-                            <div class="auteur">Mélina</div>
-                            <div class="date">17 oct.</div>
-                        </div>
-                        <div class="subject">Super soirée 2016</div>
-                        <div class="lastlign">
-                            <div class="pitchmsg">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ....</div>
-                            <a class="liensupp" href="#"><div class="suppmsg"></div></a>
-                        </div>
-                    </div>    
-                </div></a>
-                
-                <a class="lienmsg" href=""><div class="encarmsg">
-                      <div class="resummsg">
-                       <div class="firstlign">
-                            <div class="auteur">Mélina</div>
-                            <div class="date">17 oct.</div>
-                        </div>
-                        <div class="subject">Super soirée 2016</div>
-                        <div class="lastlign">
-                            <div class="pitchmsg">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ....</div>
-                            <a class="liensupp" href="#"><div class="suppmsg"></div></a>
-                        </div>
-                    </div> 
-                    </div></a>
+                  </div>
+                </a>
+
+              {% endfor %}
+               
             </div>                    
            
        </div>
@@ -84,30 +49,59 @@
        <div class="bloczoneright">
            <div class="zonemsg">
                <div class="zonefili">
-                   <div class="titremsg"> Mélina Guyon - Chef Rédacteur</div>
-                    <div class="photoenvoie"></div>  
+
+                  {% if formMessage is defined %}
+
+                  {% else %}
+                     {% for message in messages %}
+                        <div class="titremsg message{{message.id}}"> {{message.emetteur}} - Chef Rédacteur</div>
+                        <div class="photoenvoie message{{message.id}}"></div>
+                      {% endfor %} 
+                  {% endif %} 
                     
                     <div class="zonetexteenvoie">
-                    <p class="textemsg">  
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum </p> 
-                   <br>
-                   <p class="textemsg">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-                   
+                      
+                      {% if formMessage is defined %}
+
+                        {{ form(formMessage)}}
+
+                      {% else %}
+                        {% for message in messages %}
+                          <p class="textemsg message{{message.id}}"> {{message.corps}} </p> 
+                          <br>
+                        {% endfor %}
+                    
+                      {% endif %}
                    <br> 
                    </div>
                </div>
            </div>
            
-           
+      {% if formMessage is defined %}
        </div>
              <div class="submitbloczoneright">
            <div class="submit"><input  type="submit" value="ENVOYEZ" id="button-blue"/><div class="ease"></div></div>
            
        </div>
+       {% endif %}
  
 </div>
+
+
+<script>
+  
+  $('.lienmsg').click(function(){
+
+    $('.titremsg').css('display' , 'none');
+    $('.textemsg').css('display' , 'none');
+    $('.photoenvoie').css('display' , 'none');
+
+    var id = $(this).data('id');
+    $('.'+id+'').css('display', 'block');
+
+  });
+
+</script>
 {% endblock %}
 
 

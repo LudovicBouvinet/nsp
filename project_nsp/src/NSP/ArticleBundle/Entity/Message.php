@@ -49,6 +49,8 @@ class Message
      */
     private $etat;
 
+    private $destinataireName;
+
 
     /**
      * Get id
@@ -82,6 +84,30 @@ class Message
     public function getObjet()
     {
         return $this->objet;
+    }
+
+    /**
+     * Set destinataireName
+     *
+     * @param string $destinataireName
+     *
+     * @return Message
+     */
+    public function setDestinataireName($destinataireName)
+    {
+        $this->destinataireName = $destinataireName;
+
+        return $this;
+    }
+
+    /**
+     * Get destinataireName
+     *
+     * @return string
+     */
+    public function getDestinataireName()
+    {
+        return $this->destinataireName;
     }
 
     /**
@@ -213,4 +239,11 @@ class Message
     {
         return $this->destinataire;
     }
+
+    public function __construct()
+    {
+        $this->date = new \Datetime();
+        $this->setEtat('n/a');
+    }
+
 }

@@ -5,9 +5,9 @@
 
 <div class="menugauche">
     <a class="profil" href="#"><div class="tofprofil"></div></a> 
-    <a href="myprofil.php"><div class="myprofil"></div></a> 
-    <a href="index.php"><div class="iconmsg"></div></a>
-    <a href="myarticle.php"><div class="iconart"></div></a>  
+    <a href="{{ path('nsp_back_user_profil') }}"><div class="myprofil"></div></a> 
+    <a href="{{ path('nsp_back_user_message') }}"><div class="iconmsg"></div></a>
+    <a href="{{ path('nsp_back_user_mesarticles') }}"><div class="iconart"></div></a>  
 </div>
 
 <div class="zoneperso">
@@ -17,9 +17,9 @@
        <a href="#"><div class="supprofmobile"></div></a>
         <div class="titleinfocompte">Informations de Compte</div>
             <div class="zoneinfotop">
-                <div class="cadreinfo"><p class="info">Pseudo</p></div><br>
-                <div class="cadreinfo"><p class="info">Adresse Mail</p></div><br>
-                <div class="cadreinfo"><p class="info">Mot de Passe</p></div><br>
+                <div class="cadreinfo"><p class="info">{{user.username}}</p></div><br>
+                <div class="cadreinfo"><p class="info">{{user.email}}</p></div><br>
+                <div class="cadreinfo"><p class="info">{{user.grade}}</p></div><br>
             </div>
         <div class="titleoption">Options du Compte</div>
         <div class="cadreinfo"><p class="info">Abonnée à la Newsletters</p></div>
@@ -29,9 +29,9 @@
     <a href="#"><div class="supprof"></div></a>
         <div class="titleinfocompte2">Détails Personnels</div>
             <div class="zoneinfotop">
-                <div class="cadreinfo"><p class="info">Nom</p></div><br>
-                <div class="cadreinfo"><p class="info">Prenom</p></div><br>
-                <div class="cadreinfo"><p class="info">Date</p></div><br>
+                <div class="cadreinfo"><p class="info">{{user.nom}}</p></div><br>
+                <div class="cadreinfo"><p class="info">{{user.prenom}}</p></div><br>
+                <div class="cadreinfo"><p class="info">{{user.dateNaissance | date('Y-m-d')}}</p></div><br>
             </div>
         <div class="cadreinfo"><p class="info">Sexe</p></div>
    </div>

@@ -47,9 +47,6 @@ class ArticleController extends Controller
     $article->setTheme($theme);
     $article->setUtilisateur($user);
 
-
-
-    
     $em->persist($article);
     $em->flush();
 

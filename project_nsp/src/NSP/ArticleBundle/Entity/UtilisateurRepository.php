@@ -10,4 +10,18 @@ namespace NSP\ArticleBundle\Entity;
  */
 class UtilisateurRepository extends \Doctrine\ORM\EntityRepository
 {
+	public function findByUserName($username)
+	{
+	  $qb = $this->createQueryBuilder('u');
+
+	  $qb
+	    ->where('u.username = :username')
+	    ->setParameter('username', $username)
+	  ;
+
+	  return $qb
+	    ->getQuery()
+	    ->getResult()
+	  ;
+	}
 }

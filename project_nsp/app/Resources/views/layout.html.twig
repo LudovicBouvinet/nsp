@@ -9,7 +9,7 @@
 	{% block css %}{% endblock %}
   </head>
   <body>
-
+  <script src="{{ asset('bundles/nspinterface/js/jquery.js') }}"></script>	
   	<div id="menu">  
 	    <a href="javascript:;" class="close"></a>
 	    <div class="tofprofil"></div>
@@ -67,7 +67,7 @@
     {% block body %}
 
     {% endblock %}
-
+	
 	<div class="background">
 		<div id="res_sociaux">
 			<a href="http://twitter.com/aujour_nal"><img src="{{ asset('ressources/twitter.png') }}" alt="" id="twit"></a>
@@ -110,7 +110,7 @@
 		<a href="">Mentions Légales</a>
 	</div>
 
-  <script src="{{ asset('bundles/nspinterface/js/jquery.js') }}"></script>	
+
   <script src="{{ asset('bundles/nspinterface/js/menu.js') }}"></script>
   <script>
   	$('.connexion').click(function(){

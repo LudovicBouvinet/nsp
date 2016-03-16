@@ -4,9 +4,9 @@
 {% block body %}
 <div class="menugauche">
     <a class="profil" href="#"><div class="tofprofil"><div class="nbrenotifprofil">1</div></div></a> 
-    <a href="myprofil.php"><div class="myprofil"></div></a> 
-    <a href="index.php"><div class="iconmsg"></div></a>
-    <a href="myarticle.php"><div class="iconart"></div></a>  
+    <a href="{{ path('nsp_back_user_profil') }}"><div class="myprofil"></div></a> 
+    <a href="{{ path('nsp_back_user_message') }}"><div class="iconmsg"></div></a>
+    <a href="{{ path('nsp_back_user_mesarticles') }}"><div class="iconart"></div></a>  
 </div>
 
 <div class="zoneperso">
@@ -19,61 +19,27 @@
             
             <div class="mymsgs">
                
-                <a class="lienmsg" href=""><div class="encarmsg">
+              {% for article in articles %}
+
+                <a class="lienmsg" href="">
+                  <div class="encarmsg">
                     <div class="resummsg">
                        <div class="firstlign">
-                            <div class="auteur">COP 21</div>
-                            <div class="date">17 oct.</div>
+                            <div class="auteur">{{article.titre}}</div><br><br>
+                            <div class="date">{{article.datePublication | date('Y-m-d')}}</div>
                         </div>
                         <div class="stars"></div>
                         <div class="lastlign">
-                            <div class="pitchmsg">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ....</div>
+                            <div class="pitchmsg">{{article.chapeau}}</div>
                             <a class="liensupp" href="#"><div class="modarticle"></div></a>
                         </div>
                     </div>   
-                </div></a>
+                  </div>
+                </a>
+
+              {% endfor %}
+
                 
-                <a class="lienmsg" href=""><div class="encarmsg">
-                      <div class="resummsg">
-                       <div class="firstlign">
-                            <div class="auteur">Offre du Playstation Store</div>
-                            <div class="date">17 oct.</div>
-                        </div>
-                        <div class="stars"></div>
-                        <div class="lastlign">
-                            <div class="pitchmsg">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ....</div>
-                            <a class="liensupp" href="#"><div class="modarticle"></div></a>
-                        </div>
-                    </div>    
-                </div></a>
-                
-                <a class="lienmsg" href=""><div class="encarmsg">
-                      <div class="resummsg">
-                       <div class="firstlign">
-                            <div class="auteur">Uncharted 4 sortie </div>
-                            <div class="date">17 oct.</div>
-                        </div>
-                        <div class="stars"></div>
-                        <div class="lastlign">
-                            <div class="pitchmsg">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ....</div>
-                            <a class="liensupp" href="#"><div class="modarticle"></div></a>
-                        </div>
-                    </div>    
-                </div></a>
-                
-                <a class="lienmsg" href=""><div class="encarmsg">
-                      <div class="resummsg">
-                       <div class="firstlign">
-                            <div class="auteur">Nike Flyknit Racer</div>
-                            <div class="date">17 oct.</div>
-                        </div>
-                        <div class="stars"></div>
-                        <div class="lastlign">
-                            <div class="pitchmsg">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ....</div>
-                            <a class="liensupp" href="#"><div class="modarticle"></div></a>
-                        </div>
-                    </div> 
-                    </div></a>
             </div>                    
            
        </div>
