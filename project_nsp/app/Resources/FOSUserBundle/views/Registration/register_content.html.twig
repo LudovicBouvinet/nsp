@@ -2,19 +2,19 @@
     
     
     <script src='https://www.google.com/recaptcha/api.js'></script>
-
+    
      <div class="popup-inscri">
-        <div class="head"><img src="../img/inscription/tete.png">
-            <h2>Inscription</h2><img src="../img/inscription/plume.png"> </div>  
+        <div class="head"><img src="{{ asset('ressources/tete.png') }}">
+            <h2>Inscription</h2><img src="{{ asset('ressources/plumeorange.png') }}"> </div>  
             
 {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
             <h3>Informations du compte</h3>
             <p>
            
             <div class="">
-          {# NOM #}
+          {# PSEUDO #}
           {# Génération du label. #}
-          {{ form_label(form.username, "Chapeau de l'article", {'label_attr': {'class': 'label label-nom'}}) }}
+          {{ form_label(form.username, "Votre pseudo", {'label_attr': {'class': 'label label-pseudo'}}) }}
 
           {# Affichage des erreurs pour ce champ précis. #}
           {{ form_errors(form.username) }}
@@ -28,7 +28,7 @@
         <div class="">
           {# EMAIL #}
           {# Génération du label. #}
-          {{ form_label(form.email, "Chapeau de l'article", {'label_attr': {'class': 'label label-nom'}}) }}
+          {{ form_label(form.email, "Votre adresse email", {'label_attr': {'class': 'label label-email'}}) }}
 
           {# Affichage des erreurs pour ce champ précis. #}
           {{ form_errors(form.email) }}
@@ -47,26 +47,33 @@
           </div>
         </div>
 </p>
-        <div class="">
+       
+       <div class="hebergement">
+                <p class="annotation">
           {# LIEN #}
           {# Génération du label. #}
-          {{ form_label(form.lienPhoto, "Chapeau de l'article", {'label_attr': {'class': 'label label-nom'}}) }}
+          {{ form_label(form.lienPhoto, "URL de votre photo", {'label_attr': {'class': 'label label-lien'}}) }}
 
           {# Affichage des erreurs pour ce champ précis. #}
           {{ form_errors(form.lienPhoto) }}
-
-          <div class="">
+                </p>
+                <p class="annotation">OU</p>
+                <p class="annotation">Héberger votre image </p>
+                <p>
             {# Génération de l'input. #}
             {{ form_widget(form.lienPhoto, {'attr': {'class': 'form-nom'}}) }}
-          </div>
-        </div>
+            <input type="file" value="Votre fichier">
+                </p>
+            </div>
+            
+
         
                     <h3>Détails personnels</h3>
             <p>
         <div class="">
           {# PRENOM #}
           {# Génération du label. #}
-          {{ form_label(form.prenom, "Chapeau de l'article", {'label_attr': {'class': 'label label-nom'}}) }}
+          {{ form_label(form.prenom, "Votre prénom", {'label_attr': {'class': 'label label-prenom'}}) }}
 
           {# Affichage des erreurs pour ce champ précis. #}
           {{ form_errors(form.prenom) }}
@@ -80,7 +87,7 @@
                 <div class="">
           {# NOM #}
           {# Génération du label. #}
-          {{ form_label(form.nom, "Chapeau de l'article", {'label_attr': {'class': 'label label-nom'}}) }}
+          {{ form_label(form.nom, "Votre nom", {'label_attr': {'class': 'label label-nom'}}) }}
 
           {# Affichage des erreurs pour ce champ précis. #}
           {{ form_errors(form.nom) }}
@@ -95,7 +102,7 @@
         
                 <div class="">
           {# Date de Naissance  #}
-          {{ form_label(form.dateNaissance, "Chapeau de l'article", {'label_attr': {'class': 'label label-nom'}}) }}
+          {{ form_label(form.dateNaissance, "Votre date de naissance", {'label_attr': {'class': 'label label-ddn'}}) }}
 
           {# Affichage des erreurs pour ce champ précis. #}
           {{ form_errors(form.dateNaissance) }}
@@ -112,7 +119,7 @@
                 <div class="">
           {# Newsletter #}
           {# Génération du label. #}
-          {{ form_label(form.newsletter, "Chapeau de l'article", {'label_attr': {'class': 'label label-nom'}}) }}
+          {{ form_label(form.newsletter, "Newsletter", {'label_attr': {'class': 'label label-news'}}) }}
 
           {# Affichage des erreurs pour ce champ précis. #}
           {{ form_errors(form.newsletter) }}
@@ -129,7 +136,7 @@
             
             
     <div>
-        <input type="submit" value="{{ 'registration.submit'|trans }}" />
+        <input type="submit" value="Inscription" />
         <INPUT type="reset" name="reset" class="reset" value=" Reinitialiser les champs ">
     </div>
 
