@@ -15,7 +15,7 @@
 			<img src="{{ asset('ressources/logo.jpg') }}" alt="Logo du site web" class="logo">
 			<div id="profil">
 				<img id="photo_profil" src="{{ asset('ressources/tofprofilmenu.png') }}" alt="Photo de profil">
-				<span>Ludovic Bouvinet</span>
+				<span>{{ user.username }}</span>
 				<br>
 				<a href="{{ path('nsp_back_user_profil') }}">Paramètres du compte</a>
 				<br>
