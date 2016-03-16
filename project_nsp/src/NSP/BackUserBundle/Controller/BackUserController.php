@@ -88,6 +88,32 @@ class BackUserController extends Controller
     /**
     * @Security("has_role('ROLE_USER')")
     */
+    public function supMessageAction($id)
+    {
+
+        $em = $this->getDoctrine()->getManager();
+
+        $message = $em
+            ->getRepository('NSPArticleBundle:Message')
+            ->find($id)
+        ;
+        
+        $em->remove($message);
+        $em->flush();
+
+        $user = $this->get('security.context')->getToken()->getUser();
+        $messages = $user->getMessagesRecus();
+
+
+        return $this->redirect($this->generateUrl('nsp_back_user_message', array(
+          'user' => $user,
+          'messages' => $messages
+        )));
+    }
+
+    /**
+    * @Security("has_role('ROLE_USER')")
+    */
     public function myArticleAction()
     {
         $user = $this->get('security.context')->getToken()->getUser();

@@ -33,7 +33,7 @@
                         <div class="subject">{{message.objet}}</div>
                         <div class="lastlign">
                             <div class="pitchmsg">{{message.corps}}</div>
-                            <a class="liensupp" href="#"><div class="suppmsg"></div></a>
+                            <a class="liensupp" href="{{ path('nsp_back_user_sup_message', {'id': message.id }) }}"><div class="suppmsg"></div></a>
                         </div>
                     </div>   
                   </div>

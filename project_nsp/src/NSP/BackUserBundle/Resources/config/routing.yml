@@ -6,6 +6,10 @@ nsp_back_user_write_message:
     path:     /backuser/messagerie/new
     defaults: { _controller: NSPBackUserBundle:BackUser:writeMessage }
 
+nsp_back_user_sup_message:
+    path:     /backuser/messagerie/suppression/{id}
+    defaults: { _controller: NSPBackUserBundle:BackUser:supMessage }
+
 nsp_back_user_mesarticles:
     path:     /backuser/articles
     defaults: { _controller: NSPBackUserBundle:BackUser:myArticle }
