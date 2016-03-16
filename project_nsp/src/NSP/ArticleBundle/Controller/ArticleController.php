@@ -205,7 +205,7 @@ class ArticleController extends Controller
         'commentaireForm' => $commentaireForm->createView(),
         'commentaires' => $commentaires,
         'noteForm' => $noteForm->createView(),
-        'notes' => $notes
+        'notes' => $notes,
         'moyenne' => $moyenne  
       ));            
 
