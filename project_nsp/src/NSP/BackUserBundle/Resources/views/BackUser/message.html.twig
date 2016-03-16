@@ -47,44 +47,36 @@
        
        
        <div class="bloczoneright">
-           <div class="zonemsg">
-               <div class="zonefili">
+         <div class="zonemsg">
+             <div class="zonefili">
 
-                  {% if formMessage is defined %}
+                {% if formMessage is defined %}
 
-                  {% else %}
-                     {% for message in messages %}
-                        <div class="titremsg message{{message.id}}"> {{message.emetteur}} - Chef Rédacteur</div>
-                        <div class="photoenvoie message{{message.id}}"></div>
-                      {% endfor %} 
-                  {% endif %} 
+                {% else %}
+                   {% for message in messages %}
+                      <div class="titremsg message{{message.id}}"> {{message.emetteur}} - Chef Rédacteur</div>
+                      <div class="photoenvoie message{{message.id}}"></div>
+                    {% endfor %} 
+                {% endif %} 
+                  
+                  <div class="zonetexteenvoie">
                     
-                    <div class="zonetexteenvoie">
-                      
-                      {% if formMessage is defined %}
+                    {% if formMessage is defined %}
 
-                        {{ form(formMessage)}}
+                      {{ form(formMessage)}}
 
-                      {% else %}
-                        {% for message in messages %}
-                          <p class="textemsg message{{message.id}}"> {{message.corps}} </p> 
-                          <br>
-                        {% endfor %}
-                    
-                      {% endif %}
-                   <br> 
-                   </div>
-               </div>
-           </div>
-           
-      {% if formMessage is defined %}
-       </div>
-             <div class="submitbloczoneright">
-           <div class="submit"><input  type="submit" value="ENVOYEZ" id="button-blue"/><div class="ease"></div></div>
-           
-       </div>
-       {% endif %}
- 
+                    {% else %}
+                      {% for message in messages %}
+                        <p class="textemsg message{{message.id}}"> {{message.corps}} </p> 
+                        <br>
+                      {% endfor %}
+                  
+                    {% endif %}
+                 <br> 
+                 </div>
+             </div>
+         </div>
+          
 </div>
 
 
