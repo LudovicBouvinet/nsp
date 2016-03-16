@@ -21,7 +21,7 @@
             
             <div class="mymsgs">
 
-              {% for message in messages %}
+              {% for message in messages | reverse %}
 
                 <a class="lienmsg" data-id="message{{message.id}}">
                   <div class="encarmsg">

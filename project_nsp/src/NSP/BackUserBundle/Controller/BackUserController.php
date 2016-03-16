@@ -104,7 +104,6 @@ class BackUserController extends Controller
         $user = $this->get('security.context')->getToken()->getUser();
         $messages = $user->getMessagesRecus();
 
-
         return $this->redirect($this->generateUrl('nsp_back_user_message', array(
           'user' => $user,
           'messages' => $messages
