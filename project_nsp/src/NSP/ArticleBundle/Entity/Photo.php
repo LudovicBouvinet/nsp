@@ -223,17 +223,18 @@ class Photo
     {
         // Si jamais il n'y a pas de fichier (champ facultatif)
         if (null === $this->file) {
+
           return;
         }
 
         // Si on avait un ancien fichier, on le supprime
         if (null !== $this->tempFilename) {
           $oldFile = $this->getUploadRootDir().'/'.$this->id.'.'.$this->tempFilename;
+      
           if (file_exists($oldFile)) {
             unlink($oldFile);
           }
         }
-
         // On déplace le fichier envoyé dans le répertoire de notre choix
         $this->file->move(
           $this->getUploadRootDir(), // Le répertoire de destination
@@ -278,4 +279,15 @@ class Photo
     {
         return $this->getUploadDir().'/'.$this->getId().'.'.$this->getFormat();
     }
+    
+    
+        /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->format = 'n/a';
+        $this->fichier = 'n/a';
+    }
+
 }

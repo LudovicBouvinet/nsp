@@ -77,6 +77,8 @@ class Utilisateur extends BaseUser
      * @ORM\Column(name="statut", type="string", length=255)
      */
     private $statut;
+    
+    private $photoTemp;
 
 
     /**
@@ -280,6 +282,30 @@ class Utilisateur extends BaseUser
     public function getStatut()
     {
         return $this->statut;
+    }
+    
+        /**
+     * Set photoTemp
+     *
+     * @param string $photoTemp
+     *
+     * @return Utilisateur
+     */
+    public function setPhotoTemp($photoTemp)
+    {
+        $this->photoTemp = $photoTemp;
+
+        return $this;
+    }
+
+    /**
+     * Get photoTemp
+     *
+     * @return string
+     */
+    public function getPhotoTemp()
+    {
+        return $this->photoTemp;
     }
     
     // Relations // 

@@ -58,11 +58,21 @@
           {{ form_errors(form.lienPhoto) }}
                 </p>
                 <p class="annotation">OU</p>
-                <p class="annotation">Héberger votre image </p>
+                <p class="annotation">
+                    
+                    
+            {# Génération du label. #}
+          {{ form_label(form.lienPhoto, "Heberger votre photo", {'label_attr': {'class': 'label label-lien'}}) }}
+
+          {# Affichage des erreurs pour ce champ précis. #}
+          {{ form_errors(form.lienPhoto) }}
+                </p>
                 <p>
-            {# Génération de l'input. #}
+                            {# Génération de l'input. #}
             {{ form_widget(form.lienPhoto, {'attr': {'class': 'form-nom'}}) }}
-            <input type="file" value="Votre fichier">
+                            {# Génération de l'input. #}
+            {{ form_widget(form.photoTemp, {'attr': {'class': 'form-nom'}}) }}
+
                 </p>
             </div>
             
