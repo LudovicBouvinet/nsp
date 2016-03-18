@@ -42,4 +42,22 @@ class UtilisateurArticleRepository extends \Doctrine\ORM\EntityRepository
 	  ;
 	}
     
+        public function findNotebyUser($article, $utilisateur)
+	{
+	  $qb = $this->createQueryBuilder('n');
+
+	  $qb
+	    ->where('n.article = :article')
+        ->andWhere('n.utilisateur = :utilisateur')
+	    ->setParameter('article', $article)
+	    ->setParameter('utilisateur', $utilisateur)
+	    ->orderBy('n.id', 'DESC')
+	  ;
+
+	  return $qb
+	    ->getQuery()
+	    ->getResult()
+	  ;
+	}
+    
 }

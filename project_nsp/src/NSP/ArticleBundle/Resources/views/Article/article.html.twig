@@ -334,17 +334,19 @@
             .css('opacity','1')
         }
     });
-        $('.ajout-note').mouseout(function() {         $( ".etoileform" ).css('opacity','0.5')});
+        $('.ajout-note').mouseout(function() {         
+            $( ".etoileform" ).css('opacity','0.5');
+        });
         
         $('.note').each(function(){
             
             var moyenne = Math.round($(this).data('note'));
-            alert(moyenne);
-        for ( i=0; i<moyenne; i++){
-            z = i +1;
-            $(this).find($('.etoile:nth-of-type('+z+')'))
-            .css('opacity','1')
-        }
+
+            for ( i=0; i<moyenne; i++){
+                z = i +1;
+                $(this).find($('.etoile:nth-of-type('+z+')'))
+                .css('opacity','1')
+            }
         });
 
     });

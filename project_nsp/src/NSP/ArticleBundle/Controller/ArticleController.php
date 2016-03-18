@@ -162,7 +162,11 @@ class ArticleController extends Controller
          $moyenne = $em 
         ->getRepository('NSPArticleBundle:UtilisateurArticle')
         -> findNote($article);
-
+                 $user = $this->get('security.context')->getToken()->getUser(); 
+        
+        $saNote = $em -> getRepository('NSPArticleBundle:UtilisateurArticle')
+            -> findNotebyUser($article, $user);
+        
       $commentaireForm = $this->createForm(new CommentaireType());
       $commentaireForm->handleRequest($request);
 
@@ -188,10 +192,13 @@ class ArticleController extends Controller
       $noteForm->handleRequest($request);
 
       if ($noteForm->isSubmitted() && $noteForm->isValid()) {
+             $infos = $noteForm->getData();
+          
+          
+          if($saNote == null){
+              
+              $utilisateur = new UtilisateurArticle();
 
-          $utilisateur = new UtilisateurArticle();
-
-          $infos = $noteForm->getData();
           $note = $infos->getNote();
           $user = $this->get('security.context')->getToken()->getUser();
 
@@ -201,6 +208,19 @@ class ArticleController extends Controller
 
           $em->persist($utilisateur);
           $em->flush();
+              
+          }
+          
+          else{
+              
+                   $note = $infos->getNote();
+              $saNote[0]  -> setNote($note);
+              
+              
+          }
+                 
+          
+    
       }
 
       $user = $this->get('security.context')->getToken()->getUser();
@@ -212,7 +232,8 @@ class ArticleController extends Controller
         'noteForm' => $noteForm->createView(),
         'notes' => $notes,
         'moyenne' => $moyenne,
-        'user' => $user  
+        'user' => $user,
+        'saNote' => $saNote
       ));            
 
 	}
