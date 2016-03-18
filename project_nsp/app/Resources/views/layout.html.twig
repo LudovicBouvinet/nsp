@@ -14,7 +14,7 @@
 		<div id="header">
 			<img src="{{ asset('ressources/logo.jpg') }}" alt="Logo du site web" class="logo">
 			<div id="profil">
-				<img id="photo_profil" src="{{ asset('ressources/tofprofilmenu.png') }}" alt="Photo de profil">
+				<img class="potopro" src="{{ asset('uploads/'~user.photo.id~'.'~user.photo.format~'') }}" alt="photo profil">
 				<span>{{user.username}}</span>
 				<br>
 				<a href="{{ path('nsp_back_user_profil') }}">Paramètres du compte</a>
