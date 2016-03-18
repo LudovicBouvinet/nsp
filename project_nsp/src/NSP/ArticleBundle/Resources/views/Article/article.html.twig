@@ -164,12 +164,25 @@
             <div class="zonegauche">
                 <div class="contentzonegauche">
 
-
+{% for note in notes%}
                     <div class="prenometetoile">
-                        <img class="tofprofilnotebottom" src="{{ asset('ressources/tofprofilnotebottom.png') }}"></img>
-                        <div class="prenomnote"></div>
-                        <img class="etoilenote" src="{{ asset('ressources/petitetoile.png') }}" alt="note des lecteurs"></img>
+                        <img class="tofprofilnotebottom" src="{{ asset('uploads/'~note.utilisateur.photo.fichier~'.'~note.utilisateur.photo.format) }}"></img>
+                        <div class="prenomnote">
+{{note.utilisateur.username}}</div>
+                                <div class="note" data-note="        {{note.note}}">
+    
+<div class="etoile" alt="" data-note="1" ></div>
+<div class="etoile" alt="" data-note="2" ></div>    
+<div class="etoile" alt="" data-note="3" ></div>
+<div class="etoile" alt="" data-note="4" ></div>
+<div class="etoile" alt="" data-note="5" ></div>
+            
+            
+            
+        </div>
                     </div>
+{% endfor %}
+
 
                     <div class="affichettnote"><a href="#">Afficher toutes les notes</a></div>
                 </div>
@@ -255,6 +268,7 @@
         }
         
     }
+    
 
 
     $(document).ready(function () {
@@ -322,7 +336,16 @@
     });
         $('.ajout-note').mouseout(function() {         $( ".etoileform" ).css('opacity','0.5')});
         
-        calculmoyenne();
+        $('.note').each(function(){
+            
+            var moyenne = Math.round($(this).data('note'));
+            alert(moyenne);
+        for ( i=0; i<moyenne; i++){
+            z = i +1;
+            $(this).find($('.etoile:nth-of-type('+z+')'))
+            .css('opacity','1')
+        }
+        });
 
     });
 </script> 

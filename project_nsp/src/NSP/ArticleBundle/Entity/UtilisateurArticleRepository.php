@@ -16,7 +16,6 @@ class UtilisateurArticleRepository extends \Doctrine\ORM\EntityRepository
 	  $qb = $this->createQueryBuilder('n');
 
 	  $qb
-        ->select("n.note")
 	    ->where('n.article = :article')
 	    ->setParameter('article', $article)
 	    ->orderBy('n.id', 'DESC')
