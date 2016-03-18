@@ -164,15 +164,13 @@
             <div class="zonegauche">
                 <div class="contentzonegauche">
 
-{% set a = 0 %} 
-                    {% for note in notes %}
+
                     <div class="prenometetoile">
                         <img class="tofprofilnotebottom" src="{{ asset('ressources/tofprofilnotebottom.png') }}"></img>
-                        <div class="prenomnote">{{ note.utilisateur }}</div>
+                        <div class="prenomnote"></div>
                         <img class="etoilenote" src="{{ asset('ressources/petitetoile.png') }}" alt="note des lecteurs"></img>
                     </div>
-                    {% set a = a +1 %} 
-{% endfor %}
+
                     <div class="affichettnote"><a href="#">Afficher toutes les notes</a></div>
                 </div>
 
