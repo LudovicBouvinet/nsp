@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="{{ asset('bundles/nspbackuser/css/styles.css') }}">{% endblock %} 
 
 {% block body %}
-
+<div class="containerspaceperso">
 <div class="menugauche"> 
     <a href="{{ path('nsp_back_user_profil') }}"><div class="myprofil"></div></a> 
     <a href="{{ path('nsp_back_user_message') }}"><div class="iconmsg"></div></a>
@@ -47,7 +47,7 @@
        
        <div class="bloczoneright">
          <div class="zonemsg">
-             <div class="zonefili">
+
 
                 {% if formMessage is defined %}
 
@@ -74,10 +74,10 @@
                  <br> 
                  </div>
              </div>
-         </div>
+        
           
 </div>
-
+    </div>
 
 <script>
   
