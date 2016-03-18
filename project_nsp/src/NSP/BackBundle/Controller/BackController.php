@@ -62,11 +62,17 @@ class BackController extends Controller
             ->findAllByDate()
         ;
 
+        $users = $em
+            ->getRepository('NSPArticleBundle:Utilisateur')
+            ->findAll()
+        ;
+
         $user = $this->get('security.context')->getToken()->getUser();
 
         return $this->render('NSPBackBundle:Back:administration.html.twig', array( 
             'articles' => $articles,
-            'user' => $user
+            'user' => $user,
+            'users' => $users
         ));
     }
 
@@ -127,8 +133,11 @@ class BackController extends Controller
             ->findAllByDate()
         ;
 
+        $user = $this->get('security.context')->getToken()->getUser();
+
         return $this->redirect($this->generateUrl('nsp_back_moderation', array(
-            'articles' => $articles
+            'articles' => $articles,
+            'user' => $user
         )));
     }
 
@@ -167,14 +176,51 @@ class BackController extends Controller
             }
         }
 
+        $articles = $em
+            ->getRepository('NSPArticleBundle:Article')
+            ->findAllByDate()
+        ;
+
+        $user = $this->get('security.context')->getToken()->getUser();
+
+        return $this->redirect($this->generateUrl('nsp_back_administration', array(
+            'articles' => $articles,
+            'user' => $user
+        )));
+    }
+
+    /**
+    * @Security("has_role('ROLE_SUPER_ADMIN')")
+    */
+    public function supprimerUserAction($id)
+    {
+
+        $em = $this->getDoctrine()->getManager();
+
+        $user = $em
+            ->getRepository('NSPArticleBundle:Utilisateur')
+            ->find($id)
+        ;
+
+        $em->remove($user);
+        $em->flush();
 
         $articles = $em
             ->getRepository('NSPArticleBundle:Article')
             ->findAllByDate()
         ;
 
+        $users = $em
+            ->getRepository('NSPArticleBundle:Utilisateur')
+            ->findAll()
+        ;
+
+        $user = $this->get('security.context')->getToken()->getUser();
+
         return $this->redirect($this->generateUrl('nsp_back_administration', array(
-            'articles' => $articles
+            'articles' => $articles,
+            'users' => $users,
+            'user' => $user
         )));
     }
 
@@ -206,9 +252,12 @@ class BackController extends Controller
             ->findAllByDate()
         ;
 
+        $user = $this->get('security.context')->getToken()->getUser();
+
         return $this->redirect($this->generateUrl('nsp_back_moderation', array(
             'articles' => $articles,
-            'commentaires' => $commentaires
+            'commentaires' => $commentaires,
+            'user' => $user
         )));
     }
 }

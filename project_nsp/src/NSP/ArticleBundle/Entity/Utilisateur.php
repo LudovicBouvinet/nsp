@@ -340,7 +340,7 @@ class Utilisateur extends BaseUser
   private $photos; 
     
     /**
-   * @ORM\ManyToMany(targetEntity="NSP\ArticleBundle\Entity\Utilisateur", mappedBy="utilisateurs", cascade={"persist"})
+   * @ORM\ManyToMany(targetEntity="NSP\ArticleBundle\Entity\Utilisateur", cascade={"persist"})
    */
   private $rubriques;
     

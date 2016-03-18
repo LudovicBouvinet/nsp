@@ -82,16 +82,22 @@
                <tr class="entete">
                    <th class="thead">Utilisateurs</th>
                    
-                   <th class="thead">Date d'inscription</th>
+                   <th class="thead">Pseudo</th>
                </tr> 
+
+            {% for user in users %}
+
+            <tr class="trstyle">
+              <td>{{user.prenom}} {{user.prenom}}</td>
+              <td >{{user.username}}</td>
+              <td>
+                  <a class="iconsuppalone" href="{{ path('nsp_back_supprimer_utilisateur', {'id': user.id}) }}"><img class="suppalone" src="{{ asset('ressources/iconsupp.png') }}"></img></a>
+              </td>
+           </tr>
+
+            {% endfor %}
                 
-           <tr class="trstyle">
-               <td>Arthur Guichar</td>
-               <td >10/06/16</td>
-            <td>
-                  <a class="iconsuppalone" href=""><img class="suppalone" src="{{ asset('ressources/iconsupp.png') }}"></img></a>
-                </td>
-           </tr>         
+                    
         </table>
     </div>
     

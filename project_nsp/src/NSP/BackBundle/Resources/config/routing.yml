@@ -23,8 +23,12 @@ nsp_back_choix_redac:
     defaults: { _controller: NSPBackBundle:Back:choixRedac }
 
 nsp_back_supprimer_article:
-    path:     /back/administration/supression/{id}
+    path:     /back/administration/supression/article/{id}
     defaults: { _controller: NSPBackBundle:Back:supprimerArticle }
+
+nsp_back_supprimer_utilisateur:
+    path:     /back/administration/supression/user/{id}
+    defaults: { _controller: NSPBackBundle:Back:supprimerUser }
 
 nsp_back_supprimer_commentaire:
     path:     /back/administration/supression/commentaire/{id}
