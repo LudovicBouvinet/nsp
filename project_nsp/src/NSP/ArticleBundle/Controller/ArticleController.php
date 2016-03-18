@@ -82,6 +82,8 @@ class ArticleController extends Controller
         ->find($id)
     ;
 
+    $user = $this->get('security.context')->getToken()->getUser();
+
     $formArticle = $this->createForm(new ArticleType(),$article);
     $formArticle -> handleRequest($request);
 
@@ -126,7 +128,8 @@ class ArticleController extends Controller
       return $this->render('NSPArticleBundle:Article:add.html.twig', array(
       'formArticle' => $formArticle->createView(),
       'formPhoto' => $formPhoto->createView(),
-      'article' => $article
+      'article' => $article,
+      'user' => $user
     ));
 
 	}
@@ -200,13 +203,16 @@ class ArticleController extends Controller
           $em->flush();
       }
 
+      $user = $this->get('security.context')->getToken()->getUser();
+
       return $this->render('NSPArticleBundle:Article:article.html.twig', array(
         'article' => $article,
         'commentaireForm' => $commentaireForm->createView(),
         'commentaires' => $commentaires,
         'noteForm' => $noteForm->createView(),
         'notes' => $notes,
-        'moyenne' => $moyenne  
+        'moyenne' => $moyenne,
+        'user' => $user  
       ));            
 
 	}

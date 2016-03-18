@@ -16,7 +16,11 @@ class BackController extends Controller
     */
     public function viewHomeBackAction()
     {
-        return $this->render('NSPBackBundle:Back:index.html.twig');
+        $user = $this->get('security.context')->getToken()->getUser();
+
+        return $this->render('NSPBackBundle:Back:index.html.twig', array( 
+            'user' => $user
+        ));
     }
 
     /**
@@ -37,9 +41,12 @@ class BackController extends Controller
             ->findAllByDate()
         ;
 
+        $user = $this->get('security.context')->getToken()->getUser();
+
         return $this->render('NSPBackBundle:Back:moderation.html.twig', array( 
             'articles' => $articles,
-            'commentaires' => $commentaires
+            'commentaires' => $commentaires,
+            'user' => $user
         ));
     }
 
@@ -55,8 +62,11 @@ class BackController extends Controller
             ->findAllByDate()
         ;
 
+        $user = $this->get('security.context')->getToken()->getUser();
+
         return $this->render('NSPBackBundle:Back:administration.html.twig', array( 
-            'articles' => $articles
+            'articles' => $articles,
+            'user' => $user
         ));
     }
 

@@ -35,10 +35,13 @@ class InterfaceController extends Controller
         ->findChoixRedac()
     ;
 
+    $user = $this->get('security.context')->getToken()->getUser();
+
      // On donne toutes les infos nécessaires à la vue
       return $this->render('NSPInterfaceBundle:Interface:index.html.twig', array(
         'listArticles' => $listArticles,
-        'listChoix' => $listChoix
+        'listChoix' => $listChoix,
+        'user' => $user
     ));
 
     }
@@ -65,8 +68,11 @@ class InterfaceController extends Controller
         ->findByName($rubrique)
       ;
 
+      $user = $this->get('security.context')->getToken()->getUser();
+
       return $this->render('NSPInterfaceBundle:Interface:rubrique.html.twig', array(
-        'infosRubrique' => $infosRubrique
+        'infosRubrique' => $infosRubrique,
+        'user' => $user
       ));
 
     }
