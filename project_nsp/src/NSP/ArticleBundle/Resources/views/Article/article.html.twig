@@ -67,9 +67,7 @@
             {% endif %}
 
             <p>
-                {{ article.texteFirst|replace({'
-                <br>': '
-                <br>'}) | raw}}
+                {{ article.texteFirst|replace({'<br>': '<br>'}) |replace({'<SautDeLigne>': '<br>'}) | raw}}
             </p>
 
             {% if article.theme.nom == 'theme4' %}
@@ -88,9 +86,8 @@
             </div>{% endif %}
 
             <p>
-                {% if article.texteSecond is not null %} {{ article.texteSecond|replace({'
-                <br>': '
-                <br>'}) | raw}} {% endif %}
+                {% if article.texteSecond != "n/a" %} 
+                {{ article.texteSecond|replace({'<br>': '<br>'}) |replace({'<SautDeLigne>': '<br>'}) | raw}} {% endif %}
             </p>
 
             {% if article.theme.nom == 'theme5' %}
