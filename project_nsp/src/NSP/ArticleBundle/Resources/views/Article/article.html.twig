@@ -25,7 +25,7 @@
             <div class="infosAuteur">
                 <div class="infosAuteur-content">
                     <div class="auteur">{{ article.utilisateur.username }}</div>
-                    <div class="photoAuteur"><img src="{{ asset('uploads/photo-ludo.png') }}" alt=""></div>
+                    <img class="potopro photoAuteur" src="{{ asset('uploads/'~article.utilisateur.photo.id~'.'~article.utilisateur.photo.format~'') }}" alt="photo profil">
                     <div class="gradeAuteur">Rédacteur en chef </div> 
                 </div>
             </div>
