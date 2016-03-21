@@ -25,25 +25,35 @@
 </section>
 <section class="choose">
     <div class="contenu">
-
+{% set i = 0 %}
 {% for article in listChoix %}
             <div class="contenair">
                <img src =   {{ asset("uploads/" ~ article.photos[0].fichier ~ "." ~ article.photos[0].format ~ "") }} >
                 <div class="titre">
-                    <h4>Choix de la rédaction #1</h4>
+                    <h4>Choix de la rédaction #{{ i + 1 }}</h4>
                     <a href="{{ path('nsp_article_article', {'id': article.id}) }}" class="lire">
                     <div class="sub2">
                         <h3>{{ article.titre }}</h3><span> {{ article.utilisateur.username }}</span>
                         <br>
                         <p>{{ article.chapeau }}</p>
                         <br>
-                        <div class="notes"></div>
+                                                        <div class="noteprev" data-note="{{moyenne[i][0][1]}}">
+            
+<div class="etoile" alt="" data-note="1" ></div>
+<div class="etoile" alt="" data-note="2" ></div>    
+<div class="etoile" alt="" data-note="3" ></div>
+<div class="etoile" alt="" data-note="4" ></div>
+<div class="etoile" alt="" data-note="5" ></div>
+            
+            
+            
+        </div>
                         <p>lire plus</p>
                     </div>
                     </a>
                 </div>
             </div>
-
+{% set i = i + 1 %}
             {% else %}
             <li>Aucun article n'est présent sur le site actuellement</li>
             {% endfor %}
@@ -93,6 +103,17 @@
             });
         redimensionnement(8, "actu");
         redimensionnement(2, "contenu");
+        
+                $('.noteprev').each(function(){
+            
+            var moyenne = Math.round($(this).data('note'));
+
+            for ( i=0; i<moyenne; i++){
+                z = i +1;
+                $(this).find($('.etoile:nth-of-type('+z+')'))
+                .css('opacity','1')
+            }
+        });
     });
 </script>
 

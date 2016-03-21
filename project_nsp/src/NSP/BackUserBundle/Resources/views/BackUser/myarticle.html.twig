@@ -18,6 +18,8 @@
             </div> 
             
             <div class="mymsgs">
+              
+              {% set i = 0 %}
                
               {% for article in articles %}
 
@@ -28,7 +30,17 @@
                             <div class="auteur">{{article.titre}}</div>
                             <div class="date">{{article.datePublication | date('Y-m-d')}}</div>
                         </div>
-                        <div class="stars"></div>
+                                <div class="noteprev" data-note="{{moyenne[i][0][1]}}">
+            
+<div class="etoile" alt="" data-note="1" ></div>
+<div class="etoile" alt="" data-note="2" ></div>    
+<div class="etoile" alt="" data-note="3" ></div>
+<div class="etoile" alt="" data-note="4" ></div>
+<div class="etoile" alt="" data-note="5" ></div>
+            
+            
+            
+        </div>
                         <div class="lastlign">
                             <div class="pitchmsg">{{article.chapeau}}</div>
                             <a class="liensupp" href="#"><div class="modarticle"></div></a>
@@ -36,6 +48,8 @@
                     </div>   
                   </div>
                 </a>
+                
+                {% set i = i + 1 %}
 
               {% endfor %}
 
@@ -61,6 +75,21 @@
 
 </div>
 </div>
+
+
+<script>
+
+        $('.noteprev').each(function(){
+            
+            var moyenne = Math.round($(this).data('note'));
+
+            for ( i=0; i<moyenne; i++){
+                z = i +1;
+                $(this).find($('.etoile:nth-of-type('+z+')'))
+                .css('opacity','1')
+            }
+        });
+</script>
 {% endblock %}
 
 
