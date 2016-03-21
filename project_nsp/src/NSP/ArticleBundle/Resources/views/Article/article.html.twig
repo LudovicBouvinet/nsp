@@ -6,7 +6,7 @@
 
     <div class="titre-article">
         <h1>{{ article.titre }}</h1>
-        <div class="note" data-note="{{moyenne[0][1]}}">
+        <div class="note1" data-note="{{moyenne[0][1]}}">
             
 <div class="etoile" alt="" data-note="1" ></div>
 <div class="etoile" alt="" data-note="2" ></div>    
@@ -164,6 +164,7 @@
 {% for note in notes%}
                     <div class="prenometetoile">
                         <img class="tofprofilnotebottom" src="{{ asset('uploads/'~note.utilisateur.photo.fichier~'.'~note.utilisateur.photo.format) }}"></img>
+                        <div class="deuxiemelignenote">
                         <div class="prenomnote">
 {{note.utilisateur.username}}</div>
                                 <div class="note" data-note="        {{note.note}}">
@@ -173,7 +174,7 @@
 <div class="etoile" alt="" data-note="3" ></div>
 <div class="etoile" alt="" data-note="4" ></div>
 <div class="etoile" alt="" data-note="5" ></div>
-            
+                            </div>          
             
             
         </div>
@@ -181,7 +182,6 @@
 {% endfor %}
 
 
-                    <div class="affichettnote"><a href="#">Afficher toutes les notes</a></div>
                 </div>
 
 
