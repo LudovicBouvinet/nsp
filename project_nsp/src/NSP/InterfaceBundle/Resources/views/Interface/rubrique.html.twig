@@ -45,18 +45,18 @@
         for (var i = 1; i <= nbr; i++) {
             var largeur = $('.' + categorie + ':nth-of-type(' + i + ')').width();
             var hauteur = $('.' + categorie + ':nth-of-type(' + i + ')').height();
-            var largeurImg = $('.' + categorie + ':nth-of-type(' + i + ') > img').width();
-            var hauteurImg = $('.' + categorie + ':nth-of-type(' + i + ') > img').height();
+            var largeurImg = $('.' + categorie + ':nth-of-type(' + i + ')  img').width();
+            var hauteurImg = $('.' + categorie + ':nth-of-type(' + i + ')  img').height();
             if (largeur / largeurImg > hauteur / hauteurImg) {
-                $('.' + categorie + ':nth-of-type(' + i + ') > img').css('width', '100%').css('height', 'auto');
+                $('.' + categorie + ':nth-of-type(' + i + ') img').css('width', '100%').css('height', 'auto');
                 var hauteur = $('.' + categorie + ':nth-of-type(' + i + ')').height();
-                var hauteurImg = $('.' + categorie + ':nth-of-type(' + i + ') > img').height();
-                $('.' + categorie + ':nth-of-type(' + i + ') > img').css('top', "-"+((hauteurImg/2)-(hauteur/2))+"px");
+                var hauteurImg = $('.' + categorie + ':nth-of-type(' + i + ')  img').height();
+                $('.' + categorie + ':nth-of-type(' + i + ') img').css('top', "-"+((hauteurImg/2)-(hauteur/2))+"px");
             } else if (hauteur / hauteurImg > largeur / largeurImg) {
-                $('.' + categorie + ':nth-of-type(' + i + ') > img').css('height', '100%').css('width', 'auto');
+                $('.' + categorie + ':nth-of-type(' + i + ') img').css('height', '100%').css('width', 'auto');
                 var largeur = $('.' + categorie + ':nth-of-type(' + i + ')').width();
-                var largeurImg = $('.' + categorie + ':nth-of-type(' + i + ') > img').width();
-                $('.' + categorie + ':nth-of-type(' + i + ') > img').css('left', "-"+((largeurImg/2)-(largeur/2))+"px");
+                var largeurImg = $('.' + categorie + ':nth-of-type(' + i + ') img').width();
+                $('.' + categorie + ':nth-of-type(' + i + ') img').css('left', "-"+((largeurImg/2)-(largeur/2))+"px");
             } else if (hauteur / hauteurImg === largeur / largeurImg) {
                 $('.' + categorie + ':nth-of-type(' + i + ') img').css('height', '100%').css('width', '100%');
             }
@@ -66,8 +66,15 @@
 
     $(document).ready(function () {
         redimensionnementRubrique(9, "articlesRubrique");
-        redimensionnementRubrique(1, "presentation-rubrique")
+        redimensionnementRubrique(1, "presentation-rubrique");
+        
+    
     });
+$(window).resize(function () {
+            redimensionnementRubrique(9, "articlesRubrique");
+            redimensionnementRubrique(1, "presentation-rubrique");  
+            
+        });
 </script>
 
 
