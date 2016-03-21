@@ -15,11 +15,11 @@
     	<div id ="menu">
 
             <div class="perso">
-                <div class="photo"></div>  
-                    <div class="profil"> 
-                        <h1 class="nom">{{user.nom}}<br>{{user.prenom}}</h1>
-                        <h2 class="grade">Rédacteur en Chef</h2>    
-                    </div>  
+                <img class="photo" src="{{ asset('uploads/'~user.photo.id~'.'~user.photo.format~'') }}" alt="photo profil">  
+                <div class="profil"> 
+                    <h1 class="nom">{{user.nom}}<br>{{user.prenom}}</h1>
+                    <h2 class="grade">Rédacteur en Chef</h2>    
+                </div>  
                 <h3 class="return"><a href="{{ path('nsp_interface_homepage') }}" class="returna">Retour au site</a></h3>
             </div>
 
