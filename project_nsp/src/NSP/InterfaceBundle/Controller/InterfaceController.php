@@ -104,6 +104,10 @@ class InterfaceController extends Controller
 
     }
 
+    public function mentionslglAction(){
+      
+      return $this->render('NSPInterfaceBundle:Interface:mentionslgl.html.twig');
 
+    }
 
 }

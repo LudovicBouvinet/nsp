@@ -20,3 +20,7 @@ nsp_interface_remerciements:
 nsp_interface_a_propos:
     path:     /information
     defaults: { _controller: NSPInterfaceBundle:Interface:info }
+
+nsp_interface_mentions_legales:
+    path:     /mentions
+    defaults: { _controller: NSPInterfaceBundle:Interface:mentionslgl}
