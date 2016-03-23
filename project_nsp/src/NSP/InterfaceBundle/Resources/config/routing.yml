@@ -16,3 +16,7 @@ nsp_interface_contact:
 nsp_interface_remerciements:
     path:     /remerciements
     defaults: { _controller: NSPInterfaceBundle:Interface:remerciement }
+
+nsp_interface_a_propos:
+    path:     /information
+    defaults: { _controller: NSPInterfaceBundle:Interface:info }

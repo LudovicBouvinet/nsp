@@ -98,6 +98,12 @@ class InterfaceController extends Controller
 
     }
 
+    public function infoAction(){
+      
+      return $this->render('NSPInterfaceBundle:Interface:apropos.html.twig');
+
+    }
+
 
 
 }
