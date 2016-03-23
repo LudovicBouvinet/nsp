@@ -92,6 +92,12 @@ class InterfaceController extends Controller
 
     }
 
+    public function remerciementAction(){
+      
+      return $this->render('NSPInterfaceBundle:Interface:remerciement.html.twig');
+
+    }
+
 
 
 }

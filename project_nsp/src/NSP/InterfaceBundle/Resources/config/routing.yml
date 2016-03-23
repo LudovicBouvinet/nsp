@@ -12,3 +12,7 @@ nsp_interface_rubrique:
 nsp_interface_contact:
     path:     /contact
     defaults: { _controller: NSPInterfaceBundle:Interface:contact }
+
+nsp_interface_remerciements:
+    path:     /remerciements
+    defaults: { _controller: NSPInterfaceBundle:Interface:remerciement }

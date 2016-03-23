@@ -114,9 +114,10 @@
 		</div>
 		<div id="mentions">
 			<ul>
-				<li><a href="">A Propos</a></li>
-				<li><a href="">Mentions Légales</a></li>
-				<li><a href="">Nous Contacter</a></li>
+				<li><a href="{{ path('nsp_interface_contact') }}">A Propos</a></li>
+				<li><a href="{{ path('nsp_interface_remerciements') }}">Remerciements</a></li>
+				<li><a href="{{ path('nsp_interface_homepage') }}">Mentions Légales</a></li>
+				<li><a href="{{ path('nsp_interface_contact') }}">Nous Contacter</a></li>
 				{% if is_granted('ROLE_MODERATEUR') %}
 				  <li><a href="{{ path('nsp_back_homepage') }}">Modération</a></li>
 				{% endif %}
@@ -125,7 +126,7 @@
 	</div>
 
 	<div class="background_mob">
-		<a href="">Nous Contacter</a>
+		<a href="{{ path('nsp_interface_contact') }}">Nous Contacter</a>
 		<div class="reso">
 			<a href="http://twitter.com/aujour_nal" target="_blank"><img src="{{ asset('ressources/twitter.png') }}" alt=""></a>
 			<a href="http://www.facebook.com/aujournalupem" target="_blank"><img src="{{ asset('ressources/facebook.png') }}" alt=""></a>
@@ -133,7 +134,7 @@
 			<a href="" target="_blank"><img src="{{ asset('ressources/linkedin.png') }}" alt=""></a>
 			<a href="http://www.youtube.com/channel/UCLNnD3obwgu91iyORFKPNZw" target="_blank"><img src="{{ asset('ressources/youtube.png') }}" alt=""></a>
 		</div>
-		<a href="">Mentions Légales</a>
+		<a href="{{ path('nsp_interface_homepage') }}">Mentions Légales</a>
 	</div>
 
 
