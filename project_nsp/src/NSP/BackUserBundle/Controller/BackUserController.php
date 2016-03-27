@@ -117,10 +117,22 @@ class BackUserController extends Controller
     {
         $user = $this->get('security.context')->getToken()->getUser();
         $articles = $user->getArticlesEcrits();
-
+        
+        $em = $this ->getDoctrine() -> getManager();
+        
+        $moyenne = [];
+        
+        foreach($articles as $key => $value){
+         $moyenne[$key] = $em 
+        ->getRepository('NSPArticleBundle:UtilisateurArticle')
+        -> findNote($articles[$key]);
+        }
+        
+        
         return $this->render('NSPBackUserBundle:BackUser:myArticle.html.twig', array(
           'user' => $user,
-          'articles' => $articles
+          'articles' => $articles,
+            'moyenne' => $moyenne
         ));
     }
 }

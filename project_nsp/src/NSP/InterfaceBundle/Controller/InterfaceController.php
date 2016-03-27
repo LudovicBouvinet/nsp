@@ -34,6 +34,14 @@ class InterfaceController extends Controller
         ->getRepository('NSPArticleBundle:Article')
         ->findChoixRedac()
     ;
+        
+    $moyenne = [];
+        
+    foreach($listChoix as $key => $value){
+        $moyenne[$key] = $em 
+        ->getRepository('NSPArticleBundle:UtilisateurArticle')
+        -> findNote($listChoix[$key]);
+    }
 
     $user = $this->get('security.context')->getToken()->getUser();
 
@@ -41,7 +49,8 @@ class InterfaceController extends Controller
       return $this->render('NSPInterfaceBundle:Interface:index.html.twig', array(
         'listArticles' => $listArticles,
         'listChoix' => $listChoix,
-        'user' => $user
+        'user' => $user,
+        'moyenne' => $moyenne
     ));
 
     }
@@ -83,6 +92,22 @@ class InterfaceController extends Controller
 
     }
 
+    public function remerciementAction(){
+      
+      return $this->render('NSPInterfaceBundle:Interface:remerciement.html.twig');
 
+    }
+
+    public function infoAction(){
+      
+      return $this->render('NSPInterfaceBundle:Interface:apropos.html.twig');
+
+    }
+
+    public function mentionslglAction(){
+      
+      return $this->render('NSPInterfaceBundle:Interface:mentionslgl.html.twig');
+
+    }
 
 }

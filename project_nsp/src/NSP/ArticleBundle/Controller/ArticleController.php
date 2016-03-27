@@ -162,7 +162,9 @@ class ArticleController extends Controller
          $moyenne = $em 
         ->getRepository('NSPArticleBundle:UtilisateurArticle')
         -> findNote($article);
-                 $user = $this->get('security.context')->getToken()->getUser(); 
+        
+        
+        $user = $this->get('security.context')->getToken()->getUser(); 
         
         $saNote = $em -> getRepository('NSPArticleBundle:UtilisateurArticle')
             -> findNotebyUser($article, $user);
