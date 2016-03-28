@@ -176,6 +176,9 @@
 
         {{ form_widget(formArticle.save, {'attr': {'class': 'save-button'}}) }}
 
+        <div class="save-article-button">Enregistrer les modifications</div>
+        <a href="{{ path('nsp_interface_homepage') }}"><div class="fin-article-button">Envoyer l'article</div></a>
+
         {{ form_end(formArticle) }}
 
         
@@ -320,6 +323,10 @@
 
         verify();
 
+    });
+
+    $('.save-article-button').click(function() {
+        $('.save-button').click();
     });
 
     function verify() {

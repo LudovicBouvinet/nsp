@@ -99,12 +99,15 @@ class ArticleController extends Controller
         $resume = "";
         $resumes = explode(" ", $chapeau);
 
-        for ($i=0; $i < 20 ; $i++) { 
-          $resume = $resume . $resumes[$i]. " ";
-          if ($i == 19 ) {
-            $resume = $resume . "...";
+        if ($resumes != null) {
+           for ($i=0; $i < 20 ; $i++) { 
+            $resume = $resume . $resumes[$i]. " ";
+            if ($i == 19 ) {
+              $resume = $resume . "...";
+            }
           }
         }
+        
 
         $article->setResume($resume);
         $em->persist($article);

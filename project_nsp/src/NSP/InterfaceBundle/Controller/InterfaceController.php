@@ -88,25 +88,37 @@ class InterfaceController extends Controller
 
     public function contactAction(){
 
-      return $this->render('NSPInterfaceBundle:Interface:contact.html.twig');
+      $user = $this->get('security.context')->getToken()->getUser();
+      return $this->render('NSPInterfaceBundle:Interface:contact.html.twig', array(
+        'user' => $user
+      ));
 
     }
 
     public function remerciementAction(){
       
-      return $this->render('NSPInterfaceBundle:Interface:remerciement.html.twig');
+      $user = $this->get('security.context')->getToken()->getUser();
+      return $this->render('NSPInterfaceBundle:Interface:remerciement.html.twig', array(
+        'user' => $user
+      ));
 
     }
 
     public function infoAction(){
       
-      return $this->render('NSPInterfaceBundle:Interface:apropos.html.twig');
+      $user = $this->get('security.context')->getToken()->getUser();
+      return $this->render('NSPInterfaceBundle:Interface:apropos.html.twig', array(
+        'user' => $user
+      ));
 
     }
 
     public function mentionslglAction(){
       
-      return $this->render('NSPInterfaceBundle:Interface:mentionslgl.html.twig');
+      $user = $this->get('security.context')->getToken()->getUser();
+      return $this->render('NSPInterfaceBundle:Interface:mentionslgl.html.twig', array(
+        'user' => $user
+      ));
 
     }
 

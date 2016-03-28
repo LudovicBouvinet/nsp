@@ -5,6 +5,7 @@ namespace NSP\BackBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use NSP\ArticleBundle\Entity\Article;
 use NSP\ArticleBundle\Entity\Rubrique;
+use NSP\ArticleBundle\Entity\UtilisateurArticle;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
@@ -202,7 +203,10 @@ class BackController extends Controller
             ->find($id)
         ;
 
-        $em->remove($user);
+        $nb = rand (0 , 1000);
+        $user->setPassword(md5(''.$nb.''));
+        $user->setUsername('Utilisateur supprimé');
+        $em->persist($user);
         $em->flush();
 
         $articles = $em
