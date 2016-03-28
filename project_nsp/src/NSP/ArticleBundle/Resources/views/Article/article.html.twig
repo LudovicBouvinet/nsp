@@ -40,8 +40,6 @@
 
         <div class="column-left ">
 
-
-
             {% if article.theme.nom == 'theme1' %}
             <div class="theme1">
                 {% for photo in article.photos if i in 0..1 %}
@@ -49,16 +47,21 @@
                     <img src="{{ asset('uploads/'~photo.fichier~'.'~photo.format) }}" alt="">
                 </div>
                 {% set i = i +1 %} {% endfor %}
-            </div> {% endif %} {% if article.theme.nom == 'theme3' %}
+            </div> {% endif %} <br>
+
+            {% if article.theme.nom == 'theme3' %}
             <div class="theme3">
                 <div>
                     <img src="{{ asset('uploads/'~article.photos[0].fichier~'.'~article.photos[0].format) }}" alt="">
                 </div>
-            </div> {% endif %} {% if article.theme.nom == 'theme4' %}
+            </div> {% endif %} <br> 
+
+            {% if article.theme.nom == 'theme4' %}
             <div class="theme4">
                 <div><img src="{{ asset('uploads/'~article.photos[0].fichier~'.'~article.photos[0].format) }}" alt=""></div>
-            </div> {% endif %} {% if article.theme.nom == 'theme6' %}
+            </div> {% endif %} <br>
 
+            {% if article.theme.nom == 'theme6' %}
 
             <div class="mosaique">
                 {% for photo in article.photos if i in 0..5 %}
@@ -67,7 +70,7 @@
                 </div>
                 {% set i = i +1 %} {% endfor %}
             </div>
-            {% endif %}
+            {% endif %} <br>
 
             <p>
                 {{ article.texteFirst|replace({'
@@ -75,22 +78,26 @@
                 <br>'}) |replace({'
                 <SautDeLigne>': '
                     <br>'}) | raw}}
-            </p>
+            </p><br>
 
             {% if article.theme.nom == 'theme4' %}
             <div class="theme4">
                 {% for photo in article.photos if i in 0..1 %}
                 <div><img src="{{ asset('uploads/'~photo.fichier~'.'~photo.format) }}" alt=""></div>
-                {% set i = i +1 %} {% endfor %}
+                {% set i = i +1 %} 
+                {% endfor %}
             </div>
-            {% endif %} {% if article.theme.nom == 'theme5' %}
+            {% endif %} <br>
+
+             {% if article.theme.nom == 'theme5' %}
             <div class="theme5">
                 {% for photo in article.photos if i in 0..1 %}
                 <div>
                     <img src="{{ asset('uploads/'~photo.fichier~'.'~photo.format) }}" alt="">
                 </div>
-                {% set i = i +1 %} {% endfor %}
-            </div>{% endif %}
+                {% set i = i +1 %} 
+                {% endfor %}
+            </div>{% endif %} <br>
 
             <p>
                 {% if article.texteSecond != "n/a" %} {{ article.texteSecond|replace({'
@@ -116,7 +123,9 @@
                 {% set i = i +1 %} {% endfor %}
             </div>
         </div>
-        {% endif %} {% if is_granted('ROLE_USER') %}
+        {% endif %} <br>
+
+        {% if is_granted('ROLE_USER') %}
 
         <div class="zonenotetop">
             <div class="titrenote">Notez cet
