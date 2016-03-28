@@ -50,6 +50,13 @@ class Article
     private $chapeau;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="resume", type="text")
+     */
+    private $resume;
+
+    /**
      * @var \DateTime
      *
      * @ORM\Column(name="datePublication", type="datetime")
@@ -130,6 +137,30 @@ class Article
     public function getChapeau()
     {
         return $this->chapeau;
+    }
+
+    /**
+     * Set resume
+     *
+     * @param string $resume
+     *
+     * @return Article
+     */
+    public function setResume($resume)
+    {
+        $this->resume = $resume;
+
+        return $this;
+    }
+
+    /**
+     * Get resume
+     *
+     * @return string
+     */
+    public function getResume()
+    {
+        return $this->resume;
     }
     
       /**

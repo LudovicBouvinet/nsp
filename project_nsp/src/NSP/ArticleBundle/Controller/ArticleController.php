@@ -44,6 +44,7 @@ class ArticleController extends Controller
     $article->setTitre('n/a');
     $article->setTexteFirst('n/a');
     $article->setTexteSecond('n/a');
+    $article->setResume('n/a');
     $article->setTheme($theme);
     $article->setUtilisateur($user);
 
@@ -93,6 +94,19 @@ class ArticleController extends Controller
 
     if ($formArticle->isSubmitted() && $formArticle->isValid()) {
 
+        $infos = $formArticle->getData();
+        $chapeau = $infos->getChapeau();
+        $resume = "";
+        $resumes = explode(" ", $chapeau);
+
+        for ($i=0; $i < 20 ; $i++) { 
+          $resume = $resume . $resumes[$i]. " ";
+          if ($i == 19 ) {
+            $resume = $resume . "...";
+          }
+        }
+
+        $article->setResume($resume);
         $em->persist($article);
         $em->flush();
     }

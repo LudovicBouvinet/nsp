@@ -141,38 +141,49 @@
   <script src="{{ asset('bundles/nspinterface/js/menu.js') }}"></script>
   <script>
   	$('.connexion').click(function(){
-  		$('.div-noire').toggleClass('connexion-go');
-  		$('.pop-up-connexion').toggleClass('connexion-go');
+  		$('.div-noire').fadeIn();
+  		$('.pop-up-connexion').fadeIn();
   		$('html').css('overflow', 'hidden');
   	});
 
   	$('.div-noire').click(function(){
-  		$('.div-noire').toggleClass('connexion-go');
-  		$('.pop-up-connexion').removeClass('connexion-go');
-        	$('.popup-inscri').css('display','none');
+  		$('.div-noire').fadeOut();
+  		$('.pop-up-connexion').fadeOut();
+        $('.popup-inscri').fadeOut();
   		$('html').css('overflow', 'auto');
   	});
       
       $('.inscription').click(function(){
           
-  		$('.div-noire').toggleClass('connexion-go');
-  		$('.popup-inscri').css('display','block');
+  		$('.div-noire').fadeIn();
+  		$('.popup-inscri').fadeIn();
           
           
           
       });
       
-      function centre(){
+      function centreInsc(){
       largeurFenetre = window.innerWidth;
       largeurPopup = $('.popup-inscri').width();
       marge = ( largeurFenetre - largeurPopup ) /2;
            $('.popup-inscri').css('left',marge);
       };
-      centre();
-        $(window).resize(function () {
-            centre();
-        });
-      
+      centreInsc();
+
+
+      function centreCo(){
+      largeurFenetre = window.innerWidth;
+      largeurPopup = $('.pop-up-connexion').width();
+      marge = ( largeurFenetre - largeurPopup ) /2;
+           $('.pop-up-connexion').css('left',marge);
+      };
+      centreCo();
+
+    $(window).resize(function () {
+        centreInsc();
+        centreCo();
+    });
+  
       
 
   </script>
