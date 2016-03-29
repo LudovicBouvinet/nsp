@@ -9,15 +9,15 @@
     <a href="{{ path('nsp_back_user_mesarticles') }}"><div class="iconart"></div></a>  
 </div>
 
-<div class="zoneperso">
+<div class="zoneperso-profil">
 
    <div class="blocleftprofil">
         <div class="titleinfocompte">Informations de Compte</div>
             <div class="zoneinfotop">
                 <div class="cadreinfo"><p class="info">{{user.username}}</p></div><br>
                 <div class="cadreinfo"><p class="info">{{user.email}}</p></div><br>
-                <div class="cadreinfo"><p class="info">{{user.grade}}</p></div><br>
             </div>
+        <br>
         <div class="titleoption">Options du Compte</div>
         <div class="cadreinfo"><p class="info">Abonnée à la Newsletters</p></div>
    </div>
@@ -29,10 +29,21 @@
                 <div class="cadreinfo"><p class="info">{{user.prenom}}</p></div><br>
                 <div class="cadreinfo"><p class="info">{{user.dateNaissance | date('Y-m-d')}}</p></div><br>
             </div>
-        <div class="cadreinfo"><p class="info">Sexe</p></div>
    </div>
       
    
 </div>
 </div>
+
+<script>
+
+  var heightMenuGauche = $('.zoneperso-profil').height();
+  $('.menugauche').css('height', heightMenuGauche +'px');
+
+   $(window).resize(function () {
+     var heightMenuGauche = $('.zoneperso-profil').height();
+    $('.menugauche').css('height', heightMenuGauche +'px');   
+  });
+
+</script>
 {% endblock %}

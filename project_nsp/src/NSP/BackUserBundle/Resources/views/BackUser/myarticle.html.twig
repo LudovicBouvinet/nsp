@@ -1,5 +1,6 @@
 {% extends "NSPBackUserBundle::layout.html.twig" %} {% block title %}{{ parent() }} - Espace Personnel {% endblock %} {% block css %}
-<link rel="stylesheet" href="{{ asset('bundles/nspbackuser/css/styles.css') }}">{% endblock %} 
+<link rel="stylesheet" href="{{ asset('bundles/nspbackuser/css/styles.css') }}">
+{% endblock %} 
 
 {% block body %}
 <div class="containerspaceperso">
@@ -10,7 +11,7 @@
 </div>
 
 <div class="zoneperso">
-       <div class="mesarticle">
+       <div class="mesarticle-article">
            
             <div class="topmsg">
                 <div class="txtmsg">Mes Articles</div>
@@ -22,7 +23,7 @@
                
               {% for article in articles %}
 
-                <a class="lienmsg" href="">
+                <a class="lienmsg" data-id="article{{article.id}}">
                   <div class="encarmsg">
                     <div class="resummsg">
                        <div class="firstlign">
@@ -31,11 +32,11 @@
                         </div>
                                 <div class="noteprev" data-note="{{moyenne[i][0][1]}}">
             
-<div class="etoile" alt="" data-note="1" ></div>
-<div class="etoile" alt="" data-note="2" ></div>    
-<div class="etoile" alt="" data-note="3" ></div>
-<div class="etoile" alt="" data-note="4" ></div>
-<div class="etoile" alt="" data-note="5" ></div>
+                        <div class="etoile" alt="" data-note="1" ></div>
+                        <div class="etoile" alt="" data-note="2" ></div>    
+                        <div class="etoile" alt="" data-note="3" ></div>
+                        <div class="etoile" alt="" data-note="4" ></div>
+                        <div class="etoile" alt="" data-note="5" ></div>
             
             
             
@@ -56,21 +57,6 @@
             </div>                    
            
        </div>
-       
-       
-       <div class="bloczonerightmyarticle">
-           <div class="zonemsg">
-               
-                   <div class="titremsg"> INCLURE ICI UN FICHIER ARTICLE</div> 
-                    
-                    <div class="zonetexteenvoie">
-                    
-                   </div>
-               
-           </div>
-           
-           
-       </div>
 
 </div>
 </div>
@@ -78,16 +64,25 @@
 
 <script>
 
-        $('.noteprev').each(function(){
-            
-            var moyenne = Math.round($(this).data('note'));
+  $('.noteprev').each(function(){
+      
+      var moyenne = Math.round($(this).data('note'));
 
-            for ( i=0; i<moyenne; i++){
-                z = i +1;
-                $(this).find($('.etoile:nth-of-type('+z+')'))
-                .css('opacity','1')
-            }
-        });
+      for ( i=0; i<moyenne; i++){
+          z = i +1;
+          $(this).find($('.etoile:nth-of-type('+z+')'))
+          .css('opacity','1')
+      }
+  });
+
+  var heightMenuGauche = $('.zoneperso').height();
+  $('.menugauche').css('height', heightMenuGauche +'px');
+
+  $(window).resize(function () {
+    var heightMenuGauche = $('.zoneperso').height();
+    $('.menugauche').css('height', heightMenuGauche +'px');        
+  });
+
 </script>
 {% endblock %}
 

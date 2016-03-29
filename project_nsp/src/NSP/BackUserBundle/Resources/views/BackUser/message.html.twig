@@ -9,7 +9,7 @@
     <a href="{{ path('nsp_back_user_mesarticles') }}"><div class="iconart"></div></a>  
 </div>
 
-<div class="zoneperso">
+<div class="zoneperso-messagerie">
        
        <div class="mesarticle">
            
@@ -76,8 +76,9 @@
              </div>
         
           
-</div>
+      </div>
     </div>
+  </div>
 
 <script>
   
@@ -90,6 +91,14 @@
     var id = $(this).data('id');
     $('.'+id+'').css('display', 'block');
 
+  });
+
+  var heightMenuGauche = $('.zoneperso-messagerie').height();
+  $('.menugauche').css('height', heightMenuGauche +'px');
+
+  $(window).resize(function () {
+    var heightMenuGauche = $('.zoneperso-messagerie').height();
+    $('.menugauche').css('height', heightMenuGauche +'px');      
   });
 
 </script>
