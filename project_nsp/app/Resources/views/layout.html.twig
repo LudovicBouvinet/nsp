@@ -31,7 +31,7 @@
 
   		<a href="javascript:;" class="close"></a>
 	    {% if is_granted('ROLE_USER') %}
-	    <div class="tofprofil"></div>
+		<img class="tofprofil" src="{{ asset('uploads/'~user.photo.id~'.'~user.photo.format~'') }}" alt="photo profil">
 	    {% endif %}
 		{% if not is_granted('ROLE_USER') %}
 	    <div class="anonym"></div>
@@ -46,19 +46,30 @@
 	        <li><a class="lienmob" href="{{ path('nsp_interface_rubrique', {'rubrique': 'Evenement'}) }}">Evenement</a></li>
 	    </ul>
 	</div> 
+	
+	{% if not is_granted('ROLE_USER') %}
+		<div class="bar">
+		    <a href="javascript:;" class="menu_btn"> </a>
+		    <div class="logo_mob">NSP</div>
+		    <div class="navmob">  
+		        <div class="connexion"> 
+		        	<div class="texteco">Connexion</div>
+		        </div>
+		        <div class="inscription">
+		        	<div class="texteco">Inscription</div>
+		        </div>  
+		    </div>
+		</div>
+	{% endif %}
+	
+	{% if is_granted('ROLE_USER') %}
+		<div class="bar">
+		    <a href="javascript:;" class="menu_btn"> </a>
+		    <div class="logo_mob">NSP</div>
+		    <div class="msgc"><span>Connecté</span></div>
 
-	<div class="bar">
-	    <a href="javascript:;" class="menu_btn"> </a>
-	    <div class="logo_mob">NSP</div>
-	    <div class="navmob">  
-	        <div class="connexion"> 
-	        	<div class="texteco">Connexion</div>
-	        </div>
-	        <div class="inscription">
-	        	<div class="texteco">Inscription</div>
-	        </div>  
-	    </div>
-	</div>
+		</div>
+	{% endif %}
 
 	{% if not is_granted('ROLE_USER') %}
   	<div id="header">
