@@ -25,13 +25,13 @@
         
 		<div class="articlesRubrique" >
             <a href="{{ path('nsp_article_article', {'id': article.id}) }}">
-			<div ><p class="desc"><span>{{ article.titre }}</span><span>{{ article.utilisateur.username }}</span><br>{{ article.resume }}</p></div>
+			<div ><p class="desc"><span>{{ article.titre }}</span><span> par {{ article.utilisateur.username }}</span><br>{{ article.resume }}</p></div>
 			<img src =	{{ asset("uploads/" ~ article.photos[0].fichier ~ "." ~ article.photos[0].format ~ "") }} >
             </a>
 		</div>
         
 		{% else %}
-		
+        <li>Aucun article n'est présent sur le site actuellement</li>
     {% endfor %}
 
 </section>
