@@ -1,14 +1,10 @@
-nsp_article_add_new_article:
+nsp_article_new_article:
     path:     /ajout
     defaults: { _controller: NSPArticleBundle:Article:addNewArticle }
 
 nsp_article_add_champs_article:
-    path:     /ajouter/{id}
+    path:     /nouveau/{id}
     defaults: { _controller: NSPArticleBundle:Article:addChampsArticle }
-
-nsp_article_add_validation:
-    path:     /validation/{id}
-    defaults: { _controller: NSPArticleBundle:Article:addValidation }
 
 nsp_article_article:
     path:     /article/{id}

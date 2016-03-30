@@ -82,7 +82,10 @@ class ArticleRepository extends \Doctrine\ORM\EntityRepository
 	{
 	  $qb = $this->createQueryBuilder('a');
 
-	  $qb->orderBy('a.id', 'DESC');
+	  $qb
+	  	->where('a.titre <> \'n/a\'')
+	  	->orderBy('a.id', 'DESC')
+	  ;
 
 	  return $qb
 	    ->getQuery()

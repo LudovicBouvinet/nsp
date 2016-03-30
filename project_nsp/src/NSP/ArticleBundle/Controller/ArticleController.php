@@ -36,6 +36,11 @@ class ArticleController extends Controller
       ->getRepository('NSPArticleBundle:Theme')
       ->find(1)
     ;
+
+    $rubrique = $em
+      ->getRepository('NSPArticleBundle:Rubrique')
+      ->find(1)
+    ;
     
     $user = $this->get('security.context')->getToken()->getUser();
 
@@ -46,6 +51,7 @@ class ArticleController extends Controller
     $article->setTexteSecond('n/a');
     $article->setResume('n/a');
     $article->setTheme($theme);
+    $article->setRubrique($rubrique);
     $article->setUtilisateur($user);
 
     $em->persist($article);
