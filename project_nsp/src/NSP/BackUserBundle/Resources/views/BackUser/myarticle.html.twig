@@ -23,7 +23,7 @@
                
               {% for article in articles %}
 
-                <a class="lienmsg" data-id="article{{article.id}}">
+                <a class="lienmsg" href="{{ path('nsp_article_article', {'id' : article.id }) }}" >
                   <div class="encarmsg">
                     <div class="resummsg">
                        <div class="firstlign">
@@ -43,7 +43,6 @@
         </div>
                         <div class="lastlign">
                             <div class="pitchmsg">{{article.chapeau}}</div>
-                            <a class="liensupp" href="#"><div class="modarticle"></div></a>
                         </div>
                     </div>   
                   </div>

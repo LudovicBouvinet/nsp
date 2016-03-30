@@ -166,24 +166,13 @@ class ArticleController extends Controller
         ->find($id)
       ;
 
-      $commentaires = $em
-        ->getRepository('NSPArticleBundle:Commentaire')
-        ->findComments($article)
-      ;
-        
-        $notes = $em
-        ->getRepository('NSPArticleBundle:UtilisateurArticle')
-        ->findNotes($article)
-      ;
-        
-         $moyenne = $em 
+      $user = $this->get('security.context')->getToken()->getUser(); 
+
+       $moyenne = $em 
         ->getRepository('NSPArticleBundle:UtilisateurArticle')
         -> findNote($article);
-        
-        
-        $user = $this->get('security.context')->getToken()->getUser(); 
-        
-        $saNote = $em -> getRepository('NSPArticleBundle:UtilisateurArticle')
+
+      $saNote = $em -> getRepository('NSPArticleBundle:UtilisateurArticle')
             -> findNotebyUser($article, $user);
         
       $commentaireForm = $this->createForm(new CommentaireType());
@@ -242,7 +231,18 @@ class ArticleController extends Controller
     
       }
 
-      $user = $this->get('security.context')->getToken()->getUser();
+      $commentaires = $em
+        ->getRepository('NSPArticleBundle:Commentaire')
+        ->findComments($article)
+      ;
+        
+        $notes = $em
+        ->getRepository('NSPArticleBundle:UtilisateurArticle')
+        ->findNotes($article)
+      ;
+        
+        
+        
 
       return $this->render('NSPArticleBundle:Article:article.html.twig', array(
         'article' => $article,
