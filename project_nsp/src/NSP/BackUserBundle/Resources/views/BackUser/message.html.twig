@@ -54,7 +54,7 @@
                 {% else %}
                    {% for message in messages %}
                       <div class="titremsg message{{message.id}}"> {{message.emetteur}} - Chef Rédacteur</div>
-                      <div class="photoenvoie message{{message.id}}"></div>
+                      <img class="photoenvoie message{{message.id}}" src="{{ asset('uploads/'~message.emetteur.photo.fichier~'.'~message.emetteur.photo.format) }}"></img>
                     {% endfor %} 
                 {% endif %} 
                   
