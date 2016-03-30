@@ -29,6 +29,21 @@ class PhotoRepository extends \Doctrine\ORM\EntityRepository
 	    ->execute()
 	  ;
 	}
+
+	public function findNull()
+	{
+	  $qb = $this->createQueryBuilder('p');
+
+	  $qb
+	    ->where('p.fichier = \'n/a\'')
+	    ->andwhere('p.article IS NULL')
+	  ;
+
+	  return $qb
+	    ->getQuery()
+	    ->getResult()
+	  ;
+	}
     
     	
     

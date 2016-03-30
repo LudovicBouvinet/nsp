@@ -208,7 +208,8 @@
                 <div class="contentzonedroite">
                     {% set a = 0 %} {% for commentaire in commentaires %} {% if a is even %}
                     <div class="contentleftcom">
-                        <img class="tofprofilnotebottom" src="{{ asset('ressources/tofprofilnotebottom.png') }}">
+                        <img class="tofprofilnotebottom" src="{{ asset('uploads/'~commentaire.utilisateur.photo.fichier~'.'~commentaire.utilisateur.photo.format) }}"></img>
+                        <span class="commentaire-username-left">{{commentaire.utilisateur.username}}</span>
                         <div class="container-commentaire">
                             <p class="commentaire-texte-left">{{ commentaire.texte }}</p>
                             <img class="bottomform" src="{{ asset('ressources/formbottom.png') }}"></img>
@@ -216,11 +217,14 @@
                     </div>
                     {% endif%} {% if a is odd %}
                     <div class="contentrightcom">
-                        <img class="tofprofilnotebottomright" src="{{ asset('ressources/tofprofilnotebottom.png') }}">
+
+                        <img class="tofprofilnotebottomright" src="{{ asset('uploads/'~commentaire.utilisateur.photo.fichier~'.'~commentaire.utilisateur.photo.format) }}"></img>
+                        
                         <div class="container-commentaire">
                             <p class="commentaire-texte-right">{{ commentaire.texte }}</p>
                             <img class="bottomformright" src="{{ asset('ressources/formright.png') }}"></img>
                         </div>
+                        <span class="commentaire-username-right">{{commentaire.utilisateur.username}}</span>
                     </div>
                     {% endif%} {% set a = a +1 %} {% else %}
                     <p class="pasdenote">Cet article n'a pas été encore commenté.</p>{% endfor %}

@@ -66,9 +66,10 @@ class ArticleController extends Controller
       $photo[$i]->setFormat('n/a');
 
       $em->persist($photo[$i]);
+       $em->flush();
     }
 
-    $em->flush();
+   
 
     return $this->redirect($this->generateUrl('nsp_article_add_champs_article', array(
       'id' => $article->getId()

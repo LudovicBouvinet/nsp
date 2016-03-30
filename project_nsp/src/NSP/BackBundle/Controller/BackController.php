@@ -163,6 +163,13 @@ class BackController extends Controller
             $em->flush();
         }
 
+        $ensembleNotes = $article->getUtilisateursNoteurs();
+
+        foreach ($ensembleNotes as $key => $value) {
+
+            $em->remove($ensembleNotes[$key]);
+            $em->flush();
+        }
 
         $ensemblePhotos = $article->getPhotos();
 

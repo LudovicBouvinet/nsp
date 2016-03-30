@@ -92,6 +92,22 @@ class ArticleRepository extends \Doctrine\ORM\EntityRepository
 	    ->getResult()
 	  ;
 	}
+
+	public function findByUser($user)
+	{
+	  $qb = $this->createQueryBuilder('a');
+
+	  $qb
+	    ->where('a.titre = \'n/a\'')
+	    ->andwhere('a.utilisateur = :user')
+	    ->setParameter('user', $user)
+	  ;
+
+	  return $qb
+	    ->getQuery()
+	    ->getResult()
+	  ;
+	}
     
     
 }

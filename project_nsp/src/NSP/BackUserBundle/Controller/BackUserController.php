@@ -19,6 +19,8 @@ class BackUserController extends Controller
     {
         $user = $this->get('security.context')->getToken()->getUser();
 
+        
+
         return $this->render('NSPBackUserBundle:BackUser:profil.html.twig', array(
           'user' => $user
         ));

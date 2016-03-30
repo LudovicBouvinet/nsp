@@ -45,6 +45,39 @@ class InterfaceController extends Controller
 
     $user = $this->get('security.context')->getToken()->getUser();
 
+    $articles = $em
+      ->getRepository('NSPArticleBundle:Article')
+      ->findByUser($user)
+    ;
+
+    $photosArticles = [];
+
+    foreach ($articles as $key => $value) {
+      $photosArticles[$key] = $value->getPhotos();
+
+      $em->remove($photosArticles[$key][0]);
+      $em->remove($photosArticles[$key][1]);
+      $em->remove($photosArticles[$key][2]);
+      $em->remove($photosArticles[$key][3]);
+      $em->remove($photosArticles[$key][4]);
+      $em->remove($photosArticles[$key][5]);
+      $em->flush();
+    }
+
+    foreach ($articles as $key => $value) {
+      $em->remove($value);   
+    }
+
+    $photosNull = $em
+      ->getRepository('NSPArticleBundle:Photo')
+      ->findNull()
+    ;
+    
+    foreach ($photosNull as $key => $value) {
+      $em->remove($value);
+      $em->flush();
+    }
+
      // On donne toutes les infos nécessaires à la vue
       return $this->render('NSPInterfaceBundle:Interface:index.html.twig', array(
         'listArticles' => $listArticles,
