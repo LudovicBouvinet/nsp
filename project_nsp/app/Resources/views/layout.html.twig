@@ -46,8 +46,10 @@
 			<li><a class="lienmob" href="{{ path('nsp_interface_rubrique', {'rubrique': 'Culture'}) }}">Culture</a></li>
 	        <li><a class="lienmob" href="{{ path('nsp_interface_rubrique', {'rubrique': 'Evenement'}) }}">Evenement</a></li>
 	        <br>
+	        {% if is_granted('ROLE_USER') %}
 	        <li><a class="lienmob" href="{{ path('nsp_back_user_profil') }}">Espace Membre</a></li>
 	        <li><a class="lienmob" href="{{ path('nsp_logout') }}">Deconnexion</a></li>
+	        {% endif %} 
 	    </ul>
 	</div> 
 	
