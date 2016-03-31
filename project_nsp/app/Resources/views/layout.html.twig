@@ -31,7 +31,7 @@
 
   		<a href="javascript:;" class="close"></a>
 	    {% if is_granted('ROLE_USER') %}
-		<img class="tofprofil" src="{{ asset('uploads/'~user.photo.id~'.'~user.photo.format~'') }}" alt="photo profil">
+		<div class="first"><center><img class="tofprofil" src="{{ asset('uploads/'~user.photo.id~'.'~user.photo.format~'') }}" alt="photo profil"></center></div>
         <span class="usermobile">{{user.username}}</span>
 	    {% endif %}
 		{% if not is_granted('ROLE_USER') %}
@@ -56,7 +56,7 @@
 	{% if not is_granted('ROLE_USER') %}
 		<div class="bar">
 		    <a href="javascript:;" class="menu_btn"> </a>
-		    <div class="logo_mob">NSP</div>
+		    <div class="logo_mob"></div>
 		    <div class="navmob">  
 		        <div class="connexion"> 
 		        	<div class="texteco">Connexion</div>
@@ -72,8 +72,6 @@
 		<div class="bar">
 		    <a href="javascript:;" class="menu_btn"> </a>
 		    <div class="logo_mob">NSP</div>
-		    <div class="msgc"><span>Connecté</span></div>
-
 		</div>
 	{% endif %}
 
@@ -143,7 +141,7 @@
 	</div>
 
 	<div class="background_mob">
-		<a href="{{ path('nsp_interface_contact') }}">Nous Contacter</a>
+		<div class="contactus"><a href="{{ path('nsp_interface_contact') }}">Nous Contacter</a></div>
 		<div class="reso">
 			<a href="http://twitter.com/aujour_nal" target="_blank"><img src="{{ asset('ressources/twitter.png') }}" alt=""></a>
 			<a href="http://www.facebook.com/aujournalupem" target="_blank"><img src="{{ asset('ressources/facebook.png') }}" alt=""></a>
@@ -151,8 +149,8 @@
 			<a href="" target="_blank"><img src="{{ asset('ressources/linkedin.png') }}" alt=""></a>
 			<a href="http://www.youtube.com/channel/UCLNnD3obwgu91iyORFKPNZw" target="_blank"><img src="{{ asset('ressources/youtube.png') }}" alt=""></a>
 		</div>
-		<a href="{{ path('nsp_interface_mentions_legales') }}">Mentions Légales</a>
-	</div>
+		<div class="mention"><a href="{{ path('nsp_interface_mentions_legales') }}">Mentions Légales</a>
+        </div></div>
 
 
   <script src="{{ asset('bundles/nspinterface/js/menu.js') }}"></script>
