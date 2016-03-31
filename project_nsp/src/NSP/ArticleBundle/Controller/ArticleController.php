@@ -113,9 +113,6 @@ class ArticleController extends Controller
         }
 
         $resume = $resume . "...";
-
-        var_dump($resume);
-        
         
 
         $article->setResume($resume);
