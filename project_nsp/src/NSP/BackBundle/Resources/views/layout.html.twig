@@ -30,8 +30,6 @@
                 {% if is_granted('ROLE_SUPER_ADMIN') %}
                   <li class="lienli"><a href="{{ path('nsp_back_administration') }}" class="liena">Administration</a></li>
                 {% endif %}
-    	        
-    	        <li class="lienli"><a href="{{ path('nsp_back_statistiques') }}" class="liena">Statistiques</a></li>
     	        <li class="lienli"><a href="{{ path('fos_user_security_logout') }}" class="liena">Déconnexion</a></li>
 
     	    </ul>    
