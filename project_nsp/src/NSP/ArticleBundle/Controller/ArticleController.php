@@ -106,14 +106,16 @@ class ArticleController extends Controller
         $resume = "";
         $resumes = explode(" ", $chapeau);
 
-        if ($resumes != null) {
-           for ($i=0; $i < 20 ; $i++) { 
-            $resume = $resume . $resumes[$i]. " ";
-            if ($i == 19 ) {
-              $resume = $resume . "...";
-            }
+        foreach ($resumes as $key => $value) {
+           if ($key < 20 ) {
+            $resume = $resume . $value . " ";
           }
         }
+
+        $resume = $resume . "...";
+
+        var_dump($resume);
+        
         
 
         $article->setResume($resume);
