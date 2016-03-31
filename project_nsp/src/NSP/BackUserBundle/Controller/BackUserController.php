@@ -130,8 +130,7 @@ class BackUserController extends Controller
         -> findNote($articles[$key]);
         }
         
-        
-        return $this->render('NSPBackUserBundle:BackUser:myArticle.html.twig', array(
+        return $this->render('NSPBackUserBundle:BackUser:myarticle.html.twig', array(
           'user' => $user,
           'articles' => $articles,
             'moyenne' => $moyenne
