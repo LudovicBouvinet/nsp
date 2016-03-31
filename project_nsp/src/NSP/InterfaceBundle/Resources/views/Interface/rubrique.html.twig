@@ -1,14 +1,14 @@
 {% extends "NSPInterfaceBundle::layout.html.twig" %}
 
-{% block title %}{{ parent() }} - {{ infosRubrique[0].nom}} {% endblock %}
+{% block title %}{{ parent() }} - {{ currentRubrique[0].nom}} {% endblock %}
 {% block css %}<link rel="stylesheet" href="{{ asset('bundles/nspinterface/css/rubrique.css') }}">{% endblock %}
 
 {% block body %}
 
 <section class="presentation-rubrique">
-    <img src="{{ asset('ressources/'~infosRubrique[0].nom~'.jpg') }}" alt="">
-	<div id="nom"> {{ infosRubrique[0].nom}}</div>
-	<div id="presentation"> {{ infosRubrique[0].presentation}}</div>	
+    <img src="{{ asset('ressources/'~currentRubrique[0].nom~'.jpg') }}" alt="">
+	<div id="nom"> {{ currentRubrique[0].nom}}</div>
+	<div id="presentation"> {{ currentRubrique[0].presentation}}</div>	
 </section>
 <div id="abonnement">
 	<div class="plus-content">
@@ -21,7 +21,7 @@
 <section class="container">
 	<!--  toutes les divs et textes suivants devront être générées en php --> <!-- La première est le conteneur de l'article, la deuxième et le conteneur de sa description -->
 
-	{% for article in infosRubrique[0].articles %}
+	{% for article in currentRubrique[0].articles %}
         
 		<div class="articlesRubrique" >
             <a href="{{ path('nsp_article_article', {'id': article.id}) }}">
@@ -31,7 +31,8 @@
 		</div>
         
 		{% else %}
-        <li>Aucun article n'est présent sur le site actuellement</li>
+
+        <li>Aucun article n'est présent dans cette rurbrique actuellement</li>
     {% endfor %}
 
 </section>

@@ -104,17 +104,16 @@ class InterfaceController extends Controller
         ->getManager()
       ;
 
-      // On récupère les infos de la bonne rubrique
-      $infosRubrique = $em
+      $currentRubrique = $em
         ->getRepository('NSPArticleBundle:Rubrique')
-        ->findByName($rubrique)
+        ->findRubrique($rubrique)
       ;
 
       $user = $this->get('security.context')->getToken()->getUser();
 
       return $this->render('NSPInterfaceBundle:Interface:rubrique.html.twig', array(
-        'infosRubrique' => $infosRubrique,
-        'user' => $user
+        'user' => $user, 
+        'currentRubrique' => $currentRubrique
       ));
 
     }
