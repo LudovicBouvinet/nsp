@@ -32,6 +32,7 @@
   		<a href="javascript:;" class="close"></a>
 	    {% if is_granted('ROLE_USER') %}
 		<img class="tofprofil" src="{{ asset('uploads/'~user.photo.id~'.'~user.photo.format~'') }}" alt="photo profil">
+        <span class="usermobile">{{user.username}}</span>
 	    {% endif %}
 		{% if not is_granted('ROLE_USER') %}
 	    <div class="anonym"></div>

@@ -173,8 +173,9 @@
 
         <div class="bandonoir">
             <div class="zonegauche">
+                 <div class="titrenotemob">Notes</div>
                 <div class="contentzonegauche">
-
+                  
                     {% for note in notes%}
                     <div class="prenometetoile">
                         <img class="tofprofilnotebottom" src="{{ asset('uploads/'~note.utilisateur.photo.fichier~'.'~note.utilisateur.photo.format) }}"></img>
@@ -205,7 +206,9 @@
 
 
             <div class="zonedroite">
+                                   <div class="titrenotemob">Commentaires</div>
                 <div class="contentzonedroite">
+
                     {% set a = 0 %} {% for commentaire in commentaires %} {% if a is even %}
                     <div class="contentleftcom">
                         <img class="tofprofilnotebottom" src="{{ asset('uploads/'~commentaire.utilisateur.photo.fichier~'.'~commentaire.utilisateur.photo.format) }}"></img>
