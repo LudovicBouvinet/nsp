@@ -73,11 +73,7 @@
             {% endif %} <br>
 
             <p>
-                {{ article.texteFirst|replace({'
-                <br>': '
-                <br>'}) |replace({'
-                <SautDeLigne>': '
-                    <br>'}) | raw}}
+                {{ article.texteFirst|replace({'<br>': '<br>'}) |replace({'<SautDeLigne>': '<br>'}) | raw}}
             </p><br>
 
             {% if article.theme.nom == 'theme4' %}
@@ -100,11 +96,7 @@
             </div>{% endif %} <br>
 
             <p>
-                {% if article.texteSecond != "n/a" %} {{ article.texteSecond|replace({'
-                <br>': '
-                <br>'}) |replace({'
-                <SautDeLigne>': '
-                    <br>'}) | raw}} {% endif %}
+                {% if article.texteSecond != "n/a" %} {{ article.texteSecond|replace({'<br>': '<br>'}) |replace({'<SautDeLigne>': '<br>'}) | raw}} {% endif %}
             </p>
 
             {% if article.theme.nom == 'theme5' %}
@@ -355,7 +347,7 @@
             $(".etoileform").css('opacity', '0.5');
         });
 
-        $('.note').each(function () {
+        $('div[class^="note"]').each(function () {
 
             var moyenne = Math.round($(this).data('note'));
 
