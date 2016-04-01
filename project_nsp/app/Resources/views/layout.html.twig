@@ -8,8 +8,11 @@
 	<link rel="stylesheet" href="{{ asset('bundles/nspinterface/css/header.css') }}">
 	{% block css %}{% endblock %}
   </head>
+  <div id="con"></div>
   <body>
   <script src="{{ asset('bundles/nspinterface/js/jquery.js') }}"></script>	
+   
+<!--   //header si t utilisateur admin ou modo en desktop-->
     {% if is_granted('ROLE_USER') or is_granted('ROLE_MODERATEUR') or is_granted('ROLE_SUPER_ADMIN') %}
 		<div id="header">
 			<a href="{{ path('nsp_interface_homepage') }}"><img src="{{ asset('ressources/logo.jpg') }}" alt="Logo du site web" class="logo"></a>
@@ -28,7 +31,6 @@
 
 	    
   	<div id="menu"> 
-
   		<a href="javascript:;" class="close"></a>
 	    {% if is_granted('ROLE_USER') %}
 		<div class="first"><center><img class="tofprofil" src="{{ asset('uploads/'~user.photo.id~'.'~user.photo.format~'') }}" alt="photo profil"></center></div>
@@ -59,10 +61,10 @@
 		    <div class="logo_mob">NSP</div>
 		    <div class="navmob">  
 		        <div class="connexion"> 
-		        	<div class="texteco">Connexion</div>
+<div class="texteco"><a class="lienancre" href="#con">Connexion</a></div>
 		        </div>
 		        <div class="inscription">
-		        	<div class="texteco">Inscription</div>
+		        	<div class="texteco"><a class="lienancre2" href="#con">Inscription</a></div>
 		        </div>  
 		    </div>
 		</div>
