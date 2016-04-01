@@ -12,7 +12,7 @@
   <script src="{{ asset('bundles/nspinterface/js/jquery.js') }}"></script>	
     {% if is_granted('ROLE_USER') or is_granted('ROLE_MODERATEUR') or is_granted('ROLE_SUPER_ADMIN') %}
 		<div id="header">
-			<img src="{{ asset('ressources/logo.jpg') }}" alt="Logo du site web" class="logo">
+			<a href="{{ path('nsp_interface_homepage') }}"><img src="{{ asset('ressources/logo.jpg') }}" alt="Logo du site web" class="logo"></a>
 			<div id="profil">
 				<img class="potopro" src="{{ asset('uploads/'~user.photo.id~'.'~user.photo.format~'') }}" alt="photo profil">
 				<span>{{user.username}}</span>
@@ -77,7 +77,7 @@
 
 	{% if not is_granted('ROLE_USER') %}
   	<div id="header">
-		<img src="{{ asset('ressources/logo.jpg') }}" alt="Logo du site web" class="logo">
+		<a href="{{ path('nsp_interface_homepage') }}"><img src="{{ asset('ressources/logo.jpg') }}" alt="Logo du site web" class="logo"></a>
 		<div class="choice">
 			<div class="connexion"><p>Connexion</p></div>
 			<div class="inscription"><p>Inscription</p></div>
