@@ -160,4 +160,13 @@ class InterfaceController extends Controller
 
     }
 
+    public function charteutilAction(){
+      
+      $user = $this->get('security.context')->getToken()->getUser();
+      return $this->render('NSPInterfaceBundle:Interface:charteutil.html.twig', array(
+        'user' => $user
+      ));
+
+    }
+
 }

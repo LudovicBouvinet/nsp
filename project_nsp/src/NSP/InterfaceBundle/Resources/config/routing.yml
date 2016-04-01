@@ -24,3 +24,7 @@ nsp_interface_a_propos:
 nsp_interface_mentions_legales:
     path:     /mentions
     defaults: { _controller: NSPInterfaceBundle:Interface:mentionslgl}
+
+nsp_interface_charte_utilisation:
+    path:     /charte
+    defaults: { _controller: NSPInterfaceBundle:Interface:charteutil}

@@ -117,7 +117,7 @@
 			<a href="http://twitter.com/aujour_nal"><img src="{{ asset('ressources/twitter.png') }}" alt="" id="twit"></a>
 			<a href="http://www.facebook.com/aujournalupem"><img src="{{ asset('ressources/facebook.png') }}" alt="" id="fb"></a>
 			<img src="{{ asset('ressources/animal.png') }}" alt="">
-			<a href=""><img src="{{ asset('ressources/linkedin.png') }}" alt="" id="link"></a>
+			<a href="{{ path('nsp_interface_charte_utilisation') }}" target="_blank"><img src="{{ asset('ressources/interface.png') }}" alt="" id="cht"></a>
 			<a href="http://www.youtube.com/channel/UCLNnD3obwgu91iyORFKPNZw"><img src="{{ asset('ressources/youtube.png') }}" alt="" id="you"></a>
 		</div>
 		<div id="plan_site">
@@ -149,11 +149,15 @@
 			<a href="http://twitter.com/aujour_nal" target="_blank"><img src="{{ asset('ressources/twitter.png') }}" alt=""></a>
 			<a href="http://www.facebook.com/aujournalupem" target="_blank"><img src="{{ asset('ressources/facebook.png') }}" alt=""></a>
 			<img src="{{ asset('ressources/animal.png') }}" alt="">
-
 			<a href="http://www.youtube.com/channel/UCLNnD3obwgu91iyORFKPNZw" target="_blank"><img src="{{ asset('ressources/youtube.png') }}" alt=""></a>
+			<a href="{{ path('nsp_interface_charte_utilisation') }}" target="_blank"><img src="{{ asset('ressources/interface.png') }}" alt=""></a>
 		</div>
-		<div class="mention"><a href="{{ path('nsp_interface_mentions_legales') }}">Mentions Légales</a>
-        </div></div>
+		<div class="apropos"><a href="{{ path('nsp_interface_a_propos') }}">A propos</a></div>
+		<br>
+		<div class="remerciement"><a href="{{ path('nsp_interface_remerciements') }}">Remerciements</a></div>
+		<div class="mention"><a href="{{ path('nsp_interface_mentions_legales') }}">Mentions Légales</a></div>
+        
+    </div>
 
 
   <script src="{{ asset('bundles/nspinterface/js/menu.js') }}"></script>
