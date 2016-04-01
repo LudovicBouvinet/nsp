@@ -20,8 +20,10 @@
 
 <section class="container">
 	<!--  toutes les divs et textes suivants devront être générées en php --> <!-- La première est le conteneur de l'article, la deuxième et le conteneur de sa description -->
+    
+    {% if articles[0].articles is defined %}
 
-	{% for article in currentRubrique[0].articles %}
+	{% for article in articles[0].articles %}
         
 		<div class="articlesRubrique" >
             <a href="{{ path('nsp_article_article', {'id': article.id}) }}">
@@ -29,11 +31,14 @@
 			<img src =	{{ asset("uploads/" ~ article.photos[0].fichier ~ "." ~ article.photos[0].format ~ "") }} >
             </a>
 		</div>
+    {% endfor %}
         
 		{% else %}
 
         <li>Aucun article n'est présent dans cette rurbrique actuellement</li>
-    {% endfor %}
+
+        {% endif %}
+    
 
 </section>
 

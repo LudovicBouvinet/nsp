@@ -109,11 +109,17 @@ class InterfaceController extends Controller
         ->findRubrique($rubrique)
       ;
 
+      $articles = $em
+        ->getRepository('NSPArticleBundle:Rubrique')
+        ->findByName($rubrique)
+      ;
+
       $user = $this->get('security.context')->getToken()->getUser();
 
       return $this->render('NSPInterfaceBundle:Interface:rubrique.html.twig', array(
         'user' => $user, 
-        'currentRubrique' => $currentRubrique
+        'currentRubrique' => $currentRubrique,
+        'articles' => $articles
       ));
 
     }
