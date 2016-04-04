@@ -46,35 +46,35 @@ class Utilisateur extends BaseUser
     /**
      * @var string
      *
-     * @ORM\Column(name="lienPhoto", type="string", length=255)
+     * @ORM\Column(name="lienPhoto", type="string", length=255, nullable=true)
      */
     private $lienPhoto;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="grade", type="string", length=255)
+     * @ORM\Column(name="grade", type="string", length=255, nullable=true)
      */
     private $grade;
 
     /**
      * @var boolean
      *
-     * @ORM\Column(name="modo", type="boolean")
+     * @ORM\Column(name="modo", type="boolean", nullable=true)
      */
     private $modo;
 
     /**
      * @var boolean
      *
-     * @ORM\Column(name="newsletter", type="boolean")
+     * @ORM\Column(name="newsletter", type="boolean", nullable=true)
      */
     private $newsletter;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="statut", type="string", length=255)
+     * @ORM\Column(name="statut", type="string", length=255, nullable=true)
      */
     private $statut;
     
