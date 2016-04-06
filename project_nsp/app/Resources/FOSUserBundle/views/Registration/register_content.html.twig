@@ -21,7 +21,7 @@
 
           <div class="">
             {# Génération de l'input. #}
-            {{ form_widget(form.username, {'attr': {'class': 'form-nom'}}) }}
+            {{ form_widget(form.username, {'attr': {'class': 'form-nom', 'maxlength' : 20}}) }}
           </div>
         </div>
         
@@ -130,8 +130,11 @@
         </div>
 </p>
    
+<!--
    <h3>Vérification</h3>
-            <div class="g-recaptcha" data-sitekey="6LdTnxMTAAAAAER7A4FQzYcBPyi4Oa0bra54usjg"></div>
+            <div class="g-recaptcha" data-sitekey="6LdgQRwTAAAAAHB6KgNSfkDCO9OVoSA3MYWaVloR"></div>
+            <script src='https://www.google.com/recaptcha/api.js'></script>
+-->
             
             
     <div>
