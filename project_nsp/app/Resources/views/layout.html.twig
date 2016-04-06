@@ -83,6 +83,7 @@
 	{% if not is_granted('ROLE_USER') %}
   	<div id="header">
 		<a href="{{ path('nsp_interface_homepage') }}"><img src="{{ asset('ressources/logo.jpg') }}" alt="Logo du site web" class="logo"></a>
+		<span class="phrase-explication">Journal participatif en ligne <br> Fait par les étudiants pour les étudiants </span>
 		<div class="choice">
 			<div class="connexion"><p>Connexion</p></div>
 			<div class="inscription"><p>Inscription</p></div>

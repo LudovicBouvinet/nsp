@@ -23,7 +23,7 @@
     
     {% if articles[0].articles is defined %}
 
-	{% for article in articles[0].articles %}
+	{% for article in articles[0].articles | reverse %}
         
 		<div class="articlesRubrique" >
             <a href="{{ path('nsp_article_article', {'id': article.id}) }}">
